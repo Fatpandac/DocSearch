@@ -1,5 +1,25 @@
 export default [
   {
+    name: 'Echarts',
+    icon: 'https://fastly.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png',
+    APIKey: '6ade5f1ff34e94690f9ea38cddcc2f55',
+    APPID: 'BH4D9OD16A',
+    indexName: 'apache_echarts',
+    searchParameters: {
+      facetFilters: ["lang:en"]
+    }
+  },
+  {
+    name: 'Echarts_zh-hans',
+    icon: 'https://fastly.jsdelivr.net/gh/apache/echarts-website@asf-site/zh/images/favicon.png',
+    APIKey: '6ade5f1ff34e94690f9ea38cddcc2f55',
+    APPID: 'BH4D9OD16A',
+    indexName: 'apache_echarts',
+    searchParameters: {
+      facetFilters: ["lang:zh"]
+    }
+  },
+  {
     name: "Homebrew",
     icon: "https://brew.sh/assets/img/apple-touch-icon.png",
     APIKey: "a57ef92bf2adfae863a201ee43d6b5a1",
