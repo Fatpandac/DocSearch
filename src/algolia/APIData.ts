@@ -152,6 +152,13 @@ export default <IAPIData[]>[
     homepage: "https://vuejs.org/",
   },
   {
+    name: "Vue Router4",
+    icon: "https://vuejs.org/logo.svg",
+    apiKey: "771d10c8c5cc48f7922f15048b4d931c",
+    appId: "BTNTW3I1XP",
+    indexName: "next_router_vuejs",
+  },
+  {
     name: "VueUse",
     icon: "https://vueuse.org/favicon.svg",
     apiKey: "a99ef8de1b2b27949975ce96642149c6",
