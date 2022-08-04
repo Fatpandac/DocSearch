@@ -21,8 +21,8 @@ Link **all DocSearch** into Raycast.
         name: 'Vuepress v1',
         icon: 'https://vuepress.vuejs.org/hero.png',
         // You can find the icon URL in html head
-        APIKey: '3a539aab83105f01761a137c61004d85',
-        APPID: 'BH4D9OD16A',
+        apiKey: '3a539aab83105f01761a137c61004d85',
+        appID: 'BH4D9OD16A',
         indexName: 'vuepress',
         homepage: 'https://vuepress.vuejs.org/',
    }
