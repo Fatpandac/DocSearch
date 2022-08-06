@@ -52,6 +52,19 @@ export default <IAPIData[]>[
     homepage: "https://brew.sh/",
   },
   {
+    name: "Laravel 9.x",
+    icon: "https://laravel.com/img/favicon/favicon-32x32.png",
+    apiKey: "1fa3a8fec06eb1858d6ca137211225c0",
+    appId: "E3MIRNPJH5",
+    indexName: "laravel",
+    homepage: "https://laravel.com/",
+    searchParameters: {
+      facetFilters: ["version:9.x"],
+      highlightPreTag: '<em class: "not-italic bg-red-600 bg-opacity-25">',
+      highlightPostTag: "</em>",
+    },
+  },
+  {
     name: "Prettier",
     icon: "https://prettier.io/icon.png",
     apiKey: "9fcdb2a62af4c47cc5eecf3d5a747818",
