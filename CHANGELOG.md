@@ -1,5 +1,11 @@
 # DocSearch Changelog
 
+## [New feature and support for the new documentation] - 2022-08-10
+
+- 🌟 Add entry point for all documentation(You can close them in the Raycast preferences).
+- 📄 Support [Vue Router4](https://router.vuejs.org/)
+- 📄 Support [Laravel 9.x](https://laravel.com/)
+
 ## [New feature and support for the new documentation] - 2022-07-29
 
 - 🌟 Add open documentation homepage button
