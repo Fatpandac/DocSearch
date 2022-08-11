@@ -5,6 +5,7 @@
 - 🌟 Add entry point for all documentation(You can close them in the Raycast preferences).
 - 📄 Support [Vue Router4](https://router.vuejs.org/)
 - 📄 Support [Laravel 9.x](https://laravel.com/)
+- 📄 Support [IPFS](https://docs.ipfs.tech/)
 
 ## [New feature and support for the new documentation] - 2022-07-29
 

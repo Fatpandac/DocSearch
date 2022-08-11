@@ -1,4 +1,4 @@
-import APIData from "./algolia/APIData";
+import APIData from "./algolia/apiData";
 import type { IAPIData } from "./algolia/types";
 import { SearchDocumentation } from "./components";
 

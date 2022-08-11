@@ -196,4 +196,12 @@ export default <IAPIData[]>[
     indexName: "vuepress",
     homepage: "https://v2.vuepress.vuejs.org/",
   },
+  {
+    name: "IPFS",
+    icon: "../assets/logo/ipfs.png",
+    apiKey: "e56fc7c611806522df45191e22ed15ac",
+    appId: "BH4D9OD16A",
+    indexName: "ipfs-docs",
+    homepage: "https://docs.ipfs.tech/",
+  },
 ];
