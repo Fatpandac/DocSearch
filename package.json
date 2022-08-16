@@ -200,6 +200,14 @@
       "subtitle": "DocSearch",
       "description": "Search IPFS documentation",
       "mode": "view"
+    },
+    {
+      "name": "dubbo",
+      "icon": "logo/dubbo.png",
+      "title": "Dubbo",
+      "subtitle": "DocSearch",
+      "description": "Search Dubbo documentation",
+      "mode": "view"
     }
   ],
   "dependencies": {

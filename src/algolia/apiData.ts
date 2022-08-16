@@ -21,6 +21,14 @@ export default <IAPIData[]>[
     },
   },
   {
+    name: "Dubbo",
+    icon: "../assets/logo/dubbo.png",
+    apiKey: "364ae307e1da9d02b2335675e9db1eb1",
+    appId: "L5F4T9F0I1",
+    indexName: "apache_dubbo",
+    homepage: "https://dubbo.apache.org/",
+  },
+  {
     name: "Echarts",
     icon: "../assets/logo/echarts.png",
     apiKey: "6ade5f1ff34e94690f9ea38cddcc2f55",

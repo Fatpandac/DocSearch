@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [Support for the new documentation] - 2022-08-16
+
+- 📄 Support [Dubbo](https://dubbo.apache.org/)
+
 ## [New feature and support for the new documentation] - 2022-08-10
 
 - 🌟 Add entry point for all documentation(You can close them in the Raycast preferences).
