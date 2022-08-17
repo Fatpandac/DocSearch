@@ -227,4 +227,27 @@ export default <IAPIData[]>[
     indexName: "vuepress",
     homepage: "https://v2.vuepress.vuejs.org/",
   },
+  {
+    name: "pnpm",
+    icon: "../assets/logo/pnpm.png",
+    apiKey: "a337998a623aa8f80d2a97a79d565086",
+    appId: "RAHRBBK2WL",
+    indexName: "pnpm",
+    homepage: "https://pnpm.io/zh",
+    searchParameters: {
+      facetFilters: ["language:en"],
+    },
+  },
+  {
+    name: "pnpm",
+    icon: "../assets/logo/pnpm.png",
+    apiKey: "a337998a623aa8f80d2a97a79d565086",
+    appId: "RAHRBBK2WL",
+    indexName: "pnpm",
+    homepage: "https://pnpm.io/zh",
+    lang: "zh-Hans",
+    searchParameters: {
+      facetFilters: ["language:zh"],
+    },
+  },
 ];

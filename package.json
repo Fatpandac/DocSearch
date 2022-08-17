@@ -208,6 +208,22 @@
       "subtitle": "DocSearch",
       "description": "Search Dubbo documentation",
       "mode": "view"
+    },
+    {
+      "name": "pnpm",
+      "icon": "logo/pnpm.png",
+      "title": "pnpm",
+      "subtitle": "DocSearch",
+      "description": "Search pnpm documentation",
+      "mode": "view"
+    },
+    {
+      "name": "pnpm_zh-Hans",
+      "icon": "logo/pnpm.png",
+      "title": "pnpm(zh-Hans)",
+      "subtitle": "DocSearch",
+      "description": "Search pnpm documentation",
+      "mode": "view"
     }
   ],
   "dependencies": {
