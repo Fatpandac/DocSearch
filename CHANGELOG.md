@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [Support for the new documentation] - 2022-08-22
+
+- 📄 Support [React Native](https://reactnative.dev/)
+
 ## [Support for the new documentation] - 2022-08-21
 
 - 🌟 Add quick search argument for documentation.
@@ -8,6 +12,7 @@
 - 📄 Support [Nuxt3](https://v3.nuxtjs.org/)
 - 📄 Support [React Bootstrap](https://react-bootstrap.github.io/)
 - 📄 Support [Remix](https://remix.run/)
+
 ## [New feature and support for the new documentation] - 2022-08-10
 
 - 🌟 Add entry point for all documentation(You can close them in the Raycast preferences).
