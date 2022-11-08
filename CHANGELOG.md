@@ -1,5 +1,12 @@
 # DocSearch Changelog
 
+## [Support other DocSearch result and the new documentation] - 2022-08-22
+
+- 🌟 Support other DocSearch result.
+- 📄 Support [GitBook](https://docs.gitbook.com/).
+- 📄 Support [Raycast](https://developers.raycast.com/).
+
+
 ## [Support for the new documentation] - 2022-08-22
 
 - 🌟 Add quick search argument for documentation.
