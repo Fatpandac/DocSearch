@@ -68,6 +68,14 @@ export default <IAPIData[]>[
     },
   },
   {
+    name: "Flet",
+    icon: "../assets/logo/flet.png",
+    apiKey: "4b060907ba79d92e8869e9d1ff80bce7",
+    appId: "ESNSJEY7OD",
+    indexName: "flet",
+    homepage: "https://flet.dev/",
+  },
+  {
     name: "GitBook",
     icon: "../assets/logo/gitbook.png",
     apiKey:

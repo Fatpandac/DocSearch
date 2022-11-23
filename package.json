@@ -21,6 +21,21 @@
       "mode": "view"
     },
     {
+      "name": "flet",
+      "icon": "logo/flet.png",
+      "title": "Flet",
+      "subtitle": "DocSearch",
+      "description": "Search flet documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "apollo",
       "icon": "logo/apollo.png",
       "title": "Apollo",

@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [Support for new documentation] - 2022-11-23
+
+- 📄 Support [Flet](https://flet.dev)
+
 ## [Support for new documentation] - 2022-11-11
 
 - 📄 Support [Clerk](https://clerk.dev)
