@@ -2,7 +2,7 @@ import APIData from "./algolia/apiData";
 import type { IAPIData } from "./algolia/types";
 import { SearchDocumentation } from "./components";
 
-import { ActionPanel, List, Action, useNavigation } from "@raycast/api";
+import { ActionPanel, List, Action, useNavigation, Icon } from "@raycast/api";
 import { useEffect, useState } from "react";
 
 export default function ChooseSearchDocumentation() {
@@ -27,13 +27,14 @@ export default function ChooseSearchDocumentation() {
       {currentAPIData?.map((API: IAPIData) => (
         <List.Item
           icon={API.icon}
-          key={API.apiKey}
+          key={`${API.homepage}-${API.indexName}`}
           title={API.name}
           subtitle={API.lang}
           actions={
             <ActionPanel>
               <Action
                 title="Choose"
+                icon={Icon.ArrowRight}
                 onAction={() => {
                   push(<SearchDocumentation docsName={API.name} lang={API.lang} />);
                 }}
