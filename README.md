@@ -4,7 +4,7 @@ Link **all DocSearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations
+## Supported Documentations
 
 |                   Documentations                    |                                                       |                                                              |
 | :-------------------------------------------------: | :---------------------------------------------------: | :----------------------------------------------------------: |
@@ -22,27 +22,64 @@ Link **all DocSearch** into Raycast.
 |            [VueUse](https://vueuse.org/)            |      [Vuepress v1](https://vuepress.vuejs.org/)       |        [Vuepress v2](https://v2.vuepress.vuejs.org/)         |
 |         [pnpm(zh-Hans)](https://pnpm.io/zh)         |              [pnpm](https://pnpm.io/zh)               |
 
-### Install
+## Install
 
-<a title="Install DocSearch Raycast Extension" href="https://www.raycast.com/Fatpandac/docsearch#install">
-   <img height="64" style="height: 64px" src="https://assets.raycast.com/Fatpandac/docsearch/install_button@2x.png">
-</a>
+1. Raycast Store  
+   <a title="Install DocSearch Raycast Extension" href="https://www.raycast.com/Fatpandac/docsearch#install">
+      <img height="64" style="height: 64px" src="https://assets.raycast.com/Fatpandac/docsearch/install_button@2x.png">
+   </a>
+2. Manual Install or Develop
+   - Download the repo by `git clone`
+   - Install dependence by `npm install`
+   - Run by `npm run dev`
+## Add Other Documentation
 
-### Add Other Documentation
-
-1. The documentation web is supported [DocSearch](https://docsearch.camunda.com/).
+1. The documentation site is supported [DocSearch](https://docsearch.camunda.com/).
 2. Open developer tools and input something in the search bar.
    ![developer_tools](./assets/developer_tools.jpg)
-3. Input DocSearch data into [apiData.ts](/src/algolia/apiData.ts), like below.
+3. Download the site icon and put it into [assets/logo](assets/logo).
+4. Input DocSearch data into [apiData.ts](/src/algolia/apiData.ts), like below.
    ```ts
    {
         name: 'Vuepress v1',
-        icon: 'https://vuepress.vuejs.org/hero.png',
-        // You can find the icon URL in html head
+        icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
         apiKey: '3a539aab83105f01761a137c61004d85',
         appID: 'BH4D9OD16A',
         indexName: 'vuepress',
         homepage: 'https://vuepress.vuejs.org/',
    }
    ```
-4. Enjoy! Welcome to contribute.
+5. Create an entrance.
+   - Create a tsx file in the root of src.
+   - Write the code into it, like below:
+      ```tsx
+      import { SearchDocumentation } from "./components";
+
+      export default function Command(props: { arguments: { search?: string } }) {
+         // The docsName value must same as you write the name in the apiData
+         return <SearchDocumentation docsName="Vuepress v1" quickSearch={props.arguments?.search} />;
+      }
+      ```
+   - Finally, write some code to the properties of commands in the [package.json](/package.json)
+      ```json
+      ...
+         "commands": [
+            {
+               "name": "vuepress1",  // The name of the file you created
+               "title": "Search Documentation",
+               "subtitle": "Vuepress v1",
+               "description": "Search Vuepress v1 documentation",
+               "arguments": [
+                  {
+                     "name": "search",
+                     "placeholder": "Search...",
+                     "type": "text"
+                  }
+               ],
+               "mode": "view"
+            },
+            ...
+         ]
+      ...
+      ```
+6. Enjoy! Welcome to contribute.
