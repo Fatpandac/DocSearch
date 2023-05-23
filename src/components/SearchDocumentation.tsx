@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API } from "../types";
 import APIData from "../data/apis";
-import { escape2Html } from "../utils";
 import { useAlgolia, useMeilisearch } from "../hooks";
 
 import { ActionPanel, List, Action } from "@raycast/api";
 import { useState } from "react";
+import { getTitleForAlgolis, getTitleForMeilisearch } from "../utils/getTitle";
 
 export function SearchDocumentation(props: { id: string; quickSearch?: string }) {
   const currentAPI = APIData.find((api) => props.id === api.id) as API;
@@ -25,31 +25,6 @@ export function SearchDocumentation(props: { id: string; quickSearch?: string })
     searchResults = res.searchResults;
   }
 
-  const getTitle = (result: any) => {
-    const combinedTitle = (titles: Array<string>) => titles.filter((itme) => itme).join(" > ");
-    const {
-      hierarchy_lvl0,
-      hierarchy_lvl1,
-      hierarchy_lvl2,
-      hierarchy_lvl3,
-      hierarchy_lvl4,
-      hierarchy_lvl5,
-      hierarchy_lvl6,
-    } = result;
-
-    return escape2Html(
-      combinedTitle([
-        hierarchy_lvl0,
-        hierarchy_lvl1,
-        hierarchy_lvl2,
-        hierarchy_lvl3,
-        hierarchy_lvl4,
-        hierarchy_lvl5,
-        hierarchy_lvl6,
-      ])
-    );
-  };
-
   return (
     <List
       throttle={true}
@@ -62,7 +37,7 @@ export function SearchDocumentation(props: { id: string; quickSearch?: string })
         <List.Item
           icon={currentAPI.icon}
           key={result.objectID}
-          title={getTitle(result)}
+          title={currentAPI.type === "algolia" ? getTitleForAlgolis(result) : getTitleForMeilisearch(result)}
           actions={
             <ActionPanel>
               <Action.OpenInBrowser

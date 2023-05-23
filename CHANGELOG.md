@@ -1,6 +1,10 @@
 # DocSearch Changelog
 
-## [Supoort Meilisearch] - 2023-5-24
+## [Fix SearchDocumentation Component] - 2023-05-25
+
+- 🐛 Fix the title of the documentation is not displayed.
+
+## [Supoort Meilisearch] - 2023-05-23
 
 - 🌟 Support Meilisearch
 - 📄 Move RSSHub to use MeiliSearch as an entry point.
