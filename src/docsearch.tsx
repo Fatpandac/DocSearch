@@ -1,5 +1,5 @@
-import APIData from "./algolia/apiData";
-import type { IAPIData } from "./algolia/types";
+import APIData from "./data/apis";
+import type { IAPIData } from "./types";
 import { SearchDocumentation } from "./components";
 
 import { ActionPanel, List, Action, useNavigation, Icon } from "@raycast/api";

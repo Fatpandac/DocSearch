@@ -26,12 +26,13 @@ Link **all DocSearch** into Raycast.
 
 1. Raycast Store  
    <a title="Install DocSearch Raycast Extension" href="https://www.raycast.com/Fatpandac/docsearch#install">
-      <img height="64" style="height: 64px" src="https://assets.raycast.com/Fatpandac/docsearch/install_button@2x.png">
+   <img height="64" style="height: 64px" src="https://assets.raycast.com/Fatpandac/docsearch/install_button@2x.png">
    </a>
 2. Manual Install or Develop
    - Download the repo by `git clone`
    - Install dependence by `npm install`
    - Run by `npm run dev`
+
 ## Add Other Documentation
 
 1. The documentation site is supported [DocSearch](https://docsearch.camunda.com/).
@@ -50,36 +51,40 @@ Link **all DocSearch** into Raycast.
    }
    ```
 5. Create an entrance.
+
    - Create a tsx file in the root of src.
    - Write the code into it, like below:
-      ```tsx
-      import { SearchDocumentation } from "./components";
 
-      export default function Command(props: { arguments: { search?: string } }) {
-         // The docsName value must same as you write the name in the apiData
-         return <SearchDocumentation docsName="Vuepress v1" quickSearch={props.arguments?.search} />;
-      }
-      ```
+     ```tsx
+     import { SearchDocumentation } from "./components";
+
+     export default function Command(props: { arguments: { search?: string } }) {
+       // The docsName value must same as you write the name in the apiData
+       return <SearchDocumentation docsName="Vuepress v1" quickSearch={props.arguments?.search} />;
+     }
+     ```
+
    - Finally, write some code to the properties of commands in the [package.json](/package.json)
-      ```json
-      ...
-         "commands": [
-            {
-               "name": "vuepress1",  // The name of the file you created
-               "title": "Search Documentation",
-               "subtitle": "Vuepress v1",
-               "description": "Search Vuepress v1 documentation",
-               "arguments": [
-                  {
-                     "name": "search",
-                     "placeholder": "Search...",
-                     "type": "text"
-                  }
-               ],
-               "mode": "view"
-            },
-            ...
-         ]
-      ...
-      ```
+     ```json
+     ...
+        "commands": [
+           {
+              "name": "vuepress1",  // The name of the file you created
+              "title": "Search Documentation",
+              "subtitle": "Vuepress v1",
+              "description": "Search Vuepress v1 documentation",
+              "arguments": [
+                 {
+                    "name": "search",
+                    "placeholder": "Search...",
+                    "type": "text"
+                 }
+              ],
+              "mode": "view"
+           },
+           ...
+        ]
+     ...
+     ```
+
 6. Enjoy! Welcome to contribute.

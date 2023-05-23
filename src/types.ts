@@ -1,4 +1,6 @@
-export interface IAPIData {
+export type API = algolia;
+
+type algolia = {
   name: string;
   icon: string;
   appId: string;
@@ -7,4 +9,4 @@ export interface IAPIData {
   homepage: string;
   lang?: string;
   searchParameters?: object;
-}
+};

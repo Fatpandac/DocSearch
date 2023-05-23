@@ -1,66 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import APIData from "../algolia/apiData";
-import type { IAPIData } from "../algolia/types";
+import APIData from "../data/apis";
+import { API } from "../types";
+import { useAllRoutingRules } from "../hooks";
 import { escape2Html } from "../utils";
 
-import { ActionPanel, List, Action, showToast, Toast } from "@raycast/api";
-import { useEffect, useState } from "react";
-import algoliasearch from "algoliasearch/lite";
+import { ActionPanel, List, Action } from "@raycast/api";
+import { useState } from "react";
 
 export function SearchDocumentation(props: { docsName: string; lang?: string; quickSearch?: string }) {
   const currentAPI = APIData.find((api) =>
     props.lang ? api.name === props.docsName && api.lang === props.lang : api.name === props.docsName
-  ) as IAPIData;
+  ) as API;
 
   const [searchText, setSearchText] = useState(props.quickSearch || "");
-  const searchClient = algoliasearch(currentAPI.appId, currentAPI.apiKey);
-  const searchIndex = searchClient.initIndex(currentAPI.indexName);
 
-  const [searchResults, setSearchResults] = useState<any[] | undefined>();
-  const [isLoading, setIsLoading] = useState(false);
-
-  const search = async (query = "") => {
-    setIsLoading(true);
-
-    return await searchIndex
-      .search(query, currentAPI.searchParameters)
-      .then((res) => {
-        setIsLoading(false);
-        if (res.hits[0]) {
-          if ("path" in res.hits[0]) {
-            res.hits = res.hits.map((hit: any) => {
-              hit.url = currentAPI.homepage + hit.path;
-
-              return hit;
-            });
-          } else if ("slug" in res.hits[0]) {
-            res.hits = res.hits.map((hit: any) => {
-              hit.url = currentAPI.homepage + hit.slug;
-
-              return hit;
-            });
-          } else if ("url" in res.hits[0] && !((res.hits[0] as any).url as string).startsWith("http")) {
-            res.hits = res.hits.map((hit: any) => {
-              hit.url = currentAPI.homepage + hit.url;
-
-              return hit;
-            });
-          }
-        }
-
-        return res.hits;
-      })
-      .catch((err) => {
-        setIsLoading(false);
-        showToast(Toast.Style.Failure, "Algolia Error", err.message);
-
-        return [];
-      });
-  };
-
-  useEffect(() => {
-    search(searchText).then(setSearchResults);
-  }, [searchText]);
+  const { searchResults, isLoading } = useAllRoutingRules(searchText, currentAPI.name, currentAPI.lang);
 
   const getTitle = (result: any) => {
     const combinedTitle = (titles: Array<string>) => titles.filter((itme) => itme).join(" > ");

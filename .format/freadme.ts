@@ -1,4 +1,4 @@
-import data from "../src/algolia/apiData";
+import data from "../src/data/apis";
 
 import fs from "fs";
 

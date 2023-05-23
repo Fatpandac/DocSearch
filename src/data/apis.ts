@@ -1,6 +1,6 @@
-import type { IAPIData } from "./types";
+import { API } from "../types";
 
-export default <IAPIData[]>[
+export default <API[]>[
   {
     name: "Apollo",
     icon: "../assets/logo/apollo.png",
