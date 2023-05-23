@@ -1,6 +1,6 @@
 # DocSearch
 
-Link **all DocSearch** into Raycast.
+Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
@@ -35,11 +35,14 @@ Link **all DocSearch** into Raycast.
 
 ## Add Other Documentation
 
+### Docsearch
+
 1. The documentation site is supported [DocSearch](https://docsearch.camunda.com/).
 2. Open developer tools and input something in the search bar.
-   ![developer_tools](./assets/developer_tools.jpg)
+   ![developer_tools](./assets/developer_tools_DocSearch_dark.png#gh-dark-mode-only)
+   ![developer_tools](./assets/developer_tools_DocSearch_light.png#gh-light-mode-only)
 3. Download the site icon and put it into [assets/logo](assets/logo).
-4. Input DocSearch data into [apiData.ts](/src/algolia/apiData.ts), like below.
+4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
    {
         name: 'Vuepress v1',
@@ -59,8 +62,8 @@ Link **all DocSearch** into Raycast.
      import { SearchDocumentation } from "./components";
 
      export default function Command(props: { arguments: { search?: string } }) {
-       // The docsName value must same as you write the name in the apiData
-       return <SearchDocumentation docsName="Vuepress v1" quickSearch={props.arguments?.search} />;
+       // The id value must same as you write the id in the api.ts
+       return <SearchDocumentation id="UUID" quickSearch={props.arguments?.search} />;
      }
      ```
 
@@ -87,4 +90,60 @@ Link **all DocSearch** into Raycast.
      ...
      ```
 
-6. Enjoy! Welcome to contribute.
+### Meilisearch
+
+1. The documentation site is supported [Meilisearch](https://www.meilisearch.com/).
+2. Open developer tools and input something in the search bar.
+   ![developer_tools](./assets/developer_tools_Meilisearch_dark.png#gh-dark-mode-only)
+   ![developer_tools](./assets/developer_tools_Meilisearch_light.png#gh-light-mode-only)
+3. Download the site icon and put it into [assets/logo](assets/logo).
+4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
+   ```ts
+   {
+      id: "UUID"// Generate the UUID yourself and fill it in
+      name: 'RSSHub',
+      icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
+      apiKey: '375c36cd9573a2c1d1e536214158c37120fdd0ba6cd8829f7a848e940cc22245',
+      apiHost: 'https://meilisearch.rsshub.app',
+      indexName: 'rsshub',
+      homepage: 'https://docs.rsshub.app/',
+   }
+   ```
+5. Create an entrance.
+
+   - Create a tsx file in the root of src.
+   - Write the code into it, like below:
+
+     ```tsx
+     import { SearchDocumentation } from "./components";
+
+     export default function Command(props: { arguments: { search?: string } }) {
+       // The id value must same as you write the id in the api.ts
+       return <SearchDocumentation id="UUID" quickSearch={props.arguments?.search} />;
+     }
+     ```
+
+   - Finally, write some code to the properties of commands in the [package.json](/package.json)
+     ```json
+     ...
+        "commands": [
+           {
+              "name": "rsshub",  // The name of the file you created
+              "title": "Search Documentation",
+              "subtitle": "RSSHub",
+              "description": "Search RSSHub documentation",
+              "arguments": [
+                 {
+                    "name": "search",
+                    "placeholder": "Search...",
+                    "type": "text"
+                 }
+              ],
+              "mode": "view"
+           },
+           ...
+        ]
+     ...
+     ```
+
+**Enjoy! Welcome to contribute.**

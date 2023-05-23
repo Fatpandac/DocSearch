@@ -1,5 +1,10 @@
 # DocSearch Changelog
 
+## [Supoort Meilisearch] - 2023-5-24
+
+- 🌟 Support Meilisearch
+- 📄 Move RSSHub to use MeiliSearch as an entry point.
+
 ## [Fix searchbar text] - 2021-12-31
 
 - 🐛 Fix searchbar text disappearing each time the query is changed by the user.
