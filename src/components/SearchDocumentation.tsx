@@ -1,28 +1,52 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import APIData from "../data/apis";
 import { API } from "../types";
-import { useAllRoutingRules } from "../hooks";
+import APIData from "../data/apis";
 import { escape2Html } from "../utils";
+import { useAlgolia, useMeilisearch } from "../hooks";
 
 import { ActionPanel, List, Action } from "@raycast/api";
 import { useState } from "react";
 
-export function SearchDocumentation(props: { docsName: string; lang?: string; quickSearch?: string }) {
-  const currentAPI = APIData.find((api) =>
-    props.lang ? api.name === props.docsName && api.lang === props.lang : api.name === props.docsName
-  ) as API;
+export function SearchDocumentation(props: { id: string; quickSearch?: string }) {
+  const currentAPI = APIData.find((api) => props.id === api.id) as API;
 
   const [searchText, setSearchText] = useState(props.quickSearch || "");
 
-  const { searchResults, isLoading } = useAllRoutingRules(searchText, currentAPI.name, currentAPI.lang);
+  let isLoading = false;
+  let searchResults: Array<any> = [];
+
+  if (currentAPI.type === "algolia") {
+    const res = useAlgolia(searchText, currentAPI);
+    isLoading = res.isLoading;
+    searchResults = res.searchResults;
+  } else if (currentAPI.type === "meilisearch") {
+    const res = useMeilisearch(searchText, currentAPI);
+    isLoading = res.isLoading;
+    searchResults = res.searchResults;
+  }
 
   const getTitle = (result: any) => {
     const combinedTitle = (titles: Array<string>) => titles.filter((itme) => itme).join(" > ");
+    const {
+      hierarchy_lvl0,
+      hierarchy_lvl1,
+      hierarchy_lvl2,
+      hierarchy_lvl3,
+      hierarchy_lvl4,
+      hierarchy_lvl5,
+      hierarchy_lvl6,
+    } = result;
 
     return escape2Html(
-      combinedTitle(
-        "path" in result || "slug" in result ? [result.title, result.description] : Object.values(result.hierarchy)
-      )
+      combinedTitle([
+        hierarchy_lvl0,
+        hierarchy_lvl1,
+        hierarchy_lvl2,
+        hierarchy_lvl3,
+        hierarchy_lvl4,
+        hierarchy_lvl5,
+        hierarchy_lvl6,
+      ])
     );
   };
 

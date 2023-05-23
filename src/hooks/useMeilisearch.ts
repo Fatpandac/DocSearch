@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TAlgolia } from "../types";
+import { TMeilisearch } from "../types";
 import { formatHitUrl } from "../utils";
 
+import MeiliSearch from "meilisearch";
 import { useState, useEffect } from "react";
-import algoliasearch from "algoliasearch/lite";
 import { Toast, showToast } from "@raycast/api";
 
-export function useAlgolia(query = "", currentAPI: TAlgolia) {
-  const searchClient = algoliasearch(currentAPI.appId, currentAPI.apiKey);
-  const searchIndex = searchClient.initIndex(currentAPI.indexName);
+export function useMeilisearch(query = "", currentAPI: TMeilisearch) {
+  const searchClient = new MeiliSearch({
+    host: currentAPI.apiHost,
+    apiKey: currentAPI.apiKey,
+  });
+  const searchIndex = searchClient.index(currentAPI.indexName);
 
   const [searchResults, setSearchResults] = useState<Array<any>>([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -17,7 +20,7 @@ export function useAlgolia(query = "", currentAPI: TAlgolia) {
     setIsLoading(true);
 
     searchIndex
-      .search(query, currentAPI.searchParameters)
+      .search(query)
       .then((res: any) => {
         setIsLoading(false);
         formatHitUrl(res, currentAPI.homepage);
@@ -26,7 +29,7 @@ export function useAlgolia(query = "", currentAPI: TAlgolia) {
       })
       .catch((err: { message: string | undefined }) => {
         setIsLoading(false);
-        showToast(Toast.Style.Failure, "Algolia Error", err.message);
+        showToast(Toast.Style.Failure, "Meilisearch Error", err.message);
 
         return [];
       });
