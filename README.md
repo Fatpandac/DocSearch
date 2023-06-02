@@ -25,6 +25,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 ## Install
 
 1. Raycast Store  
+
    <a title="Install DocSearch Raycast Extension" href="https://www.raycast.com/Fatpandac/docsearch#install">
    <img height="64" style="height: 64px" src="https://assets.raycast.com/Fatpandac/docsearch/install_button@2x.png">
    </a>
@@ -39,8 +40,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 1. The documentation site is supported [DocSearch](https://docsearch.camunda.com/).
 2. Open developer tools and input something in the search bar.
-   ![developer_tools](./assets/developer_tools_DocSearch_dark.png#gh-dark-mode-only)
-   ![developer_tools](./assets/developer_tools_DocSearch_light.png#gh-light-mode-only)
+   ![developer_tools](./assets/developer_tools_DocSearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
@@ -94,8 +94,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 1. The documentation site is supported [Meilisearch](https://www.meilisearch.com/).
 2. Open developer tools and input something in the search bar.
-   ![developer_tools](./assets/developer_tools_Meilisearch_dark.png#gh-dark-mode-only)
-   ![developer_tools](./assets/developer_tools_Meilisearch_light.png#gh-light-mode-only)
+   ![developer_tools](./assets/developer_tools_Meilisearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
