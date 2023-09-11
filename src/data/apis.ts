@@ -2,6 +2,60 @@ import { API } from "../types";
 
 export default <API[]>[
   {
+    id: "ed219486-9c94-4d9a-b993-69db4042e0c0",
+    name: "Antd",
+    icon: "../assets/logo/antd.png",
+    apiKey: "60ac2c1a7d26ab713757e4a081e133d0",
+    appId: "BH4D9OD16A",
+    indexName: "ant_design",
+    type: "algolia",
+    homepage: "https://ant.design/",
+    searchParameters: {
+      facetFilters: ["tags:en"],
+    },
+  },
+  {
+    id: "baf3801b-95f5-4800-b77e-13c97e98877e",
+    name: "Antd",
+    icon: "../assets/logo/antd.png",
+    apiKey: "60ac2c1a7d26ab713757e4a081e133d0",
+    appId: "BH4D9OD16A",
+    indexName: "ant_design",
+    type: "algolia",
+    homepage: "https://ant.design/index-cn",
+    lang: "zh-Hans",
+    searchParameters: {
+      facetFilters: ["tags:cn"],
+    },
+  },
+  {
+    id: "43cd38be-82b8-4d54-9764-349fa2b7d6a3",
+    name: "Antdv",
+    icon: "../assets/logo/antdv.png",
+    apiKey: "92003c1d1d07beef165b08446f4224a3",
+    appId: "BH4D9OD16A",
+    indexName: "antdv",
+    type: "algolia",
+    homepage: "https://antdv.com/components/overview-cn",
+    searchParameters: {
+      facetFilters: ["tags:en"],
+    },
+  },
+  {
+    id: "cbcb3df9-ce8b-4ab4-8a39-2b860c518475",
+    name: "Antdv",
+    icon: "../assets/logo/antdv.png",
+    apiKey: "92003c1d1d07beef165b08446f4224a3",
+    appId: "BH4D9OD16A",
+    indexName: "antdv",
+    type: "algolia",
+    homepage: "https://antdv.com/components/overview",
+    lang: "zh-Hans",
+    searchParameters: {
+      facetFilters: ["tags:cn"],
+    },
+  },
+  {
     id: "48dd6e88-fd12-4e55-8d0d-e9c2982ba924",
     name: "Apollo",
     icon: "../assets/logo/apollo.png",

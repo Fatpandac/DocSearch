@@ -15,6 +15,14 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `docsearch` command */
   export type Docsearch = ExtensionPreferences & {}
+  /** Preferences accessible in the `antdv` command */
+  export type Antdv = ExtensionPreferences & {}
+  /** Preferences accessible in the `antdv_zh-Hans` command */
+  export type AntdvZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `antd` command */
+  export type Antd = ExtensionPreferences & {}
+  /** Preferences accessible in the `antd_zh-Hans` command */
+  export type AntdZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `flet` command */
   export type Flet = ExtensionPreferences & {}
   /** Preferences accessible in the `apollo` command */
@@ -96,6 +104,26 @@ declare namespace Preferences {
 declare namespace Arguments {
   /** Arguments passed to the `docsearch` command */
   export type Docsearch = {}
+  /** Arguments passed to the `antdv` command */
+  export type Antdv = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `antdv_zh-Hans` command */
+  export type AntdvZhHans = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `antd` command */
+  export type Antd = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `antd_zh-Hans` command */
+  export type AntdZhHans = {
+  /** Search... */
+  "search": string
+}
   /** Arguments passed to the `flet` command */
   export type Flet = {
   /** Search... */

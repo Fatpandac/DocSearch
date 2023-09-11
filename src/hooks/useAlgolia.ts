@@ -24,7 +24,7 @@ export function useAlgolia(query = "", currentAPI: TAlgolia) {
     searchIndex
       .search(query, {
         ...DEFUALT_PARAMETERS,
-        ...currentAPI.searchParameters
+        ...currentAPI.searchParameters,
       })
       .then((res: any) => {
         setIsLoading(false);

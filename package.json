@@ -25,6 +25,66 @@
       "mode": "view"
     },
     {
+      "name": "antdv",
+      "icon": "logo/antdv.png",
+      "title": "Antdv",
+      "subtitle": "DocSearch",
+      "description": "Search Antdv documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "antdv_zh-Hans",
+      "icon": "logo/antdv.png",
+      "title": "Antdv(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Antdv(中文) documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "antd",
+      "icon": "logo/antd.png",
+      "title": "Antd",
+      "subtitle": "DocSearch",
+      "description": "Search Antd documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "antd_zh-Hans",
+      "icon": "logo/antd.png",
+      "title": "Antd(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Antd(中文) documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "flet",
       "icon": "logo/flet.png",
       "title": "Flet",
@@ -117,9 +177,9 @@
     {
       "name": "echarts_zh-Hans",
       "icon": "logo/echarts.png",
-      "title": "Echarts(zh-Hans)",
+      "title": "Echarts(中文)",
       "subtitle": "DocSearch",
-      "description": "Search Echarts(zh-Hans) documentation",
+      "description": "Search Echarts(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -192,9 +252,9 @@
     {
       "name": "react_zh-Hans",
       "icon": "logo/react.ico",
-      "title": "React(zh-Hans)",
+      "title": "React(中文)",
       "subtitle": "DocSearch",
-      "description": "Search React(zh-Hans) documentation",
+      "description": "Search React(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -267,9 +327,9 @@
     {
       "name": "slidev_zh-Hans",
       "icon": "logo/slidev.png",
-      "title": "Slidev(zh-Hans)",
+      "title": "Slidev(中文)",
       "subtitle": "DocSearch",
-      "description": "Search Slidev(zh-Hans) documentation",
+      "description": "Search Slidev(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -327,9 +387,9 @@
     {
       "name": "vite_zh-Hans",
       "icon": "logo/vite.png",
-      "title": "Vite(zh-Hans)",
+      "title": "Vite(中文)",
       "subtitle": "DocSearch",
-      "description": "Search Vite(zh-Hans) documentation",
+      "description": "Search Vite(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -372,9 +432,9 @@
     {
       "name": "vue3_zh-Hans",
       "icon": "logo/vue.png",
-      "title": "Vue3(zh-Hans)",
+      "title": "Vue3(中文)",
       "subtitle": "DocSearch",
-      "description": "Search Vue3(zh-Hans) documentation",
+      "description": "Search Vue3(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -492,7 +552,7 @@
     {
       "name": "pnpm_zh-Hans",
       "icon": "logo/pnpm.png",
-      "title": "Pnpm(zh-Hans)",
+      "title": "Pnpm(中文)",
       "subtitle": "DocSearch",
       "description": "Search pnpm documentation",
       "arguments": [

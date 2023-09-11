@@ -31,7 +31,7 @@ export default function formatReadme() {
   var readme = fs.readFileSync("./README.md", "utf8");
 
   // replace supported docs table
-  readme = readme.replace(/### Supported Documentations(.|\s)*?###/, `${formatSupportedDocsTable()}\n\n###`);
+  readme = readme.replace(/## Supported Documentations(.|\s)*?###/, `${formatSupportedDocsTable()}\n\n###`);
 
   // write README.md
   fs.writeFileSync("./README.md", readme);
