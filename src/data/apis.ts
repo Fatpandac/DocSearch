@@ -230,6 +230,33 @@ export default <API[]>[
     },
   },
   {
+    id: "6cc3dde8-5e2b-4f7c-81e8-16fb3e2abb26",
+    name: "Pnpm",
+    icon: "../assets/logo/pnpm.png",
+    apiKey: "a337998a623aa8f80d2a97a79d565086",
+    appId: "RAHRBBK2WL",
+    indexName: "pnpm",
+    type: "algolia",
+    homepage: "https://pnpm.io/zh",
+    searchParameters: {
+      facetFilters: ["language:en"],
+    },
+  },
+  {
+    id: "bd3137b3-2d8c-4b3b-91d8-44f647aa0602",
+    name: "Pnpm",
+    icon: "../assets/logo/pnpm.png",
+    apiKey: "a337998a623aa8f80d2a97a79d565086",
+    appId: "RAHRBBK2WL",
+    indexName: "pnpm",
+    type: "algolia",
+    homepage: "https://pnpm.io/zh",
+    lang: "zh-Hans",
+    searchParameters: {
+      facetFilters: ["language:zh"],
+    },
+  },
+  {
     id: "f34b823f-fd22-4b17-940e-a306019d62d1",
     name: "Prettier",
     icon: "../assets/logo/prettier.png",
@@ -361,7 +388,7 @@ export default <API[]>[
   },
   {
     id: "a27a6445-8265-4c59-b08e-ce53474c0b8c",
-    name: "TailwindCSS v3",
+    name: "TailwindCSS V3",
     icon: "../assets/logo/tailwindcss.png",
     apiKey: "5fc87cef58bb80203d2207578309fab6",
     appId: "KNPXZI5B0M",
@@ -468,7 +495,7 @@ export default <API[]>[
   },
   {
     id: "658f6845-f675-4c91-b39a-cf92bbe8f7be",
-    name: "Vuepress v1",
+    name: "Vuepress V1",
     icon: "../assets/logo/vuepress.png",
     apiKey: "3a539aab83105f01761a137c61004d85",
     appId: "BH4D9OD16A",
@@ -478,7 +505,7 @@ export default <API[]>[
   },
   {
     id: "3174b8d7-39cf-4631-8a6b-2faaf15b866e",
-    name: "Vuepress v2",
+    name: "Vuepress V2",
     icon: "../assets/logo/vuepress.png",
     apiKey: "9a9058b8655746634e01071411c366b8",
     appId: "34YFD9IUQ2",
@@ -499,32 +526,5 @@ export default <API[]>[
     },
     type: "algolia",
     homepage: "https://v2.vuepress.vuejs.org/",
-  },
-  {
-    id: "6cc3dde8-5e2b-4f7c-81e8-16fb3e2abb26",
-    name: "pnpm",
-    icon: "../assets/logo/pnpm.png",
-    apiKey: "a337998a623aa8f80d2a97a79d565086",
-    appId: "RAHRBBK2WL",
-    indexName: "pnpm",
-    type: "algolia",
-    homepage: "https://pnpm.io/zh",
-    searchParameters: {
-      facetFilters: ["language:en"],
-    },
-  },
-  {
-    id: "bd3137b3-2d8c-4b3b-91d8-44f647aa0602",
-    name: "pnpm",
-    icon: "../assets/logo/pnpm.png",
-    apiKey: "a337998a623aa8f80d2a97a79d565086",
-    appId: "RAHRBBK2WL",
-    indexName: "pnpm",
-    type: "algolia",
-    homepage: "https://pnpm.io/zh",
-    lang: "zh-Hans",
-    searchParameters: {
-      facetFilters: ["language:zh"],
-    },
   },
 ];

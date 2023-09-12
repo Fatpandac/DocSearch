@@ -18,48 +18,11 @@
   ],
   "commands": [
     {
-      "name": "docsearch",
-      "title": "Search Documentation",
-      "subtitle": "DocSearch",
-      "description": "Search documentation",
-      "mode": "view"
-    },
-    {
-      "name": "antdv",
-      "icon": "logo/antdv.png",
-      "title": "Antdv",
-      "subtitle": "DocSearch",
-      "description": "Search Antdv documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "antdv_zh-Hans",
-      "icon": "logo/antdv.png",
-      "title": "Antdv(中文)",
-      "subtitle": "DocSearch",
-      "description": "Search Antdv(中文) documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
       "name": "antd",
-      "icon": "logo/antd.png",
+      "icon": "/logo/antd.png",
       "title": "Antd",
       "subtitle": "DocSearch",
-      "description": "Search Antd documentation",
+      "description": "Search Antdundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -70,8 +33,8 @@
       "mode": "view"
     },
     {
-      "name": "antd_zh-Hans",
-      "icon": "logo/antd.png",
+      "name": "antd_zh-hans",
+      "icon": "/logo/antd.png",
       "title": "Antd(中文)",
       "subtitle": "DocSearch",
       "description": "Search Antd(中文) documentation",
@@ -85,11 +48,26 @@
       "mode": "view"
     },
     {
-      "name": "flet",
-      "icon": "logo/flet.png",
-      "title": "Flet",
+      "name": "antdv",
+      "icon": "/logo/antdv.png",
+      "title": "Antdv",
       "subtitle": "DocSearch",
-      "description": "Search flet documentation",
+      "description": "Search Antdvundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "antdv_zh-hans",
+      "icon": "/logo/antdv.png",
+      "title": "Antdv(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Antdv(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -101,10 +79,10 @@
     },
     {
       "name": "apollo",
-      "icon": "logo/apollo.png",
+      "icon": "/logo/apollo.png",
       "title": "Apollo",
       "subtitle": "DocSearch",
-      "description": "Search Apollo documentation",
+      "description": "Search Apolloundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -116,10 +94,10 @@
     },
     {
       "name": "arthas",
-      "icon": "logo/arthas.ico",
+      "icon": "/logo/arthas.ico",
       "title": "Arthas",
       "subtitle": "DocSearch",
-      "description": "Search Arthas documentation",
+      "description": "Search Arthasundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -131,10 +109,10 @@
     },
     {
       "name": "bootstrap",
-      "icon": "logo/bootstrap.ico",
+      "icon": "/logo/bootstrap.ico",
       "title": "Bootstrap",
       "subtitle": "DocSearch",
-      "description": "Search Bootstrap documentation",
+      "description": "Search Bootstrapundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -146,10 +124,25 @@
     },
     {
       "name": "clerk",
-      "icon": "logo/clerk.png",
+      "icon": "/logo/clerk.png",
       "title": "Clerk",
       "subtitle": "DocSearch",
-      "description": "Search Clerk documentation",
+      "description": "Search Clerkundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "dubbo",
+      "icon": "/logo/dubbo.png",
+      "title": "Dubbo",
+      "subtitle": "DocSearch",
+      "description": "Search Dubboundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -161,10 +154,10 @@
     },
     {
       "name": "echarts",
-      "icon": "logo/echarts.png",
+      "icon": "/logo/echarts.png",
       "title": "Echarts",
       "subtitle": "DocSearch",
-      "description": "Search Echarts documentation",
+      "description": "Search Echartsundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -175,8 +168,8 @@
       "mode": "view"
     },
     {
-      "name": "echarts_zh-Hans",
-      "icon": "logo/echarts.png",
+      "name": "echarts_zh-hans",
+      "icon": "/logo/echarts.png",
       "title": "Echarts(中文)",
       "subtitle": "DocSearch",
       "description": "Search Echarts(中文) documentation",
@@ -190,11 +183,11 @@
       "mode": "view"
     },
     {
-      "name": "homebrew",
-      "icon": "logo/homebrew.png",
-      "title": "Homebrew",
+      "name": "flet",
+      "icon": "/logo/flet.png",
+      "title": "Flet",
       "subtitle": "DocSearch",
-      "description": "Search Homebrew documentation",
+      "description": "Search Fletundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -205,11 +198,116 @@
       "mode": "view"
     },
     {
-      "name": "laravel9",
-      "icon": "logo/laravel.png",
+      "name": "gitbook",
+      "icon": "/logo/gitbook.png",
+      "title": "GitBook",
+      "subtitle": "DocSearch",
+      "description": "Search GitBookundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "homebrew",
+      "icon": "/logo/homebrew.png",
+      "title": "Homebrew",
+      "subtitle": "DocSearch",
+      "description": "Search Homebrewundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "ipfs",
+      "icon": "/logo/ipfs.png",
+      "title": "IPFS",
+      "subtitle": "DocSearch",
+      "description": "Search IPFSundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "laravel_9.x",
+      "icon": "/logo/laravel.png",
       "title": "Laravel 9.x",
       "subtitle": "DocSearch",
-      "description": "Search Laravel 9.x documentation",
+      "description": "Search Laravel 9.xundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "nuxt",
+      "icon": "/logo/nuxt.png",
+      "title": "Nuxt",
+      "subtitle": "DocSearch",
+      "description": "Search Nuxtundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "nuxt3",
+      "icon": "/logo/nuxt.png",
+      "title": "Nuxt3",
+      "subtitle": "DocSearch",
+      "description": "Search Nuxt3undefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "pnpm",
+      "icon": "/logo/pnpm.png",
+      "title": "Pnpm",
+      "subtitle": "DocSearch",
+      "description": "Search Pnpmundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "pnpm_zh-hans",
+      "icon": "/logo/pnpm.png",
+      "title": "Pnpm(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Pnpm(中文) documentation",
       "arguments": [
         {
           "name": "search",
@@ -221,10 +319,40 @@
     },
     {
       "name": "prettier",
-      "icon": "logo/prettier.png",
+      "icon": "/logo/prettier.png",
       "title": "Prettier",
       "subtitle": "DocSearch",
-      "description": "Search Prettier documentation",
+      "description": "Search Prettierundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rsshub",
+      "icon": "/logo/rsshub.png",
+      "title": "RSSHub",
+      "subtitle": "DocSearch",
+      "description": "Search RSSHubundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "raycast",
+      "icon": "/logo/raycast.png",
+      "title": "Raycast",
+      "subtitle": "DocSearch",
+      "description": "Search Raycastundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -236,10 +364,10 @@
     },
     {
       "name": "react",
-      "icon": "logo/react.ico",
+      "icon": "/logo/react.ico",
       "title": "React",
       "subtitle": "DocSearch",
-      "description": "Search React documentation",
+      "description": "Search Reactundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -250,8 +378,8 @@
       "mode": "view"
     },
     {
-      "name": "react_zh-Hans",
-      "icon": "logo/react.ico",
+      "name": "react_zh-hans",
+      "icon": "/logo/react.ico",
       "title": "React(中文)",
       "subtitle": "DocSearch",
       "description": "Search React(中文) documentation",
@@ -265,11 +393,26 @@
       "mode": "view"
     },
     {
-      "name": "reactnative",
-      "icon": "logo/react.ico",
+      "name": "react_bootstrap",
+      "icon": "/logo/react_bootstrap.png",
+      "title": "React Bootstrap",
+      "subtitle": "DocSearch",
+      "description": "Search React Bootstrapundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "react_native",
+      "icon": "/logo/react.ico",
       "title": "React Native",
       "subtitle": "DocSearch",
-      "description": "Search React Native documentation",
+      "description": "Search React Nativeundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -280,26 +423,11 @@
       "mode": "view"
     },
     {
-      "name": "rsshub",
-      "icon": "logo/rsshub.png",
-      "title": "RSSHub",
+      "name": "remix",
+      "icon": "/logo/remix.png",
+      "title": "Remix",
       "subtitle": "DocSearch",
-      "description": "Search RSSHub documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "supabase",
-      "icon": "logo/supabase.png",
-      "title": "Supabase",
-      "subtitle": "DocSearch",
-      "description": "Search Supabase documentation",
+      "description": "Search Remixundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -311,10 +439,10 @@
     },
     {
       "name": "slidev",
-      "icon": "logo/slidev.png",
+      "icon": "/logo/slidev.png",
       "title": "Slidev",
       "subtitle": "DocSearch",
-      "description": "Search Slidev documentation",
+      "description": "Search Slidevundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -325,8 +453,8 @@
       "mode": "view"
     },
     {
-      "name": "slidev_zh-Hans",
-      "icon": "logo/slidev.png",
+      "name": "slidev_zh-hans",
+      "icon": "/logo/slidev.png",
       "title": "Slidev(中文)",
       "subtitle": "DocSearch",
       "description": "Search Slidev(中文) documentation",
@@ -340,11 +468,26 @@
       "mode": "view"
     },
     {
-      "name": "tailwindcss3",
-      "icon": "logo/tailwindcss.png",
+      "name": "supabase",
+      "icon": "/logo/supabase.png",
+      "title": "Supabase",
+      "subtitle": "DocSearch",
+      "description": "Search Supabaseundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "tailwindcss_v3",
+      "icon": "/logo/tailwindcss.png",
       "title": "TailwindCSS V3",
       "subtitle": "DocSearch",
-      "description": "Search TailwindCss documentation",
+      "description": "Search TailwindCSS V3undefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -356,10 +499,10 @@
     },
     {
       "name": "unidata",
-      "icon": "logo/unidata.png",
+      "icon": "/logo/unidata.png",
       "title": "Unidata",
       "subtitle": "DocSearch",
-      "description": "Search Unidata documentation",
+      "description": "Search Unidataundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -371,10 +514,10 @@
     },
     {
       "name": "vite",
-      "icon": "logo/vite.png",
+      "icon": "/logo/vite.png",
       "title": "Vite",
       "subtitle": "DocSearch",
-      "description": "Search Vite documentation",
+      "description": "Search Viteundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -385,8 +528,8 @@
       "mode": "view"
     },
     {
-      "name": "vite_zh-Hans",
-      "icon": "logo/vite.png",
+      "name": "vite_zh-hans",
+      "icon": "/logo/vite.png",
       "title": "Vite(中文)",
       "subtitle": "DocSearch",
       "description": "Search Vite(中文) documentation",
@@ -401,10 +544,25 @@
     },
     {
       "name": "vitest",
-      "icon": "logo/vitest.png",
+      "icon": "/logo/vitest.png",
       "title": "Vitest",
       "subtitle": "DocSearch",
-      "description": "Search Vitest documentation",
+      "description": "Search Vitestundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "vue_router4",
+      "icon": "/logo/vue.png",
+      "title": "Vue Router4",
+      "subtitle": "DocSearch",
+      "description": "Search Vue Router4undefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -416,10 +574,10 @@
     },
     {
       "name": "vue3",
-      "icon": "logo/vue.png",
+      "icon": "/logo/vue.png",
       "title": "Vue3",
       "subtitle": "DocSearch",
-      "description": "Search Vue3 documentation",
+      "description": "Search Vue3undefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -430,8 +588,8 @@
       "mode": "view"
     },
     {
-      "name": "vue3_zh-Hans",
-      "icon": "logo/vue.png",
+      "name": "vue3_zh-hans",
+      "icon": "/logo/vue.png",
       "title": "Vue3(中文)",
       "subtitle": "DocSearch",
       "description": "Search Vue3(中文) documentation",
@@ -445,26 +603,11 @@
       "mode": "view"
     },
     {
-      "name": "vueRouter4",
-      "icon": "logo/vue.png",
-      "title": "Vue Router4",
-      "subtitle": "DocSearch",
-      "description": "Search Vue Router4 documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
       "name": "vueuse",
-      "icon": "logo/vueuse.png",
+      "icon": "/logo/vueuse.png",
       "title": "VueUse",
       "subtitle": "DocSearch",
-      "description": "Search VueUse documentation",
+      "description": "Search VueUseundefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -475,11 +618,11 @@
       "mode": "view"
     },
     {
-      "name": "vuepress1",
-      "icon": "logo/vuepress.png",
+      "name": "vuepress_v1",
+      "icon": "/logo/vuepress.png",
       "title": "Vuepress V1",
       "subtitle": "DocSearch",
-      "description": "Search Vuepress v1 documentation",
+      "description": "Search Vuepress V1undefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -490,161 +633,11 @@
       "mode": "view"
     },
     {
-      "name": "vuepress2",
-      "icon": "logo/vuepress.png",
+      "name": "vuepress_v2",
+      "icon": "/logo/vuepress.png",
       "title": "Vuepress V2",
       "subtitle": "DocSearch",
-      "description": "Search Vuepress v2 documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "ipfs",
-      "icon": "logo/ipfs.png",
-      "title": "IPFS",
-      "subtitle": "DocSearch",
-      "description": "Search IPFS documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "dubbo",
-      "icon": "logo/dubbo.png",
-      "title": "Dubbo",
-      "subtitle": "DocSearch",
-      "description": "Search Dubbo documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "pnpm",
-      "icon": "logo/pnpm.png",
-      "title": "Pnpm",
-      "subtitle": "DocSearch",
-      "description": "Search pnpm documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "pnpm_zh-Hans",
-      "icon": "logo/pnpm.png",
-      "title": "Pnpm(中文)",
-      "subtitle": "DocSearch",
-      "description": "Search pnpm documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "nuxt",
-      "icon": "logo/nuxt.png",
-      "title": "Nuxt",
-      "subtitle": "DocSearch",
-      "description": "Search Nuxt documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "nuxt3",
-      "icon": "logo/nuxt.png",
-      "title": "Nuxt3",
-      "subtitle": "DocSearch",
-      "description": "Search Nuxt3 documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "react_bootstrap",
-      "icon": "logo/react_bootstrap.png",
-      "title": "React Bootstrap",
-      "subtitle": "DocSearch",
-      "description": "Search React Bootstrap documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "gitbook",
-      "icon": "logo/gitbook.png",
-      "title": "GitBook",
-      "subtitle": "DocSearch",
-      "description": "Search gitbook documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "raycast",
-      "icon": "logo/raycast.png",
-      "title": "Raycast",
-      "subtitle": "DocSearch",
-      "description": "Search Raycast documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "remix",
-      "icon": "logo/remix.png",
-      "title": "Remix",
-      "subtitle": "DocSearch",
-      "description": "Search Remix documentation",
+      "description": "Search Vuepress V2undefined documentation",
       "arguments": [
         {
           "name": "search",
@@ -661,6 +654,7 @@
     "meilisearch": "^0.32.4"
   },
   "devDependencies": {
+    "@rogerpence/edit-package-json": "^1.1.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "eslint": "^7.32.0",
@@ -672,7 +666,8 @@
   "scripts": {
     "build": "ray build -e dist",
     "dev": "ray develop",
-    "fix-lint": "ts-node .format/format.ts && prettier -w README.md && ray lint --fix",
+    "generate": "ts-node .factory/generate.ts && ts-node .format/format.ts && prettier -w README.md package.json && ray lint --fix",
+    "fix-lint": "ts-node .factory/generate.ts && ts-node .format/format.ts && prettier -w README.md package.json && ray lint --fix",
     "lint": "ray lint",
     "publish": "ray publish"
   }
