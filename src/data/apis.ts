@@ -400,6 +400,20 @@ export default <API[]>[
     },
   },
   {
+    id: "b4875fde-8f69-4c58-af6c-2f974698d7eb",
+    name: "Taro",
+    icon: "../assets/logo/taro.png",
+    apiKey: "3f32982103f4e75dadd86900d26a9315",
+    appId: "BH4D9OD16A",
+    indexName: "taro-zone",
+    type: "algolia",
+    homepage: "https://docs.taro.zone/docs/",
+    lang: "zh-Hans",
+    searchParameters: {
+      facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-3.x"]],
+    },
+  },
+  {
     id: "bd744296-9bed-4ae2-86b6-0fa2ddac45fd",
     name: "Unidata",
     icon: "../assets/logo/unidata.png",

@@ -77,6 +77,8 @@ declare namespace Preferences {
   export type Supabase = ExtensionPreferences & {}
   /** Preferences accessible in the `tailwindcss_v3` command */
   export type TailwindcssV3 = ExtensionPreferences & {}
+  /** Preferences accessible in the `taro_zh-hans` command */
+  export type TaroZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `unidata` command */
   export type Unidata = ExtensionPreferences & {}
   /** Preferences accessible in the `vite` command */
@@ -257,6 +259,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `tailwindcss_v3` command */
   export type TailwindcssV3 = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `taro_zh-hans` command */
+  export type TaroZhHans = {
   /** Search... */
   "search": string
 }

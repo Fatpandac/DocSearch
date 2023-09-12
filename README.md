@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (42)
+### Supported Documentations (43)
 
 |                        Documentations                        |                                                       |                                                         |
 | :----------------------------------------------------------: | :---------------------------------------------------: | :-----------------------------------------------------: |
@@ -18,10 +18,12 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |              [RSSHub](https://docs.rsshub.app/)              |      [Raycast](https://developers.raycast.com/)       |     [React(zh-Hans)](https://zh-hans.reactjs.org/)      |
 |                [React](https://reactjs.org/)                 | [React Bootstrap](https://react-bootstrap.github.io/) |        [React Native](https://reactnative.dev/)         |
 |                 [Remix](https://remix.run/)                  |        [Slidev(zh-Hans)](https://cn.sli.dev/)         |               [Slidev](https://sli.dev/)                |
-|            [Supabase](https://supabase.com/docs)             |      [TailwindCSS V3](https://tailwindcss.com/)       |             [Unidata](https://unidata.app/)             |
-|           [Vite(zh-Hans)](https://cn.vitejs.dev/)            |              [Vite](https://vitejs.dev/)              |              [Vitest](https://vitest.dev/)              |
-|           [Vue Router4](https://router.vuejs.org/)           |          [Vue3(zh-Hans)](https://vuejs.org/)          |               [Vue3](https://vuejs.org/)                |
-|                [VueUse](https://vueuse.org/)                 |      [Vuepress V1](https://vuepress.vuejs.org/)       |      [Vuepress V2](https://v2.vuepress.vuejs.org/)      |
+|            [Supabase](https://supabase.com/docs)             |      [TailwindCSS V3](https://tailwindcss.com/)       |      [Taro(zh-Hans)](https://docs.taro.zone/docs/)      |
+|               [Unidata](https://unidata.app/)                |        [Vite(zh-Hans)](https://cn.vitejs.dev/)        |               [Vite](https://vitejs.dev/)               |
+|                [Vitest](https://vitest.dev/)                 |       [Vue Router4](https://router.vuejs.org/)        |           [Vue3(zh-Hans)](https://vuejs.org/)           |
+|                  [Vue3](https://vuejs.org/)                  |             [VueUse](https://vueuse.org/)             |       [Vuepress V1](https://vuepress.vuejs.org/)        |
+
+| [Vuepress V2](https://v2.vuepress.vuejs.org/)
 
 ### Docsearch
 

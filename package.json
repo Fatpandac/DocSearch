@@ -498,6 +498,21 @@
       "mode": "view"
     },
     {
+      "name": "taro_zh-hans",
+      "icon": "/logo/taro.png",
+      "title": "Taro(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Taro(中文) documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "unidata",
       "icon": "/logo/unidata.png",
       "title": "Unidata",
