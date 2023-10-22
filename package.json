@@ -33,6 +33,21 @@
       "mode": "view"
     },
     {
+      "name": "nvchad",
+      "icon": "/logo/nvchad.png",
+      "title": "NvChad",
+      "subtitle": "DocSearch",
+      "description": "Search NvChadundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "antd_zh-hans",
       "icon": "/logo/antd.png",
       "title": "Antd(中文)",

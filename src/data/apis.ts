@@ -230,6 +230,16 @@ export default <API[]>[
     },
   },
   {
+    id: "4ff567b2-3499-487b-a3c8-e3444c34b5d0",
+    name: "NvChad",
+    icon: "../assets/logo/nvchad.png",
+    apiKey: "c74ee96af1dea95b6e189501983733f8",
+    appId: "BOJS19CH35",
+    indexName: "nvchad",
+    type: "algolia",
+    homepage: "https://nvchad.com/",
+  },
+  {
     id: "6cc3dde8-5e2b-4f7c-81e8-16fb3e2abb26",
     name: "Pnpm",
     icon: "../assets/logo/pnpm.png",

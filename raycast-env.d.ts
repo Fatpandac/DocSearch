@@ -15,6 +15,8 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `antd` command */
   export type Antd = ExtensionPreferences & {}
+  /** Preferences accessible in the `nvchad` command */
+  export type Nvchad = ExtensionPreferences & {}
   /** Preferences accessible in the `antd_zh-hans` command */
   export type AntdZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `antdv` command */
@@ -104,6 +106,11 @@ declare namespace Preferences {
 declare namespace Arguments {
   /** Arguments passed to the `antd` command */
   export type Antd = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `nvchad` command */
+  export type Nvchad = {
   /** Search... */
   "search": string
 }

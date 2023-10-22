@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [New feature and documentation] - 2023-10-22
+
+- 📄 Support [NvChad](https://nvchad.com/)
+
 ## [New feature and documentation] - 2023-08-12
 
 - 🌟 Support auto generate entry file and config
