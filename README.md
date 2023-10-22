@@ -33,6 +33,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
    {
+        id: "UUID"// Generate the UUID by yourself and fill it in
         name: 'Vuepress v1',
         icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
         apiKey: '3a539aab83105f01761a137c61004d85',
@@ -52,7 +53,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
    {
-      id: "UUID"// Generate the UUID yourself and fill it in
+      id: "UUID"// Generate the UUID by yourself and fill it in
       name: 'RSSHub',
       icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
       apiKey: '375c36cd9573a2c1d1e536214158c37120fdd0ba6cd8829f7a848e940cc22245',
