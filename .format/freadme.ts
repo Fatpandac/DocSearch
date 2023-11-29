@@ -3,8 +3,9 @@ import data from "../src/data/apis";
 import fs from "fs";
 
 function formatSupportedDocsTable() {
-  var times = 0;
-  var supportedDocsTable = `### Supported Documentations (${data.length})
+  const columns = 3
+  let times = 0;
+  let supportedDocsTable = `### Supported Documentations (${data.length})
 
 | Documentations |   |   |
 | :------------: |:-:|:-:|
@@ -19,10 +20,14 @@ function formatSupportedDocsTable() {
         ? `| [${item.name}(${item.lang})](${item.homepage})`
         : `| [${item.name}](${item.homepage})`;
     times++;
-    if (times % 3 == 0) {
+    if (times % columns === 0) {
       supportedDocsTable += " |\n";
     }
   });
+  if (sortedData.length % columns !== 0) {
+    supportedDocsTable += ' |'
+  }
+
   return supportedDocsTable;
 }
 

@@ -23,8 +23,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |               [Unidata](https://unidata.app/)                |       [Vite(zh-Hans)](https://cn.vitejs.dev/)       |               [Vite](https://vitejs.dev/)               |
 |                [Vitest](https://vitest.dev/)                 |      [Vue Router4](https://router.vuejs.org/)       |           [Vue3(zh-Hans)](https://vuejs.org/)           |
 |                  [Vue3](https://vuejs.org/)                  |            [VueUse](https://vueuse.org/)            |       [Vuepress V1](https://vuepress.vuejs.org/)        |
-
-| [Vuepress V2](https://v2.vuepress.vuejs.org/)
+|        [Vuepress V2](https://v2.vuepress.vuejs.org/)         |
 
 ### Docsearch
 
