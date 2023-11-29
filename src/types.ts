@@ -6,15 +6,15 @@ type base = {
   id: UUID;
   name: string;
   icon: string;
-  apiKey: string;
-  indexName: string;
-  homepage: string;
   lang?: string;
+  apiKey: string;
+  homepage: string;
+  indexName: string;
+  searchParameters?: object;
 };
 
 export type TAlgolia = base & {
   appId: string;
-  searchParameters?: object;
   type: "algolia";
 };
 

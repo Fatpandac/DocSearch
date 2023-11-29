@@ -33,21 +33,6 @@
       "mode": "view"
     },
     {
-      "name": "nvchad",
-      "icon": "/logo/nvchad.png",
-      "title": "NvChad",
-      "subtitle": "DocSearch",
-      "description": "Search NvChadundefined documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
       "name": "antd_zh-hans",
       "icon": "/logo/antd.png",
       "title": "Antd(中文)",
@@ -303,6 +288,21 @@
       "mode": "view"
     },
     {
+      "name": "nvchad",
+      "icon": "/logo/nvchad.png",
+      "title": "NvChad",
+      "subtitle": "DocSearch",
+      "description": "Search NvChadundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "pnpm",
       "icon": "/logo/pnpm.png",
       "title": "Pnpm",
@@ -518,6 +518,36 @@
       "title": "Taro(中文)",
       "subtitle": "DocSearch",
       "description": "Search Taro(中文) documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "tauri",
+      "icon": "/logo/tauri.png",
+      "title": "Tauri",
+      "subtitle": "DocSearch",
+      "description": "Search Tauriundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "tauri_zh-hans",
+      "icon": "/logo/tauri.png",
+      "title": "Tauri(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search Tauri(中文) documentation",
       "arguments": [
         {
           "name": "search",

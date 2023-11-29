@@ -15,8 +15,6 @@ declare type Preferences = ExtensionPreferences
 declare namespace Preferences {
   /** Preferences accessible in the `antd` command */
   export type Antd = ExtensionPreferences & {}
-  /** Preferences accessible in the `nvchad` command */
-  export type Nvchad = ExtensionPreferences & {}
   /** Preferences accessible in the `antd_zh-hans` command */
   export type AntdZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `antdv` command */
@@ -51,6 +49,8 @@ declare namespace Preferences {
   export type Nuxt = ExtensionPreferences & {}
   /** Preferences accessible in the `nuxt3` command */
   export type Nuxt3 = ExtensionPreferences & {}
+  /** Preferences accessible in the `nvchad` command */
+  export type Nvchad = ExtensionPreferences & {}
   /** Preferences accessible in the `pnpm` command */
   export type Pnpm = ExtensionPreferences & {}
   /** Preferences accessible in the `pnpm_zh-hans` command */
@@ -81,6 +81,10 @@ declare namespace Preferences {
   export type TailwindcssV3 = ExtensionPreferences & {}
   /** Preferences accessible in the `taro_zh-hans` command */
   export type TaroZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `tauri` command */
+  export type Tauri = ExtensionPreferences & {}
+  /** Preferences accessible in the `tauri_zh-hans` command */
+  export type TauriZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `unidata` command */
   export type Unidata = ExtensionPreferences & {}
   /** Preferences accessible in the `vite` command */
@@ -106,11 +110,6 @@ declare namespace Preferences {
 declare namespace Arguments {
   /** Arguments passed to the `antd` command */
   export type Antd = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `nvchad` command */
-  export type Nvchad = {
   /** Search... */
   "search": string
 }
@@ -199,6 +198,11 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
+  /** Arguments passed to the `nvchad` command */
+  export type Nvchad = {
+  /** Search... */
+  "search": string
+}
   /** Arguments passed to the `pnpm` command */
   export type Pnpm = {
   /** Search... */
@@ -271,6 +275,16 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `taro_zh-hans` command */
   export type TaroZhHans = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `tauri` command */
+  export type Tauri = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `tauri_zh-hans` command */
+  export type TauriZhHans = {
   /** Search... */
   "search": string
 }

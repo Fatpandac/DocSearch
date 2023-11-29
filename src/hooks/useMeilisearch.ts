@@ -20,7 +20,7 @@ export function useMeilisearch(query = "", currentAPI: TMeilisearch) {
     setIsLoading(true);
 
     searchIndex
-      .search(query)
+      .search(query, currentAPI.searchParameters)
       .then((res: any) => {
         setIsLoading(false);
         formatHitUrl(res, currentAPI.homepage);
