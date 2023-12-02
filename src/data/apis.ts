@@ -1,6 +1,6 @@
 import { API } from "../types";
 
-export default <API[]>[
+const data: Array<API> = [
   {
     id: "ed219486-9c94-4d9a-b993-69db4042e0c0",
     name: "Antd",
@@ -585,3 +585,5 @@ export default <API[]>[
     homepage: "https://v2.vuepress.vuejs.org/",
   },
 ];
+
+export default data;
