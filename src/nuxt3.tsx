@@ -1,5 +1,6 @@
 import { SearchDocumentation } from "./components";
+import { DocID } from "./data/apis";
 
 export default function Command(props: { arguments: { search?: string } }) {
-  return <SearchDocumentation id="85dcc3c8-991c-4e4f-b0c7-a179a14f4da5" quickSearch={props.arguments?.search} />;
+  return <SearchDocumentation id={DocID.Nuxt3} quickSearch={props.arguments?.search} />;
 }

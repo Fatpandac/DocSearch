@@ -1,4 +1,4 @@
-import data from "../src/data/apis";
+import { API, data } from "../src/data/apis";
 import packageData from "../package.json"
 import fs from 'fs'
 
@@ -7,7 +7,7 @@ const langMap: { [key:string]: string} = {
 }
 
 function generateCommand() {
-  return data.map((item) => ({
+  return data.map((item: API) => ({
     "name": (item.name + (item.lang ? '_'+item.lang: '')).replace(' ','_').toLowerCase(),
     "icon": item.icon.replace('../assets', ''),
     "title": item.name + (item.lang ? `(${langMap[item.lang]})` : ''),

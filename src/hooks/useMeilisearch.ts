@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TMeilisearch } from "../types";
 import { formatHitUrl } from "../utils";
 
 import MeiliSearch from "meilisearch";
 import { useState, useEffect } from "react";
 import { Toast, showToast } from "@raycast/api";
+import { TMeilisearch } from "../data/apis";
 
 export function useMeilisearch(query = "", currentAPI: TMeilisearch) {
   const searchClient = new MeiliSearch({

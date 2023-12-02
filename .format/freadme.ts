@@ -1,6 +1,5 @@
-import data from "../src/data/apis";
-
 import fs from "fs";
+import { data } from "../src/data/apis";
 
 function formatSupportedDocsTable() {
   const columns = 3

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { TAlgolia } from "../types";
 import { formatHitUrl } from "../utils";
 
 import { useState, useEffect } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { Toast, showToast } from "@raycast/api";
+import { TAlgolia } from "../data/apis";
 
 const DEFUALT_PARAMETERS = {
   highlightPreTag: "**",

@@ -1,6 +1,5 @@
-import data from "../src/data/apis";
-
 import fs from "fs";
+import { data } from "../src/data/apis";
 
 function formatAlgoliaApiDataList() {
   const sortedData = data.sort((a, b) => (a.name > b.name ? 1 : -1));

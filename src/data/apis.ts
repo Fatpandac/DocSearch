@@ -1,8 +1,43 @@
-import { API } from "../types";
+// prettier-ignore
+export enum DocID {
+  Antd, Antd_cn, Antdv, Antdv_cn, Apollo,
+  Arthas, Bootstrap, Clerk, Dubbo, Echarts,
+  Echarts_cn, Flet, GitBook, Homebrew, IPFS,
+  Laravel9, Nuxt, Nuxt3, NvChad, Pnpm, Pnpm_cn,
+  Prettier, RSSHub, Raycast, React, React_cn,
+  React_Bootstrap, React_Native, Remix, Slidev,
+  Slidev_cn, Supabase, TailwindCSS3, Taro_cn,
+  Tauri, Tauri_cn, Unidata, Vite, Vite_cn,
+  Vitest, Vue_Router4, Vue3, Vue3_cn, VueUse,
+  Vuepress1, Vuepress2,
+}
 
-const data: Array<API> = [
+type Base = {
+  id: DocID;
+  name: string;
+  icon: string;
+  lang?: string;
+  apiKey: string;
+  homepage: string;
+  indexName: string;
+  searchParameters?: object;
+};
+
+export type TAlgolia = Base & {
+  appId: string;
+  type: "algolia";
+};
+
+export type TMeilisearch = Base & {
+  apiHost: string;
+  type: "meilisearch";
+};
+
+export type API = TAlgolia | TMeilisearch;
+
+export const data: Array<API> = [
   {
-    id: "ed219486-9c94-4d9a-b993-69db4042e0c0",
+    id: DocID.Antd,
     name: "Antd",
     icon: "../assets/logo/antd.png",
     apiKey: "60ac2c1a7d26ab713757e4a081e133d0",
@@ -15,7 +50,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "baf3801b-95f5-4800-b77e-13c97e98877e",
+    id: DocID.Antd_cn,
     name: "Antd",
     icon: "../assets/logo/antd.png",
     apiKey: "60ac2c1a7d26ab713757e4a081e133d0",
@@ -29,7 +64,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "43cd38be-82b8-4d54-9764-349fa2b7d6a3",
+    id: DocID.Antdv,
     name: "Antdv",
     icon: "../assets/logo/antdv.png",
     apiKey: "92003c1d1d07beef165b08446f4224a3",
@@ -42,7 +77,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "cbcb3df9-ce8b-4ab4-8a39-2b860c518475",
+    id: DocID.Antdv_cn,
     name: "Antdv",
     icon: "../assets/logo/antdv.png",
     apiKey: "92003c1d1d07beef165b08446f4224a3",
@@ -56,7 +91,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "48dd6e88-fd12-4e55-8d0d-e9c2982ba924",
+    id: DocID.Apollo,
     name: "Apollo",
     icon: "../assets/logo/apollo.png",
     apiKey: "ef1ac4e3c439bc17a8e7572700691efc",
@@ -66,7 +101,7 @@ const data: Array<API> = [
     homepage: "https://www.apollographql.com/docs",
   },
   {
-    id: "138055c4-5959-4f0a-bd9b-d8df8ff7cf9b",
+    id: DocID.Arthas,
     name: "Arthas",
     icon: "../assets/logo/arthas.ico",
     apiKey: "03fb4b6577b57b5dafc792d9ddf66508",
@@ -76,7 +111,7 @@ const data: Array<API> = [
     homepage: "https://arthas.aliyun.com/",
   },
   {
-    id: "885d77e7-300b-4713-8755-6b5f69fc1ac0",
+    id: DocID.Bootstrap,
     name: "Bootstrap",
     icon: "../assets/logo/bootstrap.ico",
     apiKey: "3151f502c7b9e9dafd5e6372b691a24e",
@@ -101,7 +136,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "c17f1bd8-6479-4232-84d9-3e8666e0f5c4",
+    id: DocID.Clerk,
     name: "Clerk",
     icon: "../assets/logo/clerk.png",
     apiKey: "52385d30a5ca4460564defe5b2d0ffb1",
@@ -111,7 +146,7 @@ const data: Array<API> = [
     homepage: "https://clerk.dev",
   },
   {
-    id: "85e39537-84d3-442f-a7b3-c3cac9b64d60",
+    id: DocID.Dubbo,
     name: "Dubbo",
     icon: "../assets/logo/dubbo.png",
     apiKey: "364ae307e1da9d02b2335675e9db1eb1",
@@ -121,7 +156,7 @@ const data: Array<API> = [
     homepage: "https://dubbo.apache.org/",
   },
   {
-    id: "2bf1b09a-6cb5-44d3-9812-c9d8df1ed45e",
+    id: DocID.Echarts,
     name: "Echarts",
     icon: "../assets/logo/echarts.png",
     apiKey: "6ade5f1ff34e94690f9ea38cddcc2f55",
@@ -134,7 +169,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "32a8ea32-e398-4ed1-bc99-9425afa1ad33",
+    id: DocID.Echarts_cn,
     name: "Echarts",
     icon: "../assets/logo/echarts.png",
     apiKey: "6ade5f1ff34e94690f9ea38cddcc2f55",
@@ -148,7 +183,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "8c01f070-0f5b-4b1c-a45e-36ac52967484",
+    id: DocID.Flet,
     name: "Flet",
     icon: "../assets/logo/flet.png",
     apiKey: "4b060907ba79d92e8869e9d1ff80bce7",
@@ -158,7 +193,7 @@ const data: Array<API> = [
     homepage: "https://flet.dev/",
   },
   {
-    id: "a70b02e2-573c-4af0-8b57-2de598b79e98",
+    id: DocID.GitBook,
     name: "GitBook",
     icon: "../assets/logo/gitbook.png",
     apiKey:
@@ -169,7 +204,7 @@ const data: Array<API> = [
     homepage: "https://docs.gitbook.com/",
   },
   {
-    id: "da1d3562-0f6b-46ed-8c10-eed51f301102",
+    id: DocID.Homebrew,
     name: "Homebrew",
     icon: "../assets/logo/homebrew.png",
     apiKey: "a57ef92bf2adfae863a201ee43d6b5a1",
@@ -179,7 +214,7 @@ const data: Array<API> = [
     homepage: "https://brew.sh/",
   },
   {
-    id: "4e3fd0d3-d77e-4b13-91df-96cb2e36737d",
+    id: DocID.IPFS,
     name: "IPFS",
     icon: "../assets/logo/ipfs.png",
     apiKey: "e56fc7c611806522df45191e22ed15ac",
@@ -189,7 +224,7 @@ const data: Array<API> = [
     homepage: "https://docs.ipfs.tech/",
   },
   {
-    id: "05b5bb50-2818-49d8-b3f7-590078eff494",
+    id: DocID.Laravel9,
     name: "Laravel 9.x",
     icon: "../assets/logo/laravel.png",
     apiKey: "1fa3a8fec06eb1858d6ca137211225c0",
@@ -204,7 +239,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "92739c0f-d742-4e9b-b1fc-1cd5c939cbd2",
+    id: DocID.Nuxt,
     name: "Nuxt",
     icon: "../assets/logo/nuxt.png",
     apiKey: "60a01900a4b726d667eab75b6f337592",
@@ -217,7 +252,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "85dcc3c8-991c-4e4f-b0c7-a179a14f4da5",
+    id: DocID.Nuxt3,
     name: "Nuxt3",
     icon: "../assets/logo/nuxt.png",
     apiKey: "60a01900a4b726d667eab75b6f337592",
@@ -230,7 +265,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "4ff567b2-3499-487b-a3c8-e3444c34b5d0",
+    id: DocID.NvChad,
     name: "NvChad",
     icon: "../assets/logo/nvchad.png",
     apiKey: "c74ee96af1dea95b6e189501983733f8",
@@ -240,7 +275,7 @@ const data: Array<API> = [
     homepage: "https://nvchad.com/",
   },
   {
-    id: "6cc3dde8-5e2b-4f7c-81e8-16fb3e2abb26",
+    id: DocID.Pnpm,
     name: "Pnpm",
     icon: "../assets/logo/pnpm.png",
     apiKey: "a337998a623aa8f80d2a97a79d565086",
@@ -253,7 +288,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "bd3137b3-2d8c-4b3b-91d8-44f647aa0602",
+    id: DocID.Pnpm_cn,
     name: "Pnpm",
     icon: "../assets/logo/pnpm.png",
     apiKey: "a337998a623aa8f80d2a97a79d565086",
@@ -267,7 +302,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "f34b823f-fd22-4b17-940e-a306019d62d1",
+    id: DocID.Prettier,
     name: "Prettier",
     icon: "../assets/logo/prettier.png",
     apiKey: "9fcdb2a62af4c47cc5eecf3d5a747818",
@@ -277,7 +312,7 @@ const data: Array<API> = [
     homepage: "https://prettier.io/",
   },
   {
-    id: "5153b247-e459-42be-89aa-95f8476c1faf",
+    id: DocID.RSSHub,
     name: "RSSHub",
     icon: "../assets/logo/rsshub.png",
     apiKey: "375c36cd9573a2c1d1e536214158c37120fdd0ba6cd8829f7a848e940cc22245",
@@ -287,7 +322,7 @@ const data: Array<API> = [
     homepage: "https://docs.rsshub.app/",
   },
   {
-    id: "af8c6158-e2d7-465c-8f72-4b5fb922048b",
+    id: DocID.Raycast,
     name: "Raycast",
     icon: "../assets/logo/raycast.png",
     apiKey:
@@ -298,7 +333,7 @@ const data: Array<API> = [
     homepage: "https://developers.raycast.com/",
   },
   {
-    id: "0d447343-8e25-4f46-b2de-ad3b84acb93f",
+    id: DocID.React,
     name: "React",
     icon: "../assets/logo/react.ico",
     apiKey: "36221914cce388c46d0420343e0bb32e",
@@ -308,7 +343,7 @@ const data: Array<API> = [
     homepage: "https://reactjs.org/",
   },
   {
-    id: "a7cc37c2-cd7c-4d1b-9db2-5dd3b25bc96e",
+    id: DocID.React_cn,
     name: "React",
     icon: "../assets/logo/react.ico",
     apiKey: "72499aaa151dba0828babe727c7b86ee",
@@ -319,7 +354,7 @@ const data: Array<API> = [
     lang: "zh-Hans",
   },
   {
-    id: "9ed920ac-6414-4c8a-878b-d2807fd7b800",
+    id: DocID.React_Bootstrap,
     name: "React Bootstrap",
     icon: "../assets/logo/react_bootstrap.png",
     apiKey: "33985ee571397d832ef243988ff4c891",
@@ -329,7 +364,7 @@ const data: Array<API> = [
     indexName: "react_bootstrap_v4",
   },
   {
-    id: "dd5dfe57-d905-4201-82c7-942f522b9ee8",
+    id: DocID.React_Native,
     name: "React Native",
     icon: "../assets/logo/react.ico",
     apiKey: "83cd239c72f9f8b0ed270a04b1185288",
@@ -350,7 +385,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "827c55c0-1181-4791-897e-2a852f0eb8b7",
+    id: DocID.Remix,
     name: "Remix",
     icon: "../assets/logo/remix.png",
     apiKey: "dff56670dbec8494409989d6ec9c8ac2",
@@ -360,7 +395,7 @@ const data: Array<API> = [
     indexName: "remix",
   },
   {
-    id: "0ef85678-06e0-44fa-bced-85fc841613cb",
+    id: DocID.Slidev,
     name: "Slidev",
     icon: "../assets/logo/slidev.png",
     apiKey: "1ff173fe73b20edc962c1c24c0b1c160",
@@ -373,7 +408,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "072393d1-fd1b-4d61-bcbe-8d613147f5b4",
+    id: DocID.Slidev_cn,
     name: "Slidev",
     icon: "../assets/logo/slidev.png",
     apiKey: "1a5c5a504139c58f428974c78c55291d",
@@ -387,7 +422,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "47d9a612-06be-4684-84cb-23b602a458d5",
+    id: DocID.Supabase,
     name: "Supabase",
     icon: "../assets/logo/supabase.png",
     apiKey: "0424becc4055d51ec60e54cc37df5574",
@@ -397,7 +432,7 @@ const data: Array<API> = [
     homepage: "https://supabase.com/docs",
   },
   {
-    id: "a27a6445-8265-4c59-b08e-ce53474c0b8c",
+    id: DocID.TailwindCSS3,
     name: "TailwindCSS V3",
     icon: "../assets/logo/tailwindcss.png",
     apiKey: "5fc87cef58bb80203d2207578309fab6",
@@ -410,7 +445,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "b4875fde-8f69-4c58-af6c-2f974698d7eb",
+    id: DocID.Taro_cn,
     name: "Taro",
     icon: "../assets/logo/taro.png",
     apiKey: "3f32982103f4e75dadd86900d26a9315",
@@ -424,7 +459,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "6201fb75-ed3f-4c01-b8a3-6e7d7160f898",
+    id: DocID.Tauri,
     name: "Tauri",
     icon: "../assets/logo/tauri.png",
     apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
@@ -440,7 +475,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "aeb7f78e-c775-47af-96ff-24704b4a8817",
+    id: DocID.Tauri_cn,
     name: "Tauri",
     icon: "../assets/logo/tauri.png",
     apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
@@ -457,7 +492,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "bd744296-9bed-4ae2-86b6-0fa2ddac45fd",
+    id: DocID.Unidata,
     name: "Unidata",
     icon: "../assets/logo/unidata.png",
     apiKey: "3f968df846740a9e2b38e89d8e6ce9fa",
@@ -470,7 +505,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "f49f3a04-fb3d-4f42-a527-de073e409e2b",
+    id: DocID.Vite,
     name: "Vite",
     icon: "../assets/logo/vite.png",
     apiKey: "b573aa848fd57fb47d693b531297403c",
@@ -480,7 +515,7 @@ const data: Array<API> = [
     homepage: "https://vitejs.dev/",
   },
   {
-    id: "3a255f8b-b932-493c-bc8b-9e7bc79ecd3a",
+    id: DocID.Vite_cn,
     name: "Vite",
     icon: "../assets/logo/vite.png",
     apiKey: "b573aa848fd57fb47d693b531297403c",
@@ -494,7 +529,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "9c8d78ea-9a6b-4afa-b051-8187c0ee96d4",
+    id: DocID.Vitest,
     name: "Vitest",
     icon: "../assets/logo/vitest.png",
     apiKey: "9c3ced6fed60d2670bb36ab7e8bed8bc",
@@ -504,7 +539,7 @@ const data: Array<API> = [
     homepage: "https://vitest.dev/",
   },
   {
-    id: "70d84e01-304f-4838-9ce8-63ba0c6d35cf",
+    id: DocID.Vue_Router4,
     name: "Vue Router4",
     icon: "../assets/logo/vue.png",
     apiKey: "771d10c8c5cc48f7922f15048b4d931c",
@@ -514,7 +549,7 @@ const data: Array<API> = [
     homepage: "https://router.vuejs.org/",
   },
   {
-    id: "3261c206-c4f0-42bd-b53e-af5b6addf350",
+    id: DocID.Vue3,
     name: "Vue3",
     icon: "../assets/logo/vue.png",
     apiKey: "f49cbd92a74532cc55cfbffa5e5a7d01",
@@ -527,7 +562,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "e9654353-3f1f-4970-ba87-04483158ff12",
+    id: DocID.Vue3_cn,
     name: "Vue3",
     icon: "../assets/logo/vue.png",
     apiKey: "c23eb8e7895f42daeaf2bf6f63eb4bf6",
@@ -541,7 +576,7 @@ const data: Array<API> = [
     },
   },
   {
-    id: "41a892ff-2faf-4d17-9f28-2c43b8a1899c",
+    id: DocID.VueUse,
     name: "VueUse",
     icon: "../assets/logo/vueuse.png",
     apiKey: "a99ef8de1b2b27949975ce96642149c6",
@@ -551,7 +586,7 @@ const data: Array<API> = [
     homepage: "https://vueuse.org/",
   },
   {
-    id: "658f6845-f675-4c91-b39a-cf92bbe8f7be",
+    id: DocID.Vuepress1,
     name: "Vuepress V1",
     icon: "../assets/logo/vuepress.png",
     apiKey: "3a539aab83105f01761a137c61004d85",
@@ -561,7 +596,7 @@ const data: Array<API> = [
     homepage: "https://vuepress.vuejs.org/",
   },
   {
-    id: "3174b8d7-39cf-4631-8a6b-2faaf15b866e",
+    id: DocID.Vuepress2,
     name: "Vuepress V2",
     icon: "../assets/logo/vuepress.png",
     apiKey: "9a9058b8655746634e01071411c366b8",
@@ -585,5 +620,3 @@ const data: Array<API> = [
     homepage: "https://v2.vuepress.vuejs.org/",
   },
 ];
-
-export default data;

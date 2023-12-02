@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { API } from "../types";
-import APIData from "../data/apis";
+import { API, data, DocID } from "../data/apis";
 import { useAlgolia, useMeilisearch } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
@@ -8,8 +7,8 @@ import { useState } from "react";
 import { getTitleForAlgolis, getTitleForMeilisearch } from "../utils/getTitle";
 import { generateContent } from "../utils";
 
-export function SearchDocumentation(props: { id: string; quickSearch?: string }) {
-  const currentAPI = APIData.find((api) => props.id === api.id) as API;
+export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) {
+  const currentAPI = data.find((api) => props.id === api.id) as Readonly<API>;
 
   const [searchText, setSearchText] = useState(props.quickSearch || "");
   const [currentIdx, setCurrentIdx] = useState(0);
