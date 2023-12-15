@@ -1,7 +1,7 @@
 // prettier-ignore
 export enum DocID {
   Antd, Antd_cn, Antdv, Antdv_cn, Apollo,
-  Arthas, Bootstrap, Clerk, Dubbo, Echarts,
+  Arthas, Astro, Bootstrap, Clerk, Dubbo, Echarts,
   Echarts_cn, Flet, GitBook, Homebrew, IPFS,
   Laravel9, Nuxt, Nuxt3, NvChad, Pnpm, Pnpm_cn,
   Prettier, RSSHub, Raycast, React, React_cn,
@@ -110,6 +110,17 @@ export const data: Array<API> = [
     type: "algolia",
     homepage: "https://arthas.aliyun.com/",
   },
+  {
+    id: DocID.Astro, // add a unique name to the DocID enums, then write it here
+    name: "Astro v4",
+    icon: "../assets/logo/astro.png", // path to icon in the assets folder
+    apiKey: "4440670147c44d744fd8da35ff652518",
+    appId: "7AFBU8EPJU",
+    indexName: "astro",
+    type: "algolia",
+    homepage: "https://docs.astro.build/",
+  },
+
   {
     id: DocID.Bootstrap,
     name: "Bootstrap",

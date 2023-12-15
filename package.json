@@ -108,6 +108,21 @@
       "mode": "view"
     },
     {
+      "name": "astro_v4",
+      "icon": "/logo/astro.png",
+      "title": "Astro v4",
+      "subtitle": "DocSearch",
+      "description": "Search Astro v4undefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "bootstrap",
       "icon": "/logo/bootstrap.ico",
       "title": "Bootstrap",
