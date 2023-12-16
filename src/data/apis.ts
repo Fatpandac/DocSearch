@@ -1,7 +1,7 @@
 // prettier-ignore
 export enum DocID {
   Antd, Antd_cn, Antdv, Antdv_cn, Apollo,
-  Arthas, Astro, Bootstrap, Clerk, Dubbo, Echarts,
+  Arthas, Astro, Astro_cn, Bootstrap, Clerk, Dubbo, Echarts,
   Echarts_cn, Flet, GitBook, Homebrew, IPFS,
   Laravel9, Nuxt, Nuxt3, NvChad, Pnpm, Pnpm_cn,
   Prettier, RSSHub, Raycast, React, React_cn,
@@ -112,15 +112,31 @@ export const data: Array<API> = [
   },
   {
     id: DocID.Astro,
-    name: "Astro v4",
+    name: "Astro V4",
     icon: "../assets/logo/astro.png",
     apiKey: "4440670147c44d744fd8da35ff652518",
     appId: "7AFBU8EPJU",
     indexName: "astro",
     type: "algolia",
     homepage: "https://docs.astro.build/",
+    searchParameters: {
+      facetFilters: ["lang:en"],
+    },
   },
-
+  {
+    id: DocID.Astro_cn,
+    name: "Astro V4",
+    icon: "../assets/logo/astro.png",
+    apiKey: "4440670147c44d744fd8da35ff652518",
+    appId: "7AFBU8EPJU",
+    indexName: "astro",
+    lang: "zh-Hans",
+    type: "algolia",
+    homepage: "https://docs.astro.build/zh-cn/",
+    searchParameters: {
+      facetFilters: ["lang:zh-cn"],
+    },
+  },
   {
     id: DocID.Bootstrap,
     name: "Bootstrap",
