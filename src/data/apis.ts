@@ -111,9 +111,9 @@ export const data: Array<API> = [
     homepage: "https://arthas.aliyun.com/",
   },
   {
-    id: DocID.Astro, // add a unique name to the DocID enums, then write it here
+    id: DocID.Astro,
     name: "Astro v4",
-    icon: "../assets/logo/astro.png", // path to icon in the assets folder
+    icon: "../assets/logo/astro.png",
     apiKey: "4440670147c44d744fd8da35ff652518",
     appId: "7AFBU8EPJU",
     indexName: "astro",
