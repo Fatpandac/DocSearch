@@ -4,14 +4,14 @@ import { formatHitUrl } from "../utils";
 import { useState, useEffect } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { Toast, showToast } from "@raycast/api";
-import { TAlgolia } from "../data/apis";
+import { Algolia } from "../data/apis";
 
 const DEFUALT_PARAMETERS = {
   highlightPreTag: "**",
   highlightPostTag: "**",
 };
 
-export function useAlgolia(query = "", currentAPI: TAlgolia) {
+export function useAlgolia(query = "", currentAPI: Algolia) {
   const searchClient = algoliasearch(currentAPI.appId, currentAPI.apiKey);
   const searchIndex = searchClient.initIndex(currentAPI.indexName);
 

@@ -23,17 +23,17 @@ type Base = {
   searchParameters?: object;
 };
 
-export type TAlgolia = Base & {
+export type Algolia = Base & {
   appId: string;
   type: "algolia";
 };
 
-export type TMeilisearch = Base & {
+export type Meilisearch = Base & {
   apiHost: string;
   type: "meilisearch";
 };
 
-export type API = TAlgolia | TMeilisearch;
+export type API = Algolia | Meilisearch;
 
 export const data: Array<API> = [
   {

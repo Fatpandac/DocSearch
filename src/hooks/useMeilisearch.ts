@@ -4,9 +4,9 @@ import { formatHitUrl } from "../utils";
 import MeiliSearch from "meilisearch";
 import { useState, useEffect } from "react";
 import { Toast, showToast } from "@raycast/api";
-import { TMeilisearch } from "../data/apis";
+import { Meilisearch } from "../data/apis";
 
-export function useMeilisearch(query = "", currentAPI: TMeilisearch) {
+export function useMeilisearch(query = "", currentAPI: Meilisearch) {
   const searchClient = new MeiliSearch({
     host: currentAPI.apiHost,
     apiKey: currentAPI.apiKey,
