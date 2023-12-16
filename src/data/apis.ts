@@ -1,7 +1,7 @@
 // prettier-ignore
 export enum DocID {
   Antd, Antd_cn, Antdv, Antdv_cn, Apollo,
-  Arthas, Bootstrap, Clerk, Dubbo, Echarts,
+  Arthas, Astro, Astro_cn, Bootstrap, Clerk, Dubbo, Echarts,
   Echarts_cn, Flet, GitBook, Homebrew, IPFS,
   Laravel9, Nuxt, Nuxt3, NvChad, Pnpm, Pnpm_cn,
   Prettier, RSSHub, Raycast, React, React_cn,
@@ -23,17 +23,17 @@ type Base = {
   searchParameters?: object;
 };
 
-export type TAlgolia = Base & {
+export type Algolia = Base & {
   appId: string;
   type: "algolia";
 };
 
-export type TMeilisearch = Base & {
+export type Meilisearch = Base & {
   apiHost: string;
   type: "meilisearch";
 };
 
-export type API = TAlgolia | TMeilisearch;
+export type API = Algolia | Meilisearch;
 
 export const data: Array<API> = [
   {
@@ -109,6 +109,33 @@ export const data: Array<API> = [
     indexName: "arthas",
     type: "algolia",
     homepage: "https://arthas.aliyun.com/",
+  },
+  {
+    id: DocID.Astro,
+    name: "Astro V4",
+    icon: "../assets/logo/astro.png",
+    apiKey: "4440670147c44d744fd8da35ff652518",
+    appId: "7AFBU8EPJU",
+    indexName: "astro",
+    type: "algolia",
+    homepage: "https://docs.astro.build/",
+    searchParameters: {
+      facetFilters: ["lang:en"],
+    },
+  },
+  {
+    id: DocID.Astro_cn,
+    name: "Astro V4",
+    icon: "../assets/logo/astro.png",
+    apiKey: "4440670147c44d744fd8da35ff652518",
+    appId: "7AFBU8EPJU",
+    indexName: "astro",
+    lang: "zh-Hans",
+    type: "algolia",
+    homepage: "https://docs.astro.build/zh-cn/",
+    searchParameters: {
+      facetFilters: ["lang:zh-cn"],
+    },
   },
   {
     id: DocID.Bootstrap,
