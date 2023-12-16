@@ -25,6 +25,8 @@ declare namespace Preferences {
   export type Apollo = ExtensionPreferences & {}
   /** Preferences accessible in the `arthas` command */
   export type Arthas = ExtensionPreferences & {}
+  /** Preferences accessible in the `astro_v4` command */
+  export type AstroV4 = ExtensionPreferences & {}
   /** Preferences accessible in the `bootstrap` command */
   export type Bootstrap = ExtensionPreferences & {}
   /** Preferences accessible in the `clerk` command */
@@ -135,6 +137,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `arthas` command */
   export type Arthas = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `astro_v4` command */
+  export type AstroV4 = {
   /** Search... */
   "search": string
 }
@@ -339,3 +346,5 @@ declare namespace Arguments {
   "search": string
 }
 }
+
+
