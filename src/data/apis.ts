@@ -9,7 +9,7 @@ export enum DocID {
   Slidev_cn, Supabase, TailwindCSS3, Taro_cn,
   Tauri, Tauri_cn, Unidata, Vite, Vite_cn,
   Vitest, Vue_Router4, Vue3, Vue3_cn, VueUse,
-  Vuepress1, Vuepress2,
+  Vuepress1, Vuepress2, ElementPlus, ElementPlus_cn,
 }
 
 type Base = {
@@ -36,6 +36,33 @@ export type Meilisearch = Base & {
 export type API = Algolia | Meilisearch;
 
 export const data: Array<API> = [
+  {
+    id: DocID.ElementPlus,
+    name: "ElementPlus",
+    icon: "../assets/logo/element.png",
+    apiKey: "99caf32e743ba77d78b095b763b8e380",
+    appId: "ZM3TI8AKL4",
+    indexName: "element-plus",
+    type: "algolia",
+    homepage: "https://element-plus.org/en-US/",
+    searchParameters: {
+      facetFilters: ["language:en-US"],
+    },
+  },
+  {
+    id: DocID.ElementPlus,
+    name: "ElementPlus",
+    icon: "../assets/logo/element.png",
+    apiKey: "99caf32e743ba77d78b095b763b8e380",
+    appId: "ZM3TI8AKL4",
+    indexName: "element-plus",
+    type: "algolia",
+    lang: "zh-Hans",
+    homepage: "https://element-plus.org/zh-CN/",
+    searchParameters: {
+      facetFilters: ["language:zh-CN"],
+    },
+  },
   {
     id: DocID.Antd,
     name: "Antd",

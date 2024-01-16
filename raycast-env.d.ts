@@ -13,6 +13,10 @@ type ExtensionPreferences = {}
 declare type Preferences = ExtensionPreferences
 
 declare namespace Preferences {
+  /** Preferences accessible in the `elementplus` command */
+  export type Elementplus = ExtensionPreferences & {}
+  /** Preferences accessible in the `elementplus_zh-hans` command */
+  export type ElementplusZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `antd` command */
   export type Antd = ExtensionPreferences & {}
   /** Preferences accessible in the `antd_zh-hans` command */
@@ -112,6 +116,16 @@ declare namespace Preferences {
 }
 
 declare namespace Arguments {
+  /** Arguments passed to the `elementplus` command */
+  export type Elementplus = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `elementplus_zh-hans` command */
+  export type ElementplusZhHans = {
+  /** Search... */
+  "search": string
+}
   /** Arguments passed to the `antd` command */
   export type Antd = {
   /** Search... */

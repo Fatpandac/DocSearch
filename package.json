@@ -18,6 +18,36 @@
   ],
   "commands": [
     {
+      "name": "elementplus",
+      "icon": "/logo/element.png",
+      "title": "ElementPlus",
+      "subtitle": "DocSearch",
+      "description": "Search ElementPlusundefined documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "elementplus_zh-hans",
+      "icon": "/logo/element.png",
+      "title": "ElementPlus(中文)",
+      "subtitle": "DocSearch",
+      "description": "Search ElementPlus(中文) documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
       "name": "antd",
       "icon": "/logo/antd.png",
       "title": "Antd",

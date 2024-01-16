@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [New feature and documentation] - 2024-01-16
+
+- 📄 Support [Element Plus](https://element-plus.org/en-US/)
+
 ## [New feature and documentation] - 2023-10-22
 
 - 📄 Support [NvChad](https://nvchad.com/)
