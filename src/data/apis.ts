@@ -50,7 +50,7 @@ export const data: Array<API> = [
     },
   },
   {
-    id: DocID.ElementPlus,
+    id: DocID.ElementPlus_cn,
     name: "ElementPlus",
     icon: "../assets/logo/element.png",
     apiKey: "99caf32e743ba77d78b095b763b8e380",
