@@ -1,5 +1,5 @@
 import packageData from "../package.json"
-import { API, data, DocID } from "../src/data/apis";
+import { API, data, DocID, Tags } from "../src/data/apis";
 import fs from 'fs'
 
 function generateCommand() {
@@ -7,7 +7,7 @@ function generateCommand() {
     const idNum = parseInt(id)
     const itemList = data[idNum as DocID]
     const defaultVersionDocs = Object.keys(itemList)[0]
-    const item = data[idNum as DocID][defaultVersionDocs] as API
+    const item = data[idNum as DocID][defaultVersionDocs as Tags] as API
 
     return ({
       "name": DocID[idNum].toLowerCase(),

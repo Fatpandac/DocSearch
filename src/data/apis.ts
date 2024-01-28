@@ -30,10 +30,14 @@ export type Meilisearch = Base & {
   type: "meilisearch";
 };
 
+type Languages = "en-US" | "zh-CN";
+type Versions = "V1" | "V2" | "V3" | "V4" | "V9";
+export type Tags = `${Versions} ${Languages}` | `${Languages}`;
+
 export type API = Algolia | Meilisearch;
 export type Data = {
   [key in DocID]: {
-    [key in string]: API;
+    [key in Tags]?: API;
   };
 };
 
@@ -142,7 +146,7 @@ export const data: Data = {
         facetFilters: ["lang:en"],
       },
     },
-    "zh-cn": {
+    "zh-CN": {
       icon: "../assets/logo/astro.png",
       apiKey: "4440670147c44d744fd8da35ff652518",
       appId: "7AFBU8EPJU",
@@ -462,7 +466,7 @@ export const data: Data = {
     },
   },
   [DocID.TailwindCSS]: {
-    "v3 en-US": {
+    "V3 en-US": {
       icon: "../assets/logo/tailwindcss.png",
       apiKey: "5fc87cef58bb80203d2207578309fab6",
       appId: "KNPXZI5B0M",

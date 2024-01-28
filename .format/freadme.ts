@@ -1,5 +1,5 @@
 import fs from "fs";
-import { data, DocID } from "../src/data/apis";
+import { data, DocID, Tags } from "../src/data/apis";
 
 function formatSupportedDocsTable() {
   const columns = 3
@@ -19,7 +19,7 @@ function formatSupportedDocsTable() {
     const id = parseInt(key)
     const docsName = DocID[id].replace('_', ' ');
     const items = sortedData[id]
-    const item = items[Object.keys(items)[0]]
+    const item = items[Object.keys(items)[0] as Tags]!
 
     supportedDocsTable += `| [${docsName}](${item.homepage})`
     times++;
