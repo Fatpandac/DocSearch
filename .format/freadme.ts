@@ -4,7 +4,9 @@ import { data, DocID } from "../src/data/apis";
 function formatSupportedDocsTable() {
   const columns = 3
   let times = 0;
-  let supportedDocsTable = `### Supported Documentations (${Object.keys(data).length})
+  const totalDocs = Object.keys(data).length
+  const totalVersions = Object.keys(data).reduce((a, b) => a + Object.keys(data[parseInt(b) as DocID]).length, 0)
+  let supportedDocsTable = `### Supported Documentations (${totalDocs} documentations | ${totalVersions} different versions)
 
 | Documentations |   |   |
 | :------------: |:-:|:-:|
