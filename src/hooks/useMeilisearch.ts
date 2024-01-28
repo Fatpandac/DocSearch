@@ -25,7 +25,7 @@ export function useMeilisearch(query = "", currentAPI: Meilisearch) {
       .then((res: any) => {
         setIsLoading(false);
 
-        if (!flag) return
+        if (!flag) return;
 
         formatHitUrl(res, currentAPI.homepage);
         setSearchResults(res.hits);
@@ -38,8 +38,8 @@ export function useMeilisearch(query = "", currentAPI: Meilisearch) {
       });
 
     return () => {
-      flag = false
-    }
+      flag = false;
+    };
   }, [query, currentAPI]);
 
   return { searchResults, isLoading };

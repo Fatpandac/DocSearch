@@ -33,9 +33,9 @@ export type Meilisearch = Base & {
 export type API = Algolia | Meilisearch;
 export type Data = {
   [key in DocID]: {
-    [key in string]: API
-  }
-}
+    [key in string]: API;
+  };
+};
 
 export const data: Data = {
   [DocID.ElementPlus]: {
@@ -128,7 +128,7 @@ export const data: Data = {
       indexName: "arthas",
       type: "algolia",
       homepage: "https://arthas.aliyun.com/",
-    }
+    },
   },
   [DocID.Astro]: {
     "en-US": {
@@ -221,7 +221,7 @@ export const data: Data = {
       searchParameters: {
         facetFilters: ["lang:zh"],
       },
-    }
+    },
   },
   [DocID.Flet]: {
     "en-US": {
@@ -636,5 +636,5 @@ export const data: Data = {
       type: "algolia",
       homepage: "https://v2.vuepress.vuejs.org/",
     },
-  }
-}
+  },
+};

@@ -2,5 +2,5 @@ import { SearchDocumentation } from "./components";
 import { DocID } from "./data/apis";
 
 export default function Command(props: { arguments: { search?: string } }) {
-  return <SearchDocumentation id={DocID.ElementPlus_cn} quickSearch={props.arguments?.search} />;
+  return <SearchDocumentation id={DocID.TailwindCSS} quickSearch={props.arguments?.search} />;
 }

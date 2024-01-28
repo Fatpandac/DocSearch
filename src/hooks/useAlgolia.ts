@@ -30,7 +30,7 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
       .then((res: any) => {
         setIsLoading(false);
 
-        if (!flag) return
+        if (!flag) return;
 
         formatHitUrl(res, currentAPI.homepage);
         setSearchResults(res.hits);
@@ -43,8 +43,8 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
       });
 
     return () => {
-      flag = false
-    }
+      flag = false;
+    };
   }, [query, currentAPI]);
 
   return { searchResults, isLoading };

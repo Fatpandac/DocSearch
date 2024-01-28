@@ -13,26 +13,16 @@ type ExtensionPreferences = {}
 declare type Preferences = ExtensionPreferences
 
 declare namespace Preferences {
-  /** Preferences accessible in the `elementplus` command */
-  export type Elementplus = ExtensionPreferences & {}
-  /** Preferences accessible in the `elementplus_zh-hans` command */
-  export type ElementplusZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `antd` command */
   export type Antd = ExtensionPreferences & {}
-  /** Preferences accessible in the `antd_zh-hans` command */
-  export type AntdZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `antdv` command */
   export type Antdv = ExtensionPreferences & {}
-  /** Preferences accessible in the `antdv_zh-hans` command */
-  export type AntdvZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `apollo` command */
   export type Apollo = ExtensionPreferences & {}
   /** Preferences accessible in the `arthas` command */
   export type Arthas = ExtensionPreferences & {}
-  /** Preferences accessible in the `astro_v4` command */
-  export type AstroV4 = ExtensionPreferences & {}
-  /** Preferences accessible in the `astro_v4_zh-hans` command */
-  export type AstroV4ZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `astro` command */
+  export type Astro = ExtensionPreferences & {}
   /** Preferences accessible in the `bootstrap` command */
   export type Bootstrap = ExtensionPreferences & {}
   /** Preferences accessible in the `clerk` command */
@@ -41,8 +31,6 @@ declare namespace Preferences {
   export type Dubbo = ExtensionPreferences & {}
   /** Preferences accessible in the `echarts` command */
   export type Echarts = ExtensionPreferences & {}
-  /** Preferences accessible in the `echarts_zh-hans` command */
-  export type EchartsZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `flet` command */
   export type Flet = ExtensionPreferences & {}
   /** Preferences accessible in the `gitbook` command */
@@ -51,18 +39,14 @@ declare namespace Preferences {
   export type Homebrew = ExtensionPreferences & {}
   /** Preferences accessible in the `ipfs` command */
   export type Ipfs = ExtensionPreferences & {}
-  /** Preferences accessible in the `laravel_9.x` command */
-  export type Laravel9X = ExtensionPreferences & {}
+  /** Preferences accessible in the `laravel` command */
+  export type Laravel = ExtensionPreferences & {}
   /** Preferences accessible in the `nuxt` command */
   export type Nuxt = ExtensionPreferences & {}
-  /** Preferences accessible in the `nuxt3` command */
-  export type Nuxt3 = ExtensionPreferences & {}
   /** Preferences accessible in the `nvchad` command */
   export type Nvchad = ExtensionPreferences & {}
   /** Preferences accessible in the `pnpm` command */
   export type Pnpm = ExtensionPreferences & {}
-  /** Preferences accessible in the `pnpm_zh-hans` command */
-  export type PnpmZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `prettier` command */
   export type Prettier = ExtensionPreferences & {}
   /** Preferences accessible in the `rsshub` command */
@@ -71,8 +55,6 @@ declare namespace Preferences {
   export type Raycast = ExtensionPreferences & {}
   /** Preferences accessible in the `react` command */
   export type React = ExtensionPreferences & {}
-  /** Preferences accessible in the `react_zh-hans` command */
-  export type ReactZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `react_bootstrap` command */
   export type ReactBootstrap = ExtensionPreferences & {}
   /** Preferences accessible in the `react_native` command */
@@ -81,68 +63,40 @@ declare namespace Preferences {
   export type Remix = ExtensionPreferences & {}
   /** Preferences accessible in the `slidev` command */
   export type Slidev = ExtensionPreferences & {}
-  /** Preferences accessible in the `slidev_zh-hans` command */
-  export type SlidevZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `taro` command */
+  export type Taro = ExtensionPreferences & {}
   /** Preferences accessible in the `supabase` command */
   export type Supabase = ExtensionPreferences & {}
-  /** Preferences accessible in the `tailwindcss_v3` command */
-  export type TailwindcssV3 = ExtensionPreferences & {}
-  /** Preferences accessible in the `taro_zh-hans` command */
-  export type TaroZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `tailwindcss` command */
+  export type Tailwindcss = ExtensionPreferences & {}
   /** Preferences accessible in the `tauri` command */
   export type Tauri = ExtensionPreferences & {}
-  /** Preferences accessible in the `tauri_zh-hans` command */
-  export type TauriZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `unidata` command */
   export type Unidata = ExtensionPreferences & {}
   /** Preferences accessible in the `vite` command */
   export type Vite = ExtensionPreferences & {}
-  /** Preferences accessible in the `vite_zh-hans` command */
-  export type ViteZhHans = ExtensionPreferences & {}
   /** Preferences accessible in the `vitest` command */
   export type Vitest = ExtensionPreferences & {}
-  /** Preferences accessible in the `vue_router4` command */
-  export type VueRouter4 = ExtensionPreferences & {}
-  /** Preferences accessible in the `vue3` command */
-  export type Vue3 = ExtensionPreferences & {}
-  /** Preferences accessible in the `vue3_zh-hans` command */
-  export type Vue3ZhHans = ExtensionPreferences & {}
+  /** Preferences accessible in the `vue_router` command */
+  export type VueRouter = ExtensionPreferences & {}
+  /** Preferences accessible in the `vue` command */
+  export type Vue = ExtensionPreferences & {}
   /** Preferences accessible in the `vueuse` command */
   export type Vueuse = ExtensionPreferences & {}
-  /** Preferences accessible in the `vuepress_v1` command */
-  export type VuepressV1 = ExtensionPreferences & {}
-  /** Preferences accessible in the `vuepress_v2` command */
-  export type VuepressV2 = ExtensionPreferences & {}
+  /** Preferences accessible in the `vuepress` command */
+  export type Vuepress = ExtensionPreferences & {}
+  /** Preferences accessible in the `elementplus` command */
+  export type Elementplus = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
-  /** Arguments passed to the `elementplus` command */
-  export type Elementplus = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `elementplus_zh-hans` command */
-  export type ElementplusZhHans = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `antd` command */
   export type Antd = {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `antd_zh-hans` command */
-  export type AntdZhHans = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `antdv` command */
   export type Antdv = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `antdv_zh-hans` command */
-  export type AntdvZhHans = {
   /** Search... */
   "search": string
 }
@@ -156,13 +110,8 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `astro_v4` command */
-  export type AstroV4 = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `astro_v4_zh-hans` command */
-  export type AstroV4ZhHans = {
+  /** Arguments passed to the `astro` command */
+  export type Astro = {
   /** Search... */
   "search": string
 }
@@ -186,11 +135,6 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `echarts_zh-hans` command */
-  export type EchartsZhHans = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `flet` command */
   export type Flet = {
   /** Search... */
@@ -211,18 +155,13 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `laravel_9.x` command */
-  export type Laravel9X = {
+  /** Arguments passed to the `laravel` command */
+  export type Laravel = {
   /** Search... */
   "search": string
 }
   /** Arguments passed to the `nuxt` command */
   export type Nuxt = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `nuxt3` command */
-  export type Nuxt3 = {
   /** Search... */
   "search": string
 }
@@ -233,11 +172,6 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `pnpm` command */
   export type Pnpm = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `pnpm_zh-hans` command */
-  export type PnpmZhHans = {
   /** Search... */
   "search": string
 }
@@ -261,11 +195,6 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `react_zh-hans` command */
-  export type ReactZhHans = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `react_bootstrap` command */
   export type ReactBootstrap = {
   /** Search... */
@@ -286,8 +215,8 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `slidev_zh-hans` command */
-  export type SlidevZhHans = {
+  /** Arguments passed to the `taro` command */
+  export type Taro = {
   /** Search... */
   "search": string
 }
@@ -296,23 +225,13 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `tailwindcss_v3` command */
-  export type TailwindcssV3 = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `taro_zh-hans` command */
-  export type TaroZhHans = {
+  /** Arguments passed to the `tailwindcss` command */
+  export type Tailwindcss = {
   /** Search... */
   "search": string
 }
   /** Arguments passed to the `tauri` command */
   export type Tauri = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `tauri_zh-hans` command */
-  export type TauriZhHans = {
   /** Search... */
   "search": string
 }
@@ -326,28 +245,18 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `vite_zh-hans` command */
-  export type ViteZhHans = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `vitest` command */
   export type Vitest = {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `vue_router4` command */
-  export type VueRouter4 = {
+  /** Arguments passed to the `vue_router` command */
+  export type VueRouter = {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `vue3` command */
-  export type Vue3 = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `vue3_zh-hans` command */
-  export type Vue3ZhHans = {
+  /** Arguments passed to the `vue` command */
+  export type Vue = {
   /** Search... */
   "search": string
 }
@@ -356,13 +265,13 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `vuepress_v1` command */
-  export type VuepressV1 = {
+  /** Arguments passed to the `vuepress` command */
+  export type Vuepress = {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `vuepress_v2` command */
-  export type VuepressV2 = {
+  /** Arguments passed to the `elementplus` command */
+  export type Elementplus = {
   /** Search... */
   "search": string
 }

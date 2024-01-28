@@ -1,29 +1,33 @@
 import fs from "fs";
-import { data } from "../src/data/apis";
+import { data, DocID } from "../src/data/apis";
 
 function formatSupportedDocsTable() {
   const columns = 3
   let times = 0;
-  let supportedDocsTable = `### Supported Documentations (${data.length})
+  let supportedDocsTable = `### Supported Documentations (${Object.keys(data).length})
 
 | Documentations |   |   |
 | :------------: |:-:|:-:|
 `;
 
   // Sort data
-  const sortedData = data.sort((a, b) => (a.name > b.name ? 1 : -1));
+  const sortedData = Object.fromEntries(Object.entries(data).sort(([a], [b]) => a.localeCompare(b)));
 
-  sortedData.map((item) => {
-    supportedDocsTable +=
-      "lang" in item && item.lang
-        ? `| [${item.name}(${item.lang})](${item.homepage})`
-        : `| [${item.name}](${item.homepage})`;
+  Object.keys(sortedData).map((key) => {
+    const id = parseInt(key)
+    const docsName = DocID[id];
+    const items = sortedData[id]
+    const item = items[Object.keys(items)[0]]
+
+    supportedDocsTable += `| [${docsName}](${item.homepage})`
     times++;
+
     if (times % columns === 0) {
       supportedDocsTable += " |\n";
     }
   });
-  if (sortedData.length % columns !== 0) {
+
+  if (Object.keys(sortedData).length % columns !== 0) {
     supportedDocsTable += ' |'
   }
 
