@@ -15,10 +15,10 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |            [IPFS](https://docs.ipfs.tech/)            |          [Laravel](https://laravel.com/)          |             [Nuxt](https://nuxtjs.org/)             |
 |             [NvChad](https://nvchad.com/)             |            [Pnpm](https://pnpm.io/zh)             |          [Prettier](https://prettier.io/)           |
 |          [RSSHub](https://docs.rsshub.app/)           |    [Raycast](https://developers.raycast.com/)     |            [React](https://reactjs.org/)            |
-| [React_Bootstrap](https://react-bootstrap.github.io/) |     [React_Native](https://reactnative.dev/)      |             [Remix](https://remix.run/)             |
+| [React Bootstrap](https://react-bootstrap.github.io/) |     [React Native](https://reactnative.dev/)      |             [Remix](https://remix.run/)             |
 |              [Slidev](https://sli.dev/)               |       [Taro](https://docs.taro.zone/docs/)        |        [Supabase](https://supabase.com/docs)        |
 |        [TailwindCSS](https://tailwindcss.com/)        |            [Tauri](https://tauri.app/)            |           [Unidata](https://unidata.app/)           |
-|              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |       [Vue_Router](https://router.vuejs.org/)       |
+|              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |       [Vue Router](https://router.vuejs.org/)       |
 |               [Vue](https://vuejs.org/)               |           [VueUse](https://vueuse.org/)           |       [Vuepress](https://vuepress.vuejs.org/)       |
 |    [ElementPlus](https://element-plus.org/en-US/)     |
 

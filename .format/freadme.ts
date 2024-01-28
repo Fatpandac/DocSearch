@@ -17,7 +17,7 @@ function formatSupportedDocsTable() {
 
   Object.keys(sortedData).map((key) => {
     const id = parseInt(key)
-    const docsName = DocID[id];
+    const docsName = DocID[id].replace('_', ' ');
     const items = sortedData[id]
     const item = items[Object.keys(items)[0]]
 
