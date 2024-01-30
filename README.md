@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (37 documentations | 63 different versions)
+### Supported Documentations (37 documentations | 66 different versions)
 
 |                    Documentations                     |                                                   |                                                     |
 | :---------------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
@@ -18,7 +18,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 | [React Bootstrap](https://react-bootstrap.github.io/) |     [React Native](https://reactnative.dev/)      |             [Remix](https://remix.run/)             |
 |              [Slidev](https://sli.dev/)               |     [Taro](https://docs.taro.zone/docs/1.x/)      |        [Supabase](https://supabase.com/docs)        |
 |  [TailwindCSS](https://tailwindcss-v0.netlify.app/)   |            [Tauri](https://tauri.app/)            |           [Unidata](https://unidata.app/)           |
-|              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |       [Vue Router](https://router.vuejs.org/)       |
+|              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |     [Vue Router](https://v3.router.vuejs.org/)      |
 |             [Vue](https://v2.vuejs.org/)              |           [VueUse](https://vueuse.org/)           |       [Vuepress](https://vuepress.vuejs.org/)       |
 |    [ElementPlus](https://element-plus.org/en-US/)     |
 
