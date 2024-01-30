@@ -1,13 +1,13 @@
 // prettier-ignore
 export enum DocID {
-  Antd, Antdv, Apollo,
-  Arthas, Astro, Bootstrap, Clerk, Dubbo, Echarts,
+  Antd, Antdv, Apollo, Arthas, Astro,
+  Bootstrap, Clerk, Dubbo, Echarts,
   Flet, GitBook, Homebrew, IPFS,
   Laravel, Nuxt, NvChad, Pnpm,
   Prettier, RSSHub, Raycast, React,
-  React_Bootstrap, React_Native, Remix, Slidev, Taro,
-  Supabase, TailwindCSS,
-  Tauri, Unidata, Vite,
+  React_Bootstrap, React_Native,
+  Remix, Slidev, Taro, Supabase,
+  TailwindCSS, Tauri, Unidata, Vite,
   Vitest, Vue_Router, Vue, VueUse,
   Vuepress, ElementPlus,
 }
@@ -479,7 +479,29 @@ export const data: Data = {
     },
   },
   [DocID.Taro]: {
-    "zh-CN": {
+    "V1 zh-CN": {
+      icon: "../assets/logo/taro.png",
+      apiKey: "3f32982103f4e75dadd86900d26a9315",
+      appId: "BH4D9OD16A",
+      indexName: "taro-zone",
+      type: "algolia",
+      homepage: "https://docs.taro.zone/docs/",
+      searchParameters: {
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-1.x"]],
+      },
+    },
+    "V2 zh-CN": {
+      icon: "../assets/logo/taro.png",
+      apiKey: "3f32982103f4e75dadd86900d26a9315",
+      appId: "BH4D9OD16A",
+      indexName: "taro-zone",
+      type: "algolia",
+      homepage: "https://docs.taro.zone/docs/",
+      searchParameters: {
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-2.x"]],
+      },
+    },
+    "V3 zh-CN": {
       icon: "../assets/logo/taro.png",
       apiKey: "3f32982103f4e75dadd86900d26a9315",
       appId: "BH4D9OD16A",
@@ -488,6 +510,17 @@ export const data: Data = {
       homepage: "https://docs.taro.zone/docs/",
       searchParameters: {
         facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-3.x"]],
+      },
+    },
+    "V4 zh-CN": {
+      icon: "../assets/logo/taro.png",
+      apiKey: "3f32982103f4e75dadd86900d26a9315",
+      appId: "BH4D9OD16A",
+      indexName: "taro-zone",
+      type: "algolia",
+      homepage: "https://docs.taro.zone/docs/",
+      searchParameters: {
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-4.x"]],
       },
     },
   },
