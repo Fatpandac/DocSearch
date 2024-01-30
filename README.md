@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (37 documentations | 53 different versions)
+### Supported Documentations (37 documentations | 59 different versions)
 
 |                    Documentations                     |                                                   |                                                     |
 | :---------------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
@@ -16,8 +16,8 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |             [NvChad](https://nvchad.com/)             |            [Pnpm](https://pnpm.io/zh)             |          [Prettier](https://prettier.io/)           |
 |          [RSSHub](https://docs.rsshub.app/)           |    [Raycast](https://developers.raycast.com/)     |            [React](https://reactjs.org/)            |
 | [React Bootstrap](https://react-bootstrap.github.io/) |     [React Native](https://reactnative.dev/)      |             [Remix](https://remix.run/)             |
-|              [Slidev](https://sli.dev/)               |       [Taro](https://docs.taro.zone/docs/)        |        [Supabase](https://supabase.com/docs)        |
-|        [TailwindCSS](https://tailwindcss.com/)        |            [Tauri](https://tauri.app/)            |           [Unidata](https://unidata.app/)           |
+|              [Slidev](https://sli.dev/)               |     [Taro](https://docs.taro.zone/docs/1.x/)      |        [Supabase](https://supabase.com/docs)        |
+|  [TailwindCSS](https://tailwindcss-v0.netlify.app/)   |            [Tauri](https://tauri.app/)            |           [Unidata](https://unidata.app/)           |
 |              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |       [Vue Router](https://router.vuejs.org/)       |
 |               [Vue](https://vuejs.org/)               |           [VueUse](https://vueuse.org/)           |       [Vuepress](https://vuepress.vuejs.org/)       |
 |    [ElementPlus](https://element-plus.org/en-US/)     |

@@ -30,8 +30,8 @@ export type Meilisearch = Base & {
   type: "meilisearch";
 };
 
-type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it_IT";
-type Versions = "V1" | "V2" | "V3" | "V4" | "V9";
+type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
+type Versions = "V0" | "V1" | "V2" | "V3" | "V4" | "V9";
 export type Tags = `${Versions} ${Languages}` | `${Languages}`;
 
 export type API = Algolia | Meilisearch;
@@ -466,6 +466,39 @@ export const data: Data = {
     },
   },
   [DocID.TailwindCSS]: {
+    "V0 en-US": {
+      icon: "../assets/logo/tailwindcss.png",
+      apiKey: "3df93446658cd9c4e314d4c02a052188",
+      appId: "BH4D9OD16A",
+      indexName: "tailwindcss",
+      type: "algolia",
+      homepage: "https://tailwindcss-v0.netlify.app/",
+      searchParameters: {
+        facetFilters: ["version:v0"],
+      },
+    },
+    "V1 en-US": {
+      icon: "../assets/logo/tailwindcss.png",
+      apiKey: "3df93446658cd9c4e314d4c02a052188",
+      appId: "BH4D9OD16A",
+      indexName: "tailwindcss",
+      type: "algolia",
+      homepage: "https://v1.tailwindcss.com/",
+      searchParameters: {
+        facetFilters: ["version:v1"],
+      },
+    },
+    "V2 en-US": {
+      icon: "../assets/logo/tailwindcss.png",
+      apiKey: "5fc87cef58bb80203d2207578309fab6",
+      appId: "KNPXZI5B0M",
+      indexName: "tailwindcss",
+      type: "algolia",
+      homepage: "https://v2.tailwindcss.com/",
+      searchParameters: {
+        facetFilters: ["version:v2"],
+      },
+    },
     "V3 en-US": {
       icon: "../assets/logo/tailwindcss.png",
       apiKey: "5fc87cef58bb80203d2207578309fab6",
@@ -581,7 +614,7 @@ export const data: Data = {
         filter: ["lang = ko"],
       },
     },
-    "it_IT": {
+    "it-IT": {
       icon: "../assets/logo/tauri.png",
       apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
       indexName: "docs-v1",
