@@ -194,7 +194,7 @@ export const data: Data = {
     },
   },
   [DocID.Dubbo]: {
-    "en-US": {
+    "zh-CN": {
       icon: "../assets/logo/dubbo.png",
       apiKey: "364ae307e1da9d02b2335675e9db1eb1",
       appId: "L5F4T9F0I1",
