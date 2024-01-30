@@ -284,17 +284,6 @@ export const data: Data = {
     },
   },
   [DocID.Nuxt]: {
-    "V2 en-US": {
-      icon: "../assets/logo/nuxt.png",
-      apiKey: "60a01900a4b726d667eab75b6f337592",
-      appId: "1V8G7N9GF0",
-      indexName: "nuxtjs",
-      type: "algolia",
-      homepage: "https://nuxtjs.org/",
-      searchParameters: {
-        facetFilters: ["language:en-US", "tags:main"],
-      },
-    },
     "V3 en-US": {
       icon: "../assets/logo/nuxt.png",
       apiKey: "60a01900a4b726d667eab75b6f337592",
@@ -304,6 +293,17 @@ export const data: Data = {
       homepage: "https://v3.nuxtjs.org/",
       searchParameters: {
         facetFilters: ["language:en-US", "tags:v3"],
+      },
+    },
+    "V2 en-US": {
+      icon: "../assets/logo/nuxt.png",
+      apiKey: "60a01900a4b726d667eab75b6f337592",
+      appId: "1V8G7N9GF0",
+      indexName: "nuxtjs",
+      type: "algolia",
+      homepage: "https://nuxtjs.org/",
+      searchParameters: {
+        facetFilters: ["language:en-US", "tags:main"],
       },
     },
   },
@@ -466,26 +466,15 @@ export const data: Data = {
     },
   },
   [DocID.TailwindCSS]: {
-    "V0 en-US": {
+    "V3 en-US": {
       icon: "../assets/logo/tailwindcss.png",
-      apiKey: "3df93446658cd9c4e314d4c02a052188",
-      appId: "BH4D9OD16A",
+      apiKey: "5fc87cef58bb80203d2207578309fab6",
+      appId: "KNPXZI5B0M",
       indexName: "tailwindcss",
       type: "algolia",
-      homepage: "https://tailwindcss-v0.netlify.app/",
+      homepage: "https://tailwindcss.com/",
       searchParameters: {
-        facetFilters: ["version:v0"],
-      },
-    },
-    "V1 en-US": {
-      icon: "../assets/logo/tailwindcss.png",
-      apiKey: "3df93446658cd9c4e314d4c02a052188",
-      appId: "BH4D9OD16A",
-      indexName: "tailwindcss",
-      type: "algolia",
-      homepage: "https://v1.tailwindcss.com/",
-      searchParameters: {
-        facetFilters: ["version:v1"],
+        facetFilters: ["version:v3"],
       },
     },
     "V2 en-US": {
@@ -499,39 +488,39 @@ export const data: Data = {
         facetFilters: ["version:v2"],
       },
     },
-    "V3 en-US": {
+    "V1 en-US": {
       icon: "../assets/logo/tailwindcss.png",
-      apiKey: "5fc87cef58bb80203d2207578309fab6",
-      appId: "KNPXZI5B0M",
+      apiKey: "3df93446658cd9c4e314d4c02a052188",
+      appId: "BH4D9OD16A",
       indexName: "tailwindcss",
       type: "algolia",
-      homepage: "https://tailwindcss.com/",
+      homepage: "https://v1.tailwindcss.com/",
       searchParameters: {
-        facetFilters: ["version:v3"],
+        facetFilters: ["version:v1"],
+      },
+    },
+    "V0 en-US": {
+      icon: "../assets/logo/tailwindcss.png",
+      apiKey: "3df93446658cd9c4e314d4c02a052188",
+      appId: "BH4D9OD16A",
+      indexName: "tailwindcss",
+      type: "algolia",
+      homepage: "https://tailwindcss-v0.netlify.app/",
+      searchParameters: {
+        facetFilters: ["version:v0"],
       },
     },
   },
   [DocID.Taro]: {
-    "V1 zh-CN": {
+    "V4 zh-CN": {
       icon: "../assets/logo/taro.png",
       apiKey: "3f32982103f4e75dadd86900d26a9315",
       appId: "BH4D9OD16A",
       indexName: "taro-zone",
       type: "algolia",
-      homepage: "https://docs.taro.zone/docs/1.x/",
+      homepage: "https://docs.taro.zone/docs/4.x/",
       searchParameters: {
-        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-1.x"]],
-      },
-    },
-    "V2 zh-CN": {
-      icon: "../assets/logo/taro.png",
-      apiKey: "3f32982103f4e75dadd86900d26a9315",
-      appId: "BH4D9OD16A",
-      indexName: "taro-zone",
-      type: "algolia",
-      homepage: "https://docs.taro.zone/docs/2.x/",
-      searchParameters: {
-        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-2.x"]],
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-4.x"]],
       },
     },
     "V3 zh-CN": {
@@ -545,15 +534,26 @@ export const data: Data = {
         facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-3.x"]],
       },
     },
-    "V4 zh-CN": {
+    "V2 zh-CN": {
       icon: "../assets/logo/taro.png",
       apiKey: "3f32982103f4e75dadd86900d26a9315",
       appId: "BH4D9OD16A",
       indexName: "taro-zone",
       type: "algolia",
-      homepage: "https://docs.taro.zone/docs/4.x/",
+      homepage: "https://docs.taro.zone/docs/2.x/",
       searchParameters: {
-        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-4.x"]],
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-2.x"]],
+      },
+    },
+    "V1 zh-CN": {
+      icon: "../assets/logo/taro.png",
+      apiKey: "3f32982103f4e75dadd86900d26a9315",
+      appId: "BH4D9OD16A",
+      indexName: "taro-zone",
+      type: "algolia",
+      homepage: "https://docs.taro.zone/docs/1.x/",
+      searchParameters: {
+        facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-1.x"]],
       },
     },
   },
@@ -674,28 +674,6 @@ export const data: Data = {
     },
   },
   [DocID.Vue_Router]: {
-    "V3 en-US": {
-      icon: "../assets/logo/vue.png",
-      apiKey: "08e7ef7cd3969442874f0dee9dec34be",
-      appId: "LI3RW4C4QI",
-      indexName: "vue-router",
-      type: "algolia",
-      homepage: "https://v3.router.vuejs.org/",
-      searchParameters: {
-        facetFilters: ["lang:en-US"],
-      },
-    },
-    "V3 zh-CN": {
-      icon: "../assets/logo/vue.png",
-      apiKey: "08e7ef7cd3969442874f0dee9dec34be",
-      appId: "LI3RW4C4QI",
-      indexName: "vue-router",
-      type: "algolia",
-      homepage: "https://v3.router.vuejs.org/zh/",
-      searchParameters: {
-        facetFilters: ["lang:zh-CN"],
-      },
-    },
     "V4 en-US": {
       icon: "../assets/logo/vue.png",
       apiKey: "771d10c8c5cc48f7922f15048b4d931c",
@@ -718,30 +696,30 @@ export const data: Data = {
         facetFilters: ["lang:zh-CN"],
       },
     },
+    "V3 en-US": {
+      icon: "../assets/logo/vue.png",
+      apiKey: "08e7ef7cd3969442874f0dee9dec34be",
+      appId: "LI3RW4C4QI",
+      indexName: "vue-router",
+      type: "algolia",
+      homepage: "https://v3.router.vuejs.org/",
+      searchParameters: {
+        facetFilters: ["lang:en-US"],
+      },
+    },
+    "V3 zh-CN": {
+      icon: "../assets/logo/vue.png",
+      apiKey: "08e7ef7cd3969442874f0dee9dec34be",
+      appId: "LI3RW4C4QI",
+      indexName: "vue-router",
+      type: "algolia",
+      homepage: "https://v3.router.vuejs.org/zh/",
+      searchParameters: {
+        facetFilters: ["lang:zh-CN"],
+      },
+    },
   },
   [DocID.Vue]: {
-    "V2 en-US": {
-      icon: "../assets/logo/vue.png",
-      apiKey: "f49cbd92a74532cc55cfbffa5e5a7d01",
-      appId: "ML0LEBN7FQ",
-      indexName: "vuejs",
-      type: "algolia",
-      homepage: "https://v2.vuejs.org/",
-      searchParameters: {
-        facetFilters: ["version:v2"],
-      },
-    },
-    "V2 zh-CN": {
-      icon: "../assets/logo/vue.png",
-      apiKey: "c23eb8e7895f42daeaf2bf6f63eb4bf6",
-      appId: "UURH1MHAF7",
-      indexName: "vuejs_cn2",
-      type: "algolia",
-      homepage: "https://v2.cn.vuejs.org/",
-      searchParameters: {
-        facetFilters: ["version:v2"],
-      },
-    },
     "V3 en-US": {
       icon: "../assets/logo/vue.png",
       apiKey: "f49cbd92a74532cc55cfbffa5e5a7d01",
@@ -764,6 +742,28 @@ export const data: Data = {
         facetFilters: ["version:v3"],
       },
     },
+    "V2 en-US": {
+      icon: "../assets/logo/vue.png",
+      apiKey: "f49cbd92a74532cc55cfbffa5e5a7d01",
+      appId: "ML0LEBN7FQ",
+      indexName: "vuejs",
+      type: "algolia",
+      homepage: "https://v2.vuejs.org/",
+      searchParameters: {
+        facetFilters: ["version:v2"],
+      },
+    },
+    "V2 zh-CN": {
+      icon: "../assets/logo/vue.png",
+      apiKey: "c23eb8e7895f42daeaf2bf6f63eb4bf6",
+      appId: "UURH1MHAF7",
+      indexName: "vuejs_cn2",
+      type: "algolia",
+      homepage: "https://v2.cn.vuejs.org/",
+      searchParameters: {
+        facetFilters: ["version:v2"],
+      },
+    },
   },
   [DocID.VueUse]: {
     "en-US": {
@@ -776,25 +776,6 @@ export const data: Data = {
     },
   },
   [DocID.Vuepress]: {
-    "V1 en-US": {
-      icon: "../assets/logo/vuepress.png",
-      apiKey: "3a539aab83105f01761a137c61004d85",
-      appId: "BH4D9OD16A",
-      indexName: "vuepress",
-      type: "algolia",
-      homepage: "https://vuepress.vuejs.org/",
-    },
-    "V1 zh-CN": {
-      icon: "../assets/logo/vuepress.png",
-      apiKey: "3a539aab83105f01761a137c61004d85",
-      appId: "BH4D9OD16A",
-      indexName: "vuepress",
-      type: "algolia",
-      homepage: "https://vuepress.vuejs.org/zh/",
-      searchParameters: {
-        facetFilters: ["lang:zh-CN", "tags:v1"],
-      },
-    },
     "V2 en-US": {
       icon: "../assets/logo/vuepress.png",
       apiKey: "9a9058b8655746634e01071411c366b8",
@@ -839,6 +820,25 @@ export const data: Data = {
       },
       type: "algolia",
       homepage: "https://v2.vuepress.vuejs.org/zh/",
+    },
+    "V1 en-US": {
+      icon: "../assets/logo/vuepress.png",
+      apiKey: "3a539aab83105f01761a137c61004d85",
+      appId: "BH4D9OD16A",
+      indexName: "vuepress",
+      type: "algolia",
+      homepage: "https://vuepress.vuejs.org/",
+    },
+    "V1 zh-CN": {
+      icon: "../assets/logo/vuepress.png",
+      apiKey: "3a539aab83105f01761a137c61004d85",
+      appId: "BH4D9OD16A",
+      indexName: "vuepress",
+      type: "algolia",
+      homepage: "https://vuepress.vuejs.org/zh/",
+      searchParameters: {
+        facetFilters: ["lang:zh-CN", "tags:v1"],
+      },
     },
   },
 };
