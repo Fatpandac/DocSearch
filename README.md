@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (37 documentations | 59 different versions)
+### Supported Documentations (37 documentations | 61 different versions)
 
 |                    Documentations                     |                                                   |                                                     |
 | :---------------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
