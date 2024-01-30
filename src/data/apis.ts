@@ -30,7 +30,7 @@ export type Meilisearch = Base & {
   type: "meilisearch";
 };
 
-type Languages = "en-US" | "zh-CN";
+type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it_IT";
 type Versions = "V1" | "V2" | "V3" | "V4" | "V9";
 export type Tags = `${Versions} ${Languages}` | `${Languages}`;
 
@@ -485,7 +485,7 @@ export const data: Data = {
       appId: "BH4D9OD16A",
       indexName: "taro-zone",
       type: "algolia",
-      homepage: "https://docs.taro.zone/docs/",
+      homepage: "https://docs.taro.zone/docs/1.x/",
       searchParameters: {
         facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-1.x"]],
       },
@@ -496,7 +496,7 @@ export const data: Data = {
       appId: "BH4D9OD16A",
       indexName: "taro-zone",
       type: "algolia",
-      homepage: "https://docs.taro.zone/docs/",
+      homepage: "https://docs.taro.zone/docs/2.x/",
       searchParameters: {
         facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-2.x"]],
       },
@@ -518,7 +518,7 @@ export const data: Data = {
       appId: "BH4D9OD16A",
       indexName: "taro-zone",
       type: "algolia",
-      homepage: "https://docs.taro.zone/docs/",
+      homepage: "https://docs.taro.zone/docs/4.x/",
       searchParameters: {
         facetFilters: ["language:zh-cn", ["docusaurus_tag:default", "docusaurus_tag:docs-default-4.x"]],
       },
@@ -551,6 +551,48 @@ export const data: Data = {
         attributesToCrop: ["content"],
         cropLength: 30,
         filter: ["lang = zh-cn"],
+      },
+    },
+    "fr-FR": {
+      icon: "../assets/logo/tauri.png",
+      apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
+      indexName: "docs-v1",
+      type: "meilisearch",
+      apiHost: "https://ms-4ebb96f179f0-1619.fra.meilisearch.io/",
+      homepage: "https://tauri.app/fr/",
+      searchParameters: {
+        attributesToHighlight: ["*"],
+        attributesToCrop: ["content"],
+        cropLength: 30,
+        filter: ["lang = fr"],
+      },
+    },
+    "ko-KR": {
+      icon: "../assets/logo/tauri.png",
+      apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
+      indexName: "docs-v1",
+      type: "meilisearch",
+      apiHost: "https://ms-4ebb96f179f0-1619.fra.meilisearch.io/",
+      homepage: "https://tauri.app/ko/",
+      searchParameters: {
+        attributesToHighlight: ["*"],
+        attributesToCrop: ["content"],
+        cropLength: 30,
+        filter: ["lang = ko"],
+      },
+    },
+    "it_IT": {
+      icon: "../assets/logo/tauri.png",
+      apiKey: "3eb6db150af1abefe000f00386e149dfb5a006932cab55d1ccd810b8672a4e12",
+      indexName: "docs-v1",
+      type: "meilisearch",
+      apiHost: "https://ms-4ebb96f179f0-1619.fra.meilisearch.io/",
+      homepage: "https://tauri.app/it/",
+      searchParameters: {
+        attributesToHighlight: ["*"],
+        attributesToCrop: ["content"],
+        cropLength: 30,
+        filter: ["lang = it"],
       },
     },
   },
