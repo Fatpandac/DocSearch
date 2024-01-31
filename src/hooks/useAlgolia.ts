@@ -19,6 +19,7 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    let flag = true;
     setIsLoading(true);
 
     searchIndex
@@ -28,8 +29,10 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
       })
       .then((res: any) => {
         setIsLoading(false);
-        formatHitUrl(res, currentAPI.homepage);
 
+        if (!flag) return;
+
+        formatHitUrl(res, currentAPI.homepage);
         setSearchResults(res.hits);
       })
       .catch((err: { message: string | undefined }) => {
@@ -38,7 +41,11 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
 
         return [];
       });
-  }, [query]);
+
+    return () => {
+      flag = false;
+    };
+  }, [query, currentAPI]);
 
   return { searchResults, isLoading };
 }

@@ -17,14 +17,17 @@ export function useMeilisearch(query = "", currentAPI: Meilisearch) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    let flag = true;
     setIsLoading(true);
 
     searchIndex
       .search(query, currentAPI.searchParameters)
       .then((res: any) => {
         setIsLoading(false);
-        formatHitUrl(res, currentAPI.homepage);
 
+        if (!flag) return;
+
+        formatHitUrl(res, currentAPI.homepage);
         setSearchResults(res.hits);
       })
       .catch((err: { message: string | undefined }) => {
@@ -33,7 +36,11 @@ export function useMeilisearch(query = "", currentAPI: Meilisearch) {
 
         return [];
       });
-  }, [query]);
+
+    return () => {
+      flag = false;
+    };
+  }, [query, currentAPI]);
 
   return { searchResults, isLoading };
 }
