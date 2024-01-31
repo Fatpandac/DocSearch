@@ -28,7 +28,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 2. Open developer tools and input something in the search bar.
    ![developer_tools](./assets/developer_tools_DocSearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
-4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
+4. Input DocSearch data into [apis.ts](/src/data/apis.ts), like below.
 
    ```ts
    [DocID.Vuepress]: { // add a unique name to the DocID enums, then write it here
@@ -51,7 +51,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 2. Open developer tools and input something in the search bar.
    ![developer_tools](./assets/developer_tools_Meilisearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
-4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
+4. Input DocSearch data into [apis.ts](/src/data/apis.ts), like below.
    ```ts
    [DocID.RSSHub]: { // add a unique name to the DocID enums, then write it here
      "en-US": { // write a tag name for this documentation version that combines both the version and the language
