@@ -29,17 +29,20 @@ Link **DocSearch** and **Meilisearch** into Raycast.
    ![developer_tools](./assets/developer_tools_DocSearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
+
    ```ts
-   {
-        id: DocID.Vuepress1 // add a unique name to the DocID enums, then write it here
-        name: 'Vuepress v1',
-        icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
-        apiKey: '3a539aab83105f01761a137c61004d85',
-        appID: 'BH4D9OD16A',
-        indexName: 'vuepress',
-        homepage: 'https://vuepress.vuejs.org/',
+   [DocID.Vuepress]: { // add a unique name to the DocID enums, then write it here
+     "V1 zh-CN": { // write a tag name for this documentation version that combines both the version and the language
+       icon: '../assets/logo/XXXX.png', // path to icon in the assets folder
+       apiKey: '3a539aab83105f01761a137c61004d85',
+       appID: 'BH4D9OD16A',
+       indexName: 'vuepress',
+      type: "algolia",
+       homepage: 'https://vuepress.vuejs.org/',
+     }
    }
    ```
+
 5. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
 
 ### Meilisearch
@@ -50,14 +53,15 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 3. Download the site icon and put it into [assets/logo](assets/logo).
 4. Input DocSearch data into [api.ts](/src/data/api.ts), like below.
    ```ts
-   {
-      id: DocID.RSSHub // add a unique name to the DocID enums, then write it here
-      name: 'RSSHub',
-      icon: '../assets/logo/XXXX.png',  // path to icon in the assets folder
-      apiKey: '375c36cd9573a2c1d1e536214158c37120fdd0ba6cd8829f7a848e940cc22245',
-      apiHost: 'https://meilisearch.rsshub.app',
-      indexName: 'rsshub',
-      homepage: 'https://docs.rsshub.app/',
+   [DocID.RSSHub]: { // add a unique name to the DocID enums, then write it here
+     "en-US": { // write a tag name for this documentation version that combines both the version and the language
+       icon: "../assets/logo/rsshub.png", // path to icon in the assets folder
+       apikey: "3a539aab83105f01761a137c61004d85",
+       appid: "bh4d9od16a",
+       indexname: "vuepress",
+       type: "algolia",
+       homepage: "https://vuepress.vuejs.org/",
+     }
    }
    ```
 5. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
