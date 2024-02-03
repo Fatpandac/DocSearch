@@ -1,5 +1,9 @@
 # DocSearch Changelog
 
+## [New feature] - 2024-2-3
+
+- 🌟 Use searchBarAccessory to switch different version of docs
+
 ## [New feature and documentation] - 2024-01-16
 
 - 📄 Support [Element Plus](https://element-plus.org/en-US/)
