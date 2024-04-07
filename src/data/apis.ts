@@ -9,7 +9,7 @@ export enum DocID {
   Remix, Slidev, Taro, Supabase,
   TailwindCSS, Tauri, Unidata, Vite,
   Vitest, Vue_Router, Vue, VueUse,
-  Vuepress, ElementPlus,
+  Vuepress, ElementPlus, Neovim
 }
 
 type Base = {
@@ -42,6 +42,16 @@ export type Data = {
 };
 
 export const data: Data = {
+  [DocID.Neovim]: {
+    "en-US": {
+      icon: "../assets/logo/nvim.png",
+      apiKey: "b5e6b2f9c636b2b471303205e59832ed",
+      appId: "X185E15FPG",
+      indexName: "nvim",
+      type: "algolia",
+      homepage: "https://neovim.io/",
+    },
+  },
   [DocID.ElementPlus]: {
     "en-US": {
       icon: "../assets/logo/element.png",

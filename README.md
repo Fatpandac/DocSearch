@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (37 documentations | 66 different versions)
+### Supported Documentations (38 documentations | 67 different versions)
 
 |                    Documentations                     |                                                   |                                                     |
 | :---------------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
@@ -20,7 +20,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |        [TailwindCSS](https://tailwindcss.com/)        |            [Tauri](https://tauri.app/)            |           [Unidata](https://unidata.app/)           |
 |              [Vite](https://vitejs.dev/)              |           [Vitest](https://vitest.dev/)           |       [Vue Router](https://router.vuejs.org/)       |
 |               [Vue](https://vuejs.org/)               |           [VueUse](https://vueuse.org/)           |     [Vuepress](https://v2.vuepress.vuejs.org/)      |
-|    [ElementPlus](https://element-plus.org/en-US/)     |
+|    [ElementPlus](https://element-plus.org/en-US/)     |           [Neovim](https://neovim.io/)            |
 
 ### Docsearch
 

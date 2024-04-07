@@ -571,6 +571,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "neovim",
+      "icon": "/logo/nvim.png",
+      "title": "Neovim",
+      "subtitle": "DocSearch",
+      "description": "Search Neovim documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {

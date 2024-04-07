@@ -87,6 +87,8 @@ declare namespace Preferences {
   export type Vuepress = ExtensionPreferences & {}
   /** Preferences accessible in the `elementplus` command */
   export type Elementplus = ExtensionPreferences & {}
+  /** Preferences accessible in the `neovim` command */
+  export type Neovim = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -272,6 +274,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `elementplus` command */
   export type Elementplus = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `neovim` command */
+  export type Neovim = {
   /** Search... */
   "search": string
 }
