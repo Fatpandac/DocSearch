@@ -9,7 +9,8 @@ export enum DocID {
   Remix, Slidev, Taro, Supabase,
   TailwindCSS, Tauri, Unidata, Vite,
   Vitest, Vue_Router, Vue, VueUse,
-  Vuepress, ElementPlus, Neovim
+  Vuepress, ElementPlus, Neovim, Less,
+  Sass
 }
 
 type Base = {
@@ -42,6 +43,26 @@ export type Data = {
 };
 
 export const data: Data = {
+  [DocID.Sass]: {
+    "en-US": {
+      icon: "../assets/logo/sass.png",
+      apiKey: "2ebc7881b79986f58dc2f424769bf3fc",
+      appId: "Q9MULQONSV",
+      indexName: "sass-lang",
+      type: "algolia",
+      homepage: "https://sass-lang.com/",
+    },
+  },
+  [DocID.Less]: {
+    "en-US": {
+      icon: "../assets/logo/less.png",
+      apiKey: "ad081396555d043318b6a9af4f27a9ec",
+      appId: "LELS6COOLE",
+      indexName: "lesscss",
+      type: "algolia",
+      homepage: "https://lesscss.org/",
+    },
+  },
   [DocID.Neovim]: {
     "en-US": {
       icon: "../assets/logo/nvim.png",

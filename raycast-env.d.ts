@@ -89,6 +89,10 @@ declare namespace Preferences {
   export type Elementplus = ExtensionPreferences & {}
   /** Preferences accessible in the `neovim` command */
   export type Neovim = ExtensionPreferences & {}
+  /** Preferences accessible in the `less` command */
+  export type Less = ExtensionPreferences & {}
+  /** Preferences accessible in the `sass` command */
+  export type Sass = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -279,6 +283,16 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `neovim` command */
   export type Neovim = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `less` command */
+  export type Less = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `sass` command */
+  export type Sass = {
   /** Search... */
   "search": string
 }

@@ -586,6 +586,36 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "less",
+      "icon": "/logo/less.png",
+      "title": "Less",
+      "subtitle": "DocSearch",
+      "description": "Search Less documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "sass",
+      "icon": "/logo/sass.png",
+      "title": "Sass",
+      "subtitle": "DocSearch",
+      "description": "Search Sass documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {
