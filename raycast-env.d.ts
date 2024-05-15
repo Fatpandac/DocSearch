@@ -93,6 +93,8 @@ declare namespace Preferences {
   export type Less = ExtensionPreferences & {}
   /** Preferences accessible in the `sass` command */
   export type Sass = ExtensionPreferences & {}
+  /** Preferences accessible in the `deno` command */
+  export type Deno = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -293,6 +295,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `sass` command */
   export type Sass = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `deno` command */
+  export type Deno = {
   /** Search... */
   "search": string
 }

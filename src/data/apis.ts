@@ -10,7 +10,7 @@ export enum DocID {
   TailwindCSS, Tauri, Unidata, Vite,
   Vitest, Vue_Router, Vue, VueUse,
   Vuepress, ElementPlus, Neovim, Less,
-  Sass
+  Sass, Deno
 }
 
 type Base = {
@@ -31,9 +31,10 @@ export type Meilisearch = Base & {
   type: "meilisearch";
 };
 
+type DocsTypes = "Manual" | "Modules";
 type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
 type Versions = "V0" | "V1" | "V2" | "V3" | "V4" | "V9";
-export type Tags = `${Versions} ${Languages}` | `${Languages}`;
+export type Tags = `${Versions} ${Languages}` | `${Languages} ${DocsTypes}` | `${Languages}`;
 
 export type API = Algolia | Meilisearch;
 export type Data = {
@@ -43,6 +44,27 @@ export type Data = {
 };
 
 export const data: Data = {
+  [DocID.Deno]: {
+    "en-US Manual": {
+      icon: "../assets/logo/deno.png",
+      apiKey: "2ed789b2981acd210267b27f03ab47da",
+      appId: "QFPCRZC6WX",
+      indexName: "manual",
+      type: "algolia",
+      homepage: "https://deno.com/",
+      searchParameters: {
+        filters: "kind:paragraph",
+      },
+    },
+    "en-US Modules": {
+      icon: "../assets/logo/deno.png",
+      apiKey: "2ed789b2981acd210267b27f03ab47da",
+      appId: "QFPCRZC6WX",
+      indexName: "modules",
+      type: "algolia",
+      homepage: "https://deno.land/x/",
+    },
+  },
   [DocID.Sass]: {
     "en-US": {
       icon: "../assets/logo/sass.png",

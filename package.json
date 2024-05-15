@@ -616,6 +616,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "deno",
+      "icon": "/logo/deno.png",
+      "title": "Deno",
+      "subtitle": "DocSearch",
+      "description": "Search Deno documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {

@@ -1,5 +1,14 @@
 # DocSearch Changelog
 
+## [New feature] - 2024-5-15
+
+- 📄 Support [Deno](https://deno.com/)
+
+## [New feature] - 2024-5-11
+
+- 📄 Support [Sass](https://sass-lang.com/)
+- 📄 Support [Less](https://lesscss.org/)
+
 ## [New feature] - 2024-2-3
 
 - 🌟 Use searchBarAccessory to switch different version of docs
