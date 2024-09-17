@@ -631,6 +631,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "typescript",
+      "icon": "/logo/typescript.png",
+      "title": "TypeScript",
+      "subtitle": "DocSearch",
+      "description": "Search TypeScript documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {
