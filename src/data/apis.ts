@@ -10,7 +10,7 @@ export enum DocID {
   TailwindCSS, Tauri, Unidata, Vite,
   Vitest, Vue_Router, Vue, VueUse,
   Vuepress, ElementPlus, Neovim, Less,
-  Sass, Deno, TypeScript
+  Sass, Deno, TypeScript, Yazi
 }
 
 type Base = {
@@ -910,6 +910,16 @@ export const data: Data = {
       indexName: "ts-yayujs",
       type: "algolia",
       homepage: "https://yayujs.com/",
+    },
+  },
+  [DocID.Yazi]: {
+    "en-US": {
+      icon: "../assets/logo/yazi.png",
+      apiKey: "d88c4dc9a8ebab02a753d7d950c61246",
+      appId: "MS4XF9Z1OE",
+      indexName: "yazi-rsio",
+      type: "algolia",
+      homepage: "https://yazi-rs.github.io/",
     },
   },
 };

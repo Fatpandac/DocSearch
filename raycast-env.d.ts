@@ -97,6 +97,8 @@ declare namespace Preferences {
   export type Deno = ExtensionPreferences & {}
   /** Preferences accessible in the `typescript` command */
   export type Typescript = ExtensionPreferences & {}
+  /** Preferences accessible in the `yazi` command */
+  export type Yazi = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -307,6 +309,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `typescript` command */
   export type Typescript = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `yazi` command */
+  export type Yazi = {
   /** Search... */
   "search": string
 }

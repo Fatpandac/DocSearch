@@ -646,6 +646,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "yazi",
+      "icon": "/logo/yazi.png",
+      "title": "Yazi",
+      "subtitle": "DocSearch",
+      "description": "Search Yazi documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {
