@@ -10,19 +10,19 @@ function generateCommand() {
     const item = data[idNum as DocID][defaultVersionDocs as Tags] as API
 
     return ({
-      "name": DocID[idNum].toLowerCase(),
-      "icon": item.icon.replace('../assets', ''),
-      "title": DocID[idNum].replace(/_/g, ' '),
-      "subtitle": "DocSearch",
-      "description": `Search ${DocID[idNum]} documentation`,
-      "arguments": [
+      name: DocID[idNum].toLowerCase(),
+      icon: item.icon.replace('../assets', ''),
+      title: DocID[idNum].replace(/_/g, ' '),
+      subtitle: "DocSearch",
+      description: `Search ${DocID[idNum]} documentation`,
+      arguments: [
         {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
+          name: "search",
+          placeholder: "Search...",
+          type: "text"
         }
       ],
-      "mode": "view"
+      mode: "view"
     })
   })
 }
