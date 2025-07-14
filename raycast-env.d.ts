@@ -97,6 +97,12 @@ declare namespace Preferences {
   export type Deno = ExtensionPreferences & {}
   /** Preferences accessible in the `typescript` command */
   export type Typescript = ExtensionPreferences & {}
+  /** Preferences accessible in the `nextjs` command */
+  export type Nextjs = ExtensionPreferences & {}
+  /** Preferences accessible in the `masstransit` command */
+  export type Masstransit = ExtensionPreferences & {}
+  /** Preferences accessible in the `pinia` command */
+  export type Pinia = ExtensionPreferences & {}
   /** Preferences accessible in the `yazi` command */
   export type Yazi = ExtensionPreferences & {}
 }
@@ -309,6 +315,21 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `typescript` command */
   export type Typescript = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `nextjs` command */
+  export type Nextjs = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `masstransit` command */
+  export type Masstransit = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `pinia` command */
+  export type Pinia = {
   /** Search... */
   "search": string
 }

@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (43 documentations | 74 different versions)
+### Supported Documentations (46 documentations | 79 different versions)
 
 |                    Documentations                     |                                                   |                                                     |
 | :---------------------------------------------------: | :-----------------------------------------------: | :-------------------------------------------------: |
@@ -22,6 +22,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |               [Vue](https://vuejs.org/)               |           [VueUse](https://vueuse.org/)           |     [Vuepress](https://v2.vuepress.vuejs.org/)      |
 |    [ElementPlus](https://element-plus.org/en-US/)     |           [Neovim](https://neovim.io/)            |            [Less](https://lesscss.org/)             |
 |            [Sass](https://sass-lang.com/)             |             [Deno](https://deno.com/)             |    [TypeScript](https://www.typescriptlang.org)     |
+|           [NextJS](https://nextjs.org/docs)           |      [MassTransit](https://masstransit.io/)       |          [Pinia](https://pinia.vuejs.org/)          |
 |          [Yazi](https://yazi-rs.github.io/)           |
 
 ### Docsearch
@@ -39,7 +40,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
        apiKey: '3a539aab83105f01761a137c61004d85',
        appID: 'BH4D9OD16A',
        indexName: 'vuepress',
-       type: "algolia",
+      type: "algolia",
        homepage: 'https://vuepress.vuejs.org/',
      }
    }
