@@ -4,7 +4,7 @@ export enum DocID {
   Bootstrap, Clerk, Dubbo, Echarts,
   Flet, GitBook, Homebrew, IPFS,
   Laravel, Nuxt, NvChad, Pnpm,
-  Prettier, RSSHub, Raycast, React,
+  Prettier, Raycast, React,
   React_Bootstrap, React_Native,
   Remix, Slidev, Taro, Supabase,
   TailwindCSS, Tauri, Unidata, Vite,
@@ -413,16 +413,6 @@ export const data: Data = {
       indexName: "prettier",
       type: "algolia",
       homepage: "https://prettier.io/",
-    },
-  },
-  [DocID.RSSHub]: {
-    "en-US": {
-      icon: "../assets/logo/rsshub.png",
-      apiKey: "375c36cd9573a2c1d1e536214158c37120fdd0ba6cd8829f7a848e940cc22245",
-      indexName: "rsshub",
-      type: "meilisearch",
-      apiHost: "https://meilisearch.rsshub.app/",
-      homepage: "https://docs.rsshub.app/",
     },
   },
   [DocID.Raycast]: {

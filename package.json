@@ -289,21 +289,6 @@
       "mode": "view"
     },
     {
-      "name": "rsshub",
-      "icon": "/logo/rsshub.png",
-      "title": "RSSHub",
-      "subtitle": "DocSearch",
-      "description": "Search RSSHub documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
       "name": "raycast",
       "icon": "/logo/raycast.png",
       "title": "Raycast",
