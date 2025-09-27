@@ -713,6 +713,7 @@
     "dev": "ray develop",
     "generate": "ts-node scripts/factory/generate.ts && ts-node scripts/format/format.ts && prettier -w README.md package.json && ray lint --fix",
     "lint": "ray lint",
-    "publish": "npx @raycast/api@latest publish"
+    "publish": "npx @raycast/api@latest publish",
+    "test": "ts-node scripts/test/checkApiAvailable.ts"
   }
 }
