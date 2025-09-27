@@ -1,5 +1,5 @@
 import fs from "fs";
-import { data, DocID, Tags } from "../src/data/apis";
+import { data, DocID, Tags } from "../../src/data/apis";
 
 function formatSupportedDocsTable() {
   const columns = 3
@@ -37,12 +37,13 @@ function formatSupportedDocsTable() {
 }
 
 export default function formatReadme() {
+  const README_PATH = "./README.md";
   // read README.md
-  var readme = fs.readFileSync("./README.md", "utf8");
+  let readme = fs.readFileSync(README_PATH, "utf8");
 
   // replace supported docs table
   readme = readme.replace(/### Supported Documentations(.|\s)*?###/, `${formatSupportedDocsTable()}\n\n###`);
 
   // write README.md
-  fs.writeFileSync("./README.md", readme);
+  fs.writeFileSync(README_PATH, readme);
 }

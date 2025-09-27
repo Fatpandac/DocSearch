@@ -1,5 +1,5 @@
-import packageData from "../package.json"
-import { API, data, DocID, Tags } from "../src/data/apis";
+import packageData from "../../package.json"
+import { API, data, DocID, Tags } from "../../src/data/apis";
 import fs from 'fs'
 
 function generateCommand() {

@@ -13,7 +13,7 @@ export function useMeilisearch(query = "", currentAPI: Meilisearch) {
         host: currentAPI.apiHost,
         apiKey: currentAPI.apiKey,
       }),
-    [currentAPI.apiHost, currentAPI.apiKey]
+    [currentAPI.apiHost, currentAPI.apiKey],
   );
 
   const searchIndex = useMemo(() => searchClient.index(currentAPI.indexName), [searchClient, currentAPI.indexName]);

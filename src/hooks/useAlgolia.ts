@@ -14,7 +14,7 @@ const DEFAULT_PARAMETERS = {
 export function useAlgolia(query = "", currentAPI: Algolia) {
   const searchClient = useMemo(
     () => algoliasearch(currentAPI.appId, currentAPI.apiKey),
-    [currentAPI.appId, currentAPI.apiKey]
+    [currentAPI.appId, currentAPI.apiKey],
   );
 
   const searchIndex = useMemo(() => searchClient.initIndex(currentAPI.indexName), [searchClient, currentAPI.indexName]);
@@ -27,7 +27,7 @@ export function useAlgolia(query = "", currentAPI: Algolia) {
       ...DEFAULT_PARAMETERS,
       ...currentAPI.searchParameters,
     }),
-    [currentAPI.searchParameters]
+    [currentAPI.searchParameters],
   );
 
   useEffect(() => {

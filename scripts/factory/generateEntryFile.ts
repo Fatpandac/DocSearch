@@ -1,5 +1,5 @@
 import fs from "fs";
-import { data, DocID } from "../src/data/apis";
+import { data, DocID } from "../../src/data/apis";
 
 function generateFilePath(id: number) {
   return `./src/${DocID[id].toLowerCase()}.tsx`.replace(' ', '_')
