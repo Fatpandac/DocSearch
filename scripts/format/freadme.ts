@@ -1,5 +1,6 @@
 import fs from "fs";
-import { data, DocID, Tags } from "../../src/data/apis";
+import { data } from "../../src/data/apis";
+import { DocID, Tags } from "../../src/data/types";
 
 function formatSupportedDocsTable() {
   const columns = 3

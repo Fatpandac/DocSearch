@@ -1,4 +1,5 @@
-import { data, DocID } from "../../src/data/apis";
+import { data } from "../../src/data/apis";
+import { DocID } from "../../src/data/types";
 import { checkAlgolia } from "./checkAlgolia";
 import { checkMeilisearch } from "./checkMeilisearch";
 

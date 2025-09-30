@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChunkMetadata, ContentChunkMetadata, NewChunkMetadataTypes, ScoreChunk, TrieveSDK } from "trieve-ts-sdk";
+import { ChunkMetadata, ContentChunkMetadata, ScoreChunk, TrieveSDK } from "trieve-ts-sdk";
 import { Trieve } from "../data/apis";
 import { useEffect, useMemo, useState } from "react";
 import { showToast, Toast } from "@raycast/api";

@@ -1,6 +1,7 @@
 import packageData from "../../package.json"
-import { API, data, DocID, Tags } from "../../src/data/apis";
+import { data } from "../../src/data/apis";
 import fs from 'fs'
+import { API, DocID, Tags } from "../../src/data/types";
 
 function generateCommand() {
   return Object.keys(data).map((id: string) => {
