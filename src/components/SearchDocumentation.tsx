@@ -1,19 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { API, data, DocID } from "../data/apis";
+import { data } from "../data/apis";
 import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
 import { getTitleForAlgolis, getTitleForMeilisearch } from "../utils/getTitle";
 import { generateContent } from "../utils";
+import { API, DocID, Tags } from "../data/types";
 
 export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) {
-  const currentDocs = data[props.id] as Readonly<{ [key in string]: API }>;
+  const currentDocs = data[props.id];
   const tags = useMemo(() => Object.keys(currentDocs), [currentDocs]);
   const [searchText, setSearchText] = useState(props.quickSearch || "");
-  const [searchTag, setSearchTag] = useState<string>(tags[0]);
+  const [searchTag, setSearchTag] = useState<Tags>(tags[0] as Tags);
   const [currentIdx, setCurrentIdx] = useState(0);
-  const currentAPI = currentDocs[searchTag] as Readonly<API>;
+  const currentAPI = currentDocs[searchTag] as API;
 
   let isLoading = false;
   let searchResults: Array<any> = [];
@@ -68,7 +69,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
           tooltip="Select Tag"
           storeValue
           onChange={(tag) => {
-            setSearchTag(tag);
+            setSearchTag(tag as Tags);
             setCurrentIdx(0);
           }}
         >
@@ -82,7 +83,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
         return (
           <List.Item
             icon={result.content == null && result.subtitle == null ? Icon.Hashtag : Icon.Paragraph}
-            key={result.objectID}
+            key={result.objectID || result.id}
             id={result.id}
             title={result.title}
             actions={
