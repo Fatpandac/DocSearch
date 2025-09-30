@@ -1,36 +1,36 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { data } from "../data/apis";
 import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
 import { API, DocID, Tags } from "../data/types";
-import { algoliaDefaultFormatter, meilisearchDefaultFormatter, trieveDefaultFormatter } from "../utils";
+import { algoliaDefaultFormatter, FormatResult, meilisearchDefaultFormatter, trieveDefaultFormatter } from "../utils";
 
 type SearchConfig = {
   algolia: {
     search: typeof useAlgolia;
     formatter: typeof algoliaDefaultFormatter;
-  },
+  };
   meilisearch: {
     search: typeof useMeilisearch;
     formatter: typeof meilisearchDefaultFormatter;
-  },
+  };
   trieve: {
     search: typeof useTrieve;
     formatter: typeof trieveDefaultFormatter;
-  }
-}
+  };
+};
 type APIType = keyof SearchConfig;
 
 function searchFactory<T extends APIType>(type: T): [SearchConfig[T]["search"], SearchConfig[T]["formatter"]] {
   switch (type) {
     case "algolia":
-      return [useAlgolia, algoliaDefaultFormatter]
+      return [useAlgolia, algoliaDefaultFormatter];
     case "meilisearch":
-      return [useMeilisearch, meilisearchDefaultFormatter]
+      return [useMeilisearch, meilisearchDefaultFormatter];
     case "trieve":
-      return [useTrieve, trieveDefaultFormatter]
+      return [useTrieve, trieveDefaultFormatter];
     default: {
       return type satisfies never;
     }
@@ -46,7 +46,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
   const currentAPI = currentDocs[searchTag] as API;
 
   let isLoading = false;
-  let searchResults: Array<any> = [];
+  let searchResults: FormatResult = [];
 
   const [useSearch, formatter] = useMemo(() => {
     return searchFactory(currentAPI.type as APIType);
@@ -86,19 +86,13 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
         return (
           <List.Item
             icon={result.content == null && result.subtitle == null ? Icon.Hashtag : Icon.Paragraph}
-            key={result.objectID || result.id}
+            key={result.objectID}
             id={result.id}
             title={result.title}
             actions={
               <ActionPanel>
-                <Action.OpenInBrowser
-                  url={result.url?.indexOf("%") !== -1 ? result.url : encodeURI(result.url)}
-                  title="Open in Browser"
-                />
-                <Action.CopyToClipboard
-                  title="Copy URL"
-                  content={result.url?.indexOf("%") !== -1 ? decodeURI(result.url) : result.url}
-                />
+                <Action.OpenInBrowser url={result.url} title="Open in Browser" />
+                <Action.CopyToClipboard title="Copy URL" content={result.url} />
               </ActionPanel>
             }
             detail={<List.Item.Detail markdown={result.content} />}
