@@ -4,9 +4,38 @@ import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
-import { getTitleForAlgolis, getTitleForMeilisearch } from "../utils/getTitle";
-import { generateContent } from "../utils";
 import { API, DocID, Tags } from "../data/types";
+import { algoliaDefaultFormatter, meilisearchDefaultFormatter, trieveDefaultFormatter } from "../utils";
+
+type SearchConfig = {
+  algolia: {
+    search: typeof useAlgolia;
+    formatter: typeof algoliaDefaultFormatter;
+  },
+  meilisearch: {
+    search: typeof useMeilisearch;
+    formatter: typeof meilisearchDefaultFormatter;
+  },
+  trieve: {
+    search: typeof useTrieve;
+    formatter: typeof trieveDefaultFormatter;
+  }
+}
+type APIType = keyof SearchConfig;
+
+function searchFactory<T extends APIType>(type: T): [SearchConfig[T]["search"], SearchConfig[T]["formatter"]] {
+  switch (type) {
+    case "algolia":
+      return [useAlgolia, algoliaDefaultFormatter]
+    case "meilisearch":
+      return [useMeilisearch, meilisearchDefaultFormatter]
+    case "trieve":
+      return [useTrieve, trieveDefaultFormatter]
+    default: {
+      return type satisfies never;
+    }
+  }
+}
 
 export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) {
   const currentDocs = data[props.id];
@@ -19,39 +48,13 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
   let isLoading = false;
   let searchResults: Array<any> = [];
 
-  if (currentAPI.type === "algolia") {
-    const res = useAlgolia(searchText, currentAPI);
-    isLoading = res.isLoading;
-    searchResults = res.searchResults.map((item, index) => {
-      item.title = getTitleForAlgolis(item);
+  const [useSearch, formatter] = useMemo(() => {
+    return searchFactory(currentAPI.type as APIType);
+  }, [currentAPI.type]);
 
-      return {
-        ...item,
-        content: generateContent(item),
-        id: `${index}`,
-      };
-    });
-  } else if (currentAPI.type === "meilisearch") {
-    const res = useMeilisearch(searchText, currentAPI);
-    isLoading = res.isLoading;
-    searchResults = res.searchResults.map((item, index) => ({
-      ...item,
-      title: getTitleForMeilisearch(item),
-      id: `${index}`,
-    }));
-  } else if (currentAPI.type === "trieve") {
-    const res = useTrieve(searchText, currentAPI);
-    isLoading = res.isLoading;
-    searchResults = res.searchResults.map((item, index) => {
-      return {
-        ...item,
-        title: (item.chunk as any).metadata.title,
-        url: item.chunk.url,
-        id: `${index}`,
-        content: item.chunk.chunk_html,
-      };
-    });
-  }
+  const res = useSearch(searchText, currentAPI);
+  isLoading = res.isLoading;
+  searchResults = formatter(res.searchResults);
 
   return (
     <List
