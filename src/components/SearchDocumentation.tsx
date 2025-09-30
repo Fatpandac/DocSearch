@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { API, data, DocID } from "../data/apis";
-import { useAlgolia, useMeilisearch } from "../hooks";
+import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
@@ -38,6 +38,18 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
       title: getTitleForMeilisearch(item),
       id: `${index}`,
     }));
+  } else if (currentAPI.type === "trieve") {
+    const res = useTrieve(searchText, currentAPI);
+    isLoading = res.isLoading;
+    searchResults = res.searchResults.map((item, index) => {
+      return {
+        ...item,
+        title: (item.chunk as any).metadata.title,
+        url: item.chunk.url,
+        id: `${index}`,
+        content: item.chunk.chunk_html,
+      };
+    });
   }
 
   return (

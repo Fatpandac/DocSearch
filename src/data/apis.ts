@@ -1,3 +1,5 @@
+import { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "trieve-ts-sdk";
+
 // prettier-ignore
 export enum DocID {
   Antd, Antdv, Apollo, Arthas, Astro,
@@ -11,7 +13,7 @@ export enum DocID {
   Vitest, Vue_Router, Vue, VueUse,
   Vuepress, ElementPlus, Neovim, Less,
   Sass, Deno, TypeScript, NextJS,
-  MassTransit, Pinia, Yazi
+  MassTransit, Pinia, Yazi, Ollama,
 }
 
 type Base = {
@@ -32,12 +34,21 @@ export type Meilisearch = Base & {
   type: "meilisearch";
 };
 
+export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
+  datasetId: string;
+  type: "trieve";
+  /** Custom Trieve API base URL */
+  baseUrl?: string;
+  searchType: SearchMethod;
+  searchParameters: Omit<AutocompleteSearchOverGroupsReqPayload, "query" | "search_type">;
+};
+
 type DocsTypes = "Manual" | "Modules" | "App" | "Pages";
 type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
 type Versions = "V0" | "V1" | "V2" | "V3" | "V4" | "V9";
 export type Tags = `${Versions} ${Languages}` | `${Languages} ${DocsTypes}` | `${Languages}`;
 
-export type API = Algolia | Meilisearch;
+export type API = Algolia | Meilisearch | Trieve;
 export type Data = {
   [key in DocID]: {
     [key in Tags]?: API;
@@ -45,6 +56,36 @@ export type Data = {
 };
 
 export const data: Data = {
+  [DocID.Ollama]: {
+    "en-US": {
+      icon: "../assets/logo/ollama.png",
+      apiKey: "tr-T6JLeTkFXeNbNPyhijtI9XhIncydQQ3O",
+      datasetId: "61d88682-c9e5-4b83-8a6e-0b01280b26de",
+      type: "trieve",
+      homepage: "https://docs.ollama.com/",
+      baseUrl: "https://api.mintlifytrieve.com",
+      searchType: "fulltext",
+      searchParameters: {
+        highlight_options: {
+          highlight_delimiters: ["?", ",", ".", "!", "↵"],
+          highlight_max_length: 2,
+          highlight_max_num: 1,
+          highlight_strategy: "exactmatch",
+          highlight_window: 10,
+        },
+        filters: {
+          must_not: [
+            {
+              field: "tag_set",
+              match_all: ["code"],
+            },
+          ],
+        },
+        extend_results: true,
+        page_size: 10,
+      },
+    },
+  },
   [DocID.Yazi]: {
     "en-US": {
       icon: "../assets/logo/yazi.png",

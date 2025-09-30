@@ -692,12 +692,28 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "ollama",
+      "icon": "/logo/ollama.png",
+      "title": "Ollama",
+      "subtitle": "DocSearch",
+      "description": "Search Ollama documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {
     "@raycast/api": "^1.100.3",
     "algoliasearch": "^4.14.1",
-    "meilisearch": "^0.32.4"
+    "meilisearch": "^0.32.4",
+    "trieve-ts-sdk": "^0.0.124"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^2.0.4",

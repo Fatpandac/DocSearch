@@ -49,8 +49,6 @@ declare namespace Preferences {
   export type Pnpm = ExtensionPreferences & {}
   /** Preferences accessible in the `prettier` command */
   export type Prettier = ExtensionPreferences & {}
-  /** Preferences accessible in the `rsshub` command */
-  export type Rsshub = ExtensionPreferences & {}
   /** Preferences accessible in the `raycast` command */
   export type Raycast = ExtensionPreferences & {}
   /** Preferences accessible in the `react` command */
@@ -105,6 +103,8 @@ declare namespace Preferences {
   export type Pinia = ExtensionPreferences & {}
   /** Preferences accessible in the `yazi` command */
   export type Yazi = ExtensionPreferences & {}
+  /** Preferences accessible in the `ollama` command */
+  export type Ollama = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -195,11 +195,6 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `prettier` command */
   export type Prettier = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `rsshub` command */
-  export type Rsshub = {
   /** Search... */
   "search": string
 }
@@ -338,6 +333,10 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
+  /** Arguments passed to the `ollama` command */
+  export type Ollama = {
+  /** Search... */
+  "search": string
 }
-
+}
 
