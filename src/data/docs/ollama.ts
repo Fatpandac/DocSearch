@@ -2,7 +2,7 @@ import { DocItem } from "../types";
 
 type OllamaMetadata = {
   title: string;
-}
+};
 
 const ollama: DocItem = {
   "en-US": {
@@ -39,7 +39,7 @@ const ollama: DocItem = {
           objectID: item.chunk.id,
         };
       });
-    }
+    },
   },
 };
 

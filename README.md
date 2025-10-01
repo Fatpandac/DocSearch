@@ -31,22 +31,32 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 2. Open developer tools and input something in the search bar.
    ![developer_tools](./assets/developer_tools_DocSearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
-4. Input DocSearch data into [apis.ts](/src/data/apis.ts), like below.
+4. Create a new file in [data/docs](/src/data/docs) folder, like [vuepress.ts](/src/data/docs/vuepress.ts) and input DocSearch data into it, like below.
 
    ```ts
-   [DocID.Vuepress]: { // add a unique name to the DocID enums, then write it here
-     "V1 zh-CN": { // write a tag name for this documentation version that combines both the version and the language
-       icon: '../assets/logo/XXXX.png', // path to icon in the assets folder
-       apiKey: '3a539aab83105f01761a137c61004d85',
-       appID: 'BH4D9OD16A',
-       indexName: 'vuepress',
-      type: "algolia",
-       homepage: 'https://vuepress.vuejs.org/',
-     }
-   }
+   import { DocItem } from "../types";
+
+   const vuepress: DocItem = {
+     // write a tag name for this documentation version that combines both the version and the language
+     "V1 zh-CN": {
+       icon: "../assets/logo/XXXX.png", // path to icon in the assets folder
+       apiKey: "3a539aab83105f01761a137c61004d85",
+       appID: "BH4D9OD16A",
+       indexName: "vuepress",
+       type: "algolia",
+       homepage: "https://vuepress.vuejs.org/",
+       /**
+        * Optional fields
+        * formatter: (item: Array<any>) => FormatResult; // function to format the search result item
+        */
+     },
+   };
+
+   export default vuepress;
    ```
 
-5. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
+5. Import and register it in [apis.ts](/src/data/apis.ts).
+6. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
 
 ### Meilisearch
 
@@ -54,19 +64,65 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 2. Open developer tools and input something in the search bar.
    ![developer_tools](./assets/developer_tools_Meilisearch.png)
 3. Download the site icon and put it into [assets/logo](assets/logo).
-4. Input DocSearch data into [apis.ts](/src/data/apis.ts), like below.
+4. Create a new file in [data/docs](/src/data/docs) folder, like [rsshub.ts](/src/data/docs/rsshub.ts) and input DocSearch data into it, like below.
+
    ```ts
-   [DocID.RSSHub]: { // add a unique name to the DocID enums, then write it here
-     "en-US": { // write a tag name for this documentation version that combines both the version and the language
+   import { DocItem } from "../types";
+
+   const rsshub: DocItem = {
+     // write a tag name for this documentation version that combines both the version and the language
+     "en-US": {
        icon: "../assets/logo/rsshub.png", // path to icon in the assets folder
        apikey: "3a539aab83105f01761a137c61004d85",
        appid: "bh4d9od16a",
        indexname: "vuepress",
-       type: "algolia",
+       type: "meilisearch",
        homepage: "https://vuepress.vuejs.org/",
-     }
-   }
+       /**
+        * Optional fields
+        * formatter: (item: Array<any>) => FormatResult; // function to format the search result item
+        */
+     },
+   };
+
+   export default rsshub;
    ```
-5. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
+
+5. Import and register it in [apis.ts](/src/data/apis.ts).
+6. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
+
+### Trieve
+
+1. The documentation site is supported [Trieve](https://trieve.ai/).
+2. Open developer tools and input something in the search bar.
+   ![developer_tools](./assets/developer_tools_Trieve.png)
+3. Download the site icon and put it into [assets/logo](assets/logo).
+4. Create a new file in [data/docs](/src/data/docs) folder, like [rsshub.ts](/src/data/docs/rsshub.ts) and input DocSearch data into it, like below.
+
+   ```ts
+   import { DocItem } from "../types";
+
+   const config: DocItem = {
+     // write a tag name for this documentation version that combines both the version and the language
+     "en-US": {
+       icon: "../assets/logo/ollama.png",
+       apiKey: "tr-T6JLeTkFXeNbNPyhijtI9XhIncydQQ3O", // Authorization
+       datasetId: "61d88682-c9e5-4b83-8a6e-0b01280b26de", // Tr-Dataset
+       type: "trieve",
+       homepage: "https://docs.ollama.com/",
+       baseUrl: "https://api.mintlifytrieve.com",
+       searchType: "fulltext",
+       /**
+        * Optional fields
+        * formatter: (item: Array<NewScoreChunk>) => FormatResult; // function to format the search result item
+        */
+     },
+   };
+
+   export default config;
+   ```
+
+5. Import and register it in [apis.ts](/src/data/apis.ts).
+6. Run the command `npm run generate`. This will create the entry file and config. After that, you can run the command `npm run dev` to test it, and `npm run build` to build it.
 
 **Enjoy! Welcome to contribute.**

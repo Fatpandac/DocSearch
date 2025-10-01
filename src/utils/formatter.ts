@@ -13,8 +13,8 @@ export type FormatResult = Array<{
 }>;
 
 function encodeURL(url?: string): string {
-  if (!url) return ""; 
-  return url.indexOf("%") !== -1 ? url : encodeURI(url)
+  if (!url) return "";
+  return url.indexOf("%") !== -1 ? url : encodeURI(url);
 }
 
 export function algoliaDefaultFormatter(searchResults: Array<any>): FormatResult {
