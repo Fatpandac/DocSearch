@@ -707,6 +707,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "homarr",
+      "icon": "/logo/homarr.png",
+      "title": "Homarr",
+      "subtitle": "DocSearch",
+      "description": "Search Homarr documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {

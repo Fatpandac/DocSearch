@@ -105,6 +105,8 @@ declare namespace Preferences {
   export type Yazi = ExtensionPreferences & {}
   /** Preferences accessible in the `ollama` command */
   export type Ollama = ExtensionPreferences & {}
+  /** Preferences accessible in the `homarr` command */
+  export type Homarr = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -335,6 +337,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `ollama` command */
   export type Ollama = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `homarr` command */
+  export type Homarr = {
   /** Search... */
   "search": string
 }

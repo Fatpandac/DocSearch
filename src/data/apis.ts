@@ -8,7 +8,7 @@ import {
   prettier, react, reactBootstrap, reactNative, remix, slidev,
   supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
   vue, vueUse, vuepress, typescript, nextjs, massTransit, raycast,
-  unidata, pinia,
+  unidata, pinia, homarr,
 } from "./docs";
 
 export const data: Data = {
@@ -58,4 +58,5 @@ export const data: Data = {
   [DocID.NextJS]: nextjs,
   [DocID.MassTransit]: massTransit,
   [DocID.Pinia]: pinia,
+  [DocID.Homarr]: homarr,
 };

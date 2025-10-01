@@ -15,6 +15,7 @@ export enum DocID {
   Vuepress, ElementPlus, Neovim, Less,
   Sass, Deno, TypeScript, NextJS,
   MassTransit, Pinia, Yazi, Ollama,
+  Homarr,
 }
 
 type Base = {
@@ -53,7 +54,7 @@ export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
 
 type DocsTypes = "Manual" | "Modules" | "App" | "Pages";
 type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
-type Versions = "V0" | "V1" | "V2" | "V3" | "V4" | "V9";
+type Versions = `V${number}` | `V${number}.${number}` | `V${number}.${number}.${number}`;
 export type Tags = `${Versions} ${Languages}` | `${Languages} ${DocsTypes}` | `${Languages}`;
 
 export type API = Algolia | Meilisearch | Trieve;
