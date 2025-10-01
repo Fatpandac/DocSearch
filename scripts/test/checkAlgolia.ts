@@ -1,8 +1,9 @@
 import algoliasearch from "algoliasearch";
+import { Algolia } from "../../src/data/types";
 
-export async function checkAlgolia(appId: string, apiKey: string, indexName: string) {
-  const client = algoliasearch(appId, apiKey);
-  const index = client.initIndex(indexName);
+export async function checkAlgolia(api: Algolia) {
+  const client = algoliasearch(api.appId, api.apiKey);
+  const index = client.initIndex(api.indexName);
 
   try {
     await index.search("", { hitsPerPage: 1 });

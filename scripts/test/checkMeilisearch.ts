@@ -1,11 +1,12 @@
 import MeiliSearch from "meilisearch";
+import { Meilisearch } from "../../src/data/types";
 
-export async function checkMeilisearch(apiHost: string, apiKey: string, indexName: string) {
+export async function checkMeilisearch(api: Meilisearch) {
   const client = new MeiliSearch({
-    host: apiHost,
-    apiKey: apiKey,
+    host: api.apiHost,
+    apiKey: api.apiKey,
   });
-  const index = client.index(indexName);
+  const index = client.index(api.indexName);
 
   try {
     await index.search("", { limit: 1 });

@@ -2,6 +2,7 @@ import { data } from "../../src/data/apis";
 import { DocID } from "../../src/data/types";
 import { checkAlgolia } from "./checkAlgolia";
 import { checkMeilisearch } from "./checkMeilisearch";
+import { checkTrieve } from "./checkTrieve";
 
 let hasErr = false;
 const origError = console.error;
@@ -16,10 +17,24 @@ function main() {
       const docsName = DocID[parseInt(id)];
       let res = false;
 
-      if (api.type === "meilisearch") {
-        res = await checkMeilisearch(api.apiHost, api.apiKey, api.indexName);
-      } else if (api.type === "algolia") {
-        res = await checkAlgolia(api.appId, api.apiKey, api.indexName);
+
+      switch (api.type) {
+        case "algolia": {
+          res = await checkAlgolia(api);
+          break;
+        }
+        case "meilisearch": {
+          res = await checkMeilisearch(api);
+          break;
+        }
+        case "trieve": {
+          res = await checkTrieve(api);
+          break;
+        }
+        default: {
+          const { type } = api;
+          return type satisfies never;
+        }
       }
 
       if (res) {
