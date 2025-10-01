@@ -1,5 +1,9 @@
 import { DocItem } from "../types";
 
+type OllamaMetadata = {
+  title: string;
+}
+
 const ollama: DocItem = {
   "en-US": {
     icon: "../assets/logo/ollama.png",
@@ -25,6 +29,17 @@ const ollama: DocItem = {
       extend_results: true,
       page_size: 10,
     },
+    formatter: (searchResults) => {
+      return searchResults.map((item, index) => {
+        return {
+          title: (item.chunk.metadata as OllamaMetadata).title,
+          url: item.chunk.url,
+          id: `${index}`,
+          content: item.chunk.chunk_html,
+          objectID: item.chunk.id,
+        };
+      });
+    }
   },
 };
 

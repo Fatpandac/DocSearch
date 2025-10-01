@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { NewScoreChunk } from "../hooks";
 import { generateContent } from "./generateContent";
 import { getTitleForAlgolis, getTitleForMeilisearch } from "./getTitle";
 
@@ -7,7 +8,7 @@ export type FormatResult = Array<{
   title: string;
   url: string;
   objectID: string;
-  content?: string;
+  content?: string | null | undefined;
   subtitle?: string;
 }>;
 
@@ -39,7 +40,7 @@ export function meilisearchDefaultFormatter(searchResults: Array<any>): FormatRe
   }));
 }
 
-export function trieveDefaultFormatter(searchResults: Array<any>): FormatResult {
+export function trieveDefaultFormatter(searchResults: Array<NewScoreChunk>): FormatResult {
   return searchResults.map((item, index) => {
     return {
       title: (item.chunk as any).metadata.title,

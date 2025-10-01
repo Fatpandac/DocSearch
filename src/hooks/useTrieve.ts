@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ChunkMetadata, ContentChunkMetadata, ScoreChunk, TrieveSDK } from "trieve-ts-sdk";
-import { Trieve } from "../data/apis";
+import { ChunkMetadata, ScoreChunk, TrieveSDK } from "trieve-ts-sdk";
 import { useEffect, useMemo, useState } from "react";
 import { showToast, Toast } from "@raycast/api";
+import { Trieve } from "../data/types";
 
 function formatUrl(item: ScoreChunk, homepage: string) {
   if ((item.chunk as ChunkMetadata)?.link) {
@@ -15,8 +15,8 @@ function foramtContent(content: string) {
   return content.replaceAll("<mark><b>", "**").replaceAll("</b></mark>", "**");
 }
 
-type NewScoreChunk = Omit<ScoreChunk, "chunk"> & {
-  chunk: ContentChunkMetadata & { url: string };
+export type NewScoreChunk = Omit<ScoreChunk, "chunk"> & {
+  chunk: ChunkMetadata & { url: string };
 };
 
 export function useTrieve(query: string, currentAPI: Trieve) {
@@ -51,11 +51,11 @@ export function useTrieve(query: string, currentAPI: Trieve) {
         if (controller.signal.aborted) return;
 
         const formattedChunks = res.chunks.map((item) => {
-          const chunk = item.chunk as ContentChunkMetadata;
+          const chunk = item.chunk as ChunkMetadata;
           return {
             ...item,
             chunk: {
-              ...item.chunk,
+              ...chunk,
               chunk_html: chunk.chunk_html ? foramtContent(chunk.chunk_html) : undefined,
               url: formatUrl(item, currentAPI.homepage),
             },

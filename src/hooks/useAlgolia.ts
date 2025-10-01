@@ -4,7 +4,7 @@ import { formatHitUrl } from "../utils";
 import { useState, useEffect, useMemo } from "react";
 import algoliasearch from "algoliasearch/lite";
 import { Toast, showToast } from "@raycast/api";
-import { Algolia } from "../data/apis";
+import { Algolia } from "../data/types";
 
 const DEFAULT_PARAMETERS = {
   highlightPreTag: "**",

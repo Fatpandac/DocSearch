@@ -1,41 +1,10 @@
-
 import { data } from "../data/apis";
 import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
-import { API, DocID, Tags } from "../data/types";
+import { DocID, Tags } from "../data/types";
 import { algoliaDefaultFormatter, FormatResult, meilisearchDefaultFormatter, trieveDefaultFormatter } from "../utils";
-
-type SearchConfig = {
-  algolia: {
-    search: typeof useAlgolia;
-    formatter: typeof algoliaDefaultFormatter;
-  };
-  meilisearch: {
-    search: typeof useMeilisearch;
-    formatter: typeof meilisearchDefaultFormatter;
-  };
-  trieve: {
-    search: typeof useTrieve;
-    formatter: typeof trieveDefaultFormatter;
-  };
-};
-type APIType = keyof SearchConfig;
-
-function searchFactory<T extends APIType>(type: T): [SearchConfig[T]["search"], SearchConfig[T]["formatter"]] {
-  switch (type) {
-    case "algolia":
-      return [useAlgolia, algoliaDefaultFormatter];
-    case "meilisearch":
-      return [useMeilisearch, meilisearchDefaultFormatter];
-    case "trieve":
-      return [useTrieve, trieveDefaultFormatter];
-    default: {
-      return type satisfies never;
-    }
-  }
-}
 
 export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) {
   const currentDocs = data[props.id];
@@ -43,18 +12,35 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
   const [searchText, setSearchText] = useState(props.quickSearch || "");
   const [searchTag, setSearchTag] = useState<Tags>(tags[0] as Tags);
   const [currentIdx, setCurrentIdx] = useState(0);
-  const currentAPI = currentDocs[searchTag] as API;
+  const currentAPI = currentDocs[searchTag]!;
 
   let isLoading = false;
   let searchResults: FormatResult = [];
 
-  const [useSearch, formatter] = useMemo(() => {
-    return searchFactory(currentAPI.type as APIType);
-  }, [currentAPI.type]);
-
-  const res = useSearch(searchText, currentAPI);
-  isLoading = res.isLoading;
-  searchResults = formatter(res.searchResults);
+  switch (currentAPI.type) {
+    case "algolia": {
+      const res = useAlgolia(searchText, currentAPI);
+      isLoading = res.isLoading;
+      searchResults = (currentAPI.formatter || algoliaDefaultFormatter)(res.searchResults);
+      break;
+    }
+    case "meilisearch": {
+      const res = useMeilisearch(searchText, currentAPI);
+      isLoading = res.isLoading;
+      searchResults = (currentAPI.formatter || meilisearchDefaultFormatter)(res.searchResults);
+      break;
+    }
+    case "trieve": {
+      const res = useTrieve(searchText, currentAPI);
+      isLoading = res.isLoading;
+      searchResults = (currentAPI.formatter || trieveDefaultFormatter)(res.searchResults);
+      break;
+    }
+    default: {
+      const { type } = currentAPI;
+      return type satisfies never;
+    }
+  }
 
   return (
     <List

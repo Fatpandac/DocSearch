@@ -1,4 +1,6 @@
 import { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "trieve-ts-sdk";
+import { FormatResult } from "../utils";
+import { NewScoreChunk } from "../hooks";
 // prettier-ignore
 export enum DocID {
   Antd, Antdv, Apollo, Arthas, Astro,
@@ -26,11 +28,17 @@ type Base = {
 export type Algolia = Base & {
   appId: string;
   type: "algolia";
+  // TODO: fix any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  formatter?: (searchResults: Array<any>) => FormatResult;
 };
 
 export type Meilisearch = Base & {
   apiHost: string;
   type: "meilisearch";
+  // TODO: fix any
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  formatter?: (searchResults: Array<any>) => FormatResult;
 };
 
 export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
@@ -40,6 +48,7 @@ export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
   baseUrl?: string;
   searchType: SearchMethod;
   searchParameters: Omit<AutocompleteSearchOverGroupsReqPayload, "query" | "search_type">;
+  formatter?: (searchResults: Array<NewScoreChunk>) => FormatResult;
 };
 
 type DocsTypes = "Manual" | "Modules" | "App" | "Pages";
