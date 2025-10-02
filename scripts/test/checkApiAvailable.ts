@@ -14,6 +14,7 @@ console.error = (...args: unknown[]) => {
 function main() {
   Object.entries(data).forEach(([id, diffLangApi]) => {
     Object.entries(diffLangApi).forEach(async ([lang, api]) => {
+      if (!api) return;
       const docsName = DocID[parseInt(id)];
       let res = false;
 
