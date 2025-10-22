@@ -722,6 +722,81 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "rsdoctor",
+      "icon": "/logo/rsdoctor.png",
+      "title": "Rsdoctor",
+      "subtitle": "DocSearch",
+      "description": "Search Rsdoctor documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rsbuild",
+      "icon": "/logo/rsbuild.png",
+      "title": "Rsbuild",
+      "subtitle": "DocSearch",
+      "description": "Search Rsbuild documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rspack",
+      "icon": "/logo/rspack.png",
+      "title": "Rspack",
+      "subtitle": "DocSearch",
+      "description": "Search Rspack documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rslib",
+      "icon": "/logo/rslib.png",
+      "title": "Rslib",
+      "subtitle": "DocSearch",
+      "description": "Search Rslib documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rstest",
+      "icon": "/logo/rstest.png",
+      "title": "Rstest",
+      "subtitle": "DocSearch",
+      "description": "Search Rstest documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {

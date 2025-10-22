@@ -1,6 +1,7 @@
 import { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "trieve-ts-sdk";
 import { FormatResult } from "../utils";
 import { NewScoreChunk } from "../hooks";
+
 // prettier-ignore
 export enum DocID {
   Antd, Antdv, Apollo, Arthas, Astro,
@@ -15,7 +16,8 @@ export enum DocID {
   Vuepress, ElementPlus, Neovim, Less,
   Sass, Deno, TypeScript, NextJS,
   MassTransit, Pinia, Yazi, Ollama,
-  Homarr,
+  Homarr, Rsdoctor, Rsbuild, Rspack, Rslib,
+  Rstest
 }
 
 type Base = {

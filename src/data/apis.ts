@@ -10,6 +10,11 @@ import {
   vue, vueUse, vuepress, typescript, nextjs, massTransit, raycast,
   unidata, pinia, homarr,
 } from "./docs";
+import rsdoctor from "./docs/rsdoctor";
+import rsbuild from "./docs/rsbuild";
+import rspack from "./docs/rspack";
+import rslib from "./docs/rslib";
+import rstest from "./docs/rstest";
 
 export const data: Data = {
   [DocID.Ollama]: ollama,
@@ -59,4 +64,9 @@ export const data: Data = {
   [DocID.MassTransit]: massTransit,
   [DocID.Pinia]: pinia,
   [DocID.Homarr]: homarr,
+  [DocID.Rsdoctor]: rsdoctor,
+  [DocID.Rsbuild]: rsbuild,
+  [DocID.Rspack]: rspack,
+  [DocID.Rslib]: rslib,
+  [DocID.Rstest]: rstest,
 };

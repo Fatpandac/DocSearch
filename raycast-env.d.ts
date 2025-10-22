@@ -107,6 +107,16 @@ declare namespace Preferences {
   export type Ollama = ExtensionPreferences & {}
   /** Preferences accessible in the `homarr` command */
   export type Homarr = ExtensionPreferences & {}
+  /** Preferences accessible in the `rsdoctor` command */
+  export type Rsdoctor = ExtensionPreferences & {}
+  /** Preferences accessible in the `rsbuild` command */
+  export type Rsbuild = ExtensionPreferences & {}
+  /** Preferences accessible in the `rspack` command */
+  export type Rspack = ExtensionPreferences & {}
+  /** Preferences accessible in the `rslib` command */
+  export type Rslib = ExtensionPreferences & {}
+  /** Preferences accessible in the `rstest` command */
+  export type Rstest = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -342,6 +352,31 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `homarr` command */
   export type Homarr = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rsdoctor` command */
+  export type Rsdoctor = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rsbuild` command */
+  export type Rsbuild = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rspack` command */
+  export type Rspack = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rslib` command */
+  export type Rslib = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rstest` command */
+  export type Rstest = {
   /** Search... */
   "search": string
 }

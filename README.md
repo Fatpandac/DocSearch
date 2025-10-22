@@ -4,7 +4,7 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 
 ![interface](./metadata/docsearch-1.png)
 
-### Supported Documentations (47 documentations | 80 different versions)
+### Supported Documentations (52 documentations | 90 different versions)
 
 |               Documentations               |                                                   |                                                       |
 | :----------------------------------------: | :-----------------------------------------------: | :---------------------------------------------------: |
@@ -23,7 +23,9 @@ Link **DocSearch** and **Meilisearch** into Raycast.
 |        [Neovim](https://neovim.io/)        |           [Less](https://lesscss.org/)            |            [Sass](https://sass-lang.com/)             |
 |         [Deno](https://deno.com/)          |   [TypeScript](https://www.typescriptlang.org)    |           [NextJS](https://nextjs.org/docs)           |
 |   [MassTransit](https://masstransit.io/)   |         [Pinia](https://pinia.vuejs.org/)         |          [Yazi](https://yazi-rs.github.io/)           |
-|     [Ollama](https://docs.ollama.com/)     |           [Homarr](https://homarr.dev/)           |
+|     [Ollama](https://docs.ollama.com/)     |           [Homarr](https://homarr.dev/)           |           [Rsdoctor](https://rsdoctor.rs/)            |
+|       [Rsbuild](https://rsbuild.rs/)       |           [Rspack](https://rspack.rs/)            |              [Rslib](https://rslib.rs/)               |
+|        [Rstest](https://rstest.rs/)        |
 
 ### Docsearch
 
