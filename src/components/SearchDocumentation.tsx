@@ -11,7 +11,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
   const tags = useMemo(() => Object.keys(currentDocs), [currentDocs]);
   const [searchText, setSearchText] = useState(props.quickSearch || "");
   const [searchTag, setSearchTag] = useState<Tags>(tags[0] as Tags);
-  const [currentIdx, setCurrentIdx] = useState(0);
+  const [currentIdx, setCurrentIdx] = useState<string | null>(null);
   const currentAPI = currentDocs[searchTag]!;
 
   let isLoading = false;
@@ -47,11 +47,11 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
       throttle={true}
       navigationTitle={DocID[props.id] || "No Title"}
       isLoading={isLoading || searchResults === undefined}
-      isShowingDetail={searchResults?.[currentIdx]?.content != undefined}
+      isShowingDetail={searchResults.find((item) => item.id === currentIdx)?.content != undefined}
       onSearchTextChange={setSearchText}
       searchText={searchText}
       onSelectionChange={(id) => {
-        setCurrentIdx(parseInt(id || "0"));
+        setCurrentIdx(id || "0");
       }}
       searchBarAccessory={
         <List.Dropdown
@@ -59,7 +59,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
           storeValue
           onChange={(tag) => {
             setSearchTag(tag as Tags);
-            setCurrentIdx(0);
+            setCurrentIdx(null);
           }}
         >
           {tags.map((tag) => (
