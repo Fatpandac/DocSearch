@@ -8,13 +8,8 @@ import {
   prettier, react, reactBootstrap, reactNative, remix, slidev,
   supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
   vue, vueUse, vuepress, typescript, nextjs, massTransit, raycast,
-  unidata, pinia, homarr,
+  unidata, pinia, homarr, rsdoctor, rsbuild, rspack, rslib, rstest,
 } from "./docs";
-import rsdoctor from "./docs/rsdoctor";
-import rsbuild from "./docs/rsbuild";
-import rspack from "./docs/rspack";
-import rslib from "./docs/rslib";
-import rstest from "./docs/rstest";
 
 export const data: Data = {
   [DocID.Ollama]: ollama,
