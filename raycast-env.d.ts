@@ -117,6 +117,8 @@ declare namespace Preferences {
   export type Rslib = ExtensionPreferences & {}
   /** Preferences accessible in the `rstest` command */
   export type Rstest = ExtensionPreferences & {}
+  /** Preferences accessible in the `tailscale` command */
+  export type Tailscale = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -377,6 +379,11 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `rstest` command */
   export type Rstest = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `tailscale` command */
+  export type Tailscale = {
   /** Search... */
   "search": string
 }

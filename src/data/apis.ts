@@ -9,6 +9,7 @@ import {
   supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
   vue, vueUse, vuepress, typescript, nextjs, massTransit, raycast,
   unidata, pinia, homarr, rsdoctor, rsbuild, rspack, rslib, rstest,
+  tailscale
 } from "./docs";
 
 export const data: Data = {
@@ -64,4 +65,5 @@ export const data: Data = {
   [DocID.Rspack]: rspack,
   [DocID.Rslib]: rslib,
   [DocID.Rstest]: rstest,
+  [DocID.Tailscale]: tailscale,
 };

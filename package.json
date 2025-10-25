@@ -797,6 +797,21 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "tailscale",
+      "icon": "/logo/tailscale.png",
+      "title": "Tailscale",
+      "subtitle": "DocSearch",
+      "description": "Search Tailscale documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {

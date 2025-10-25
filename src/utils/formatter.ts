@@ -3,14 +3,15 @@ import { NewScoreChunk } from "../hooks";
 import { generateContent } from "./generateContent";
 import { getTitleForAlgolis, getTitleForMeilisearch } from "./getTitle";
 
-export type FormatResult = Array<{
+export type FormatResultItem = {
   id: string;
   title: string;
   url: string;
-  objectID: string;
+  objectID?: string;
   content?: string | null | undefined;
   subtitle?: string;
-}>;
+};
+export type FormatResult = Array<FormatResultItem>;
 
 function encodeURL(url?: string): string {
   if (!url) return "";

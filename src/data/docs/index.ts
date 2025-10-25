@@ -50,6 +50,7 @@ import rspack from "./rspack";
 import rslib from "./rslib";
 import rstest from "./rstest";
 import rsbuild from "./rsbuild";
+import tailscale from "./tailscale";
 
 // prettier-ignore
 export {
@@ -58,5 +59,5 @@ export {
   laravel, nuxt, nvchad, pnpm, clerk, prettier, raycast, react, reactBootstrap,
   reactNative, remix, slidev, supabase, tailwindcss, taro, tauri, vite, vitest,
   vueRouter, vue, vueUse, vuepress, typescript, nextjs, massTransit, pinia,
-  unidata, homarr, rsdoctor, rspack, rslib, rstest, rsbuild
+  unidata, homarr, rsdoctor, rspack, rslib, rstest, rsbuild, tailscale
 };

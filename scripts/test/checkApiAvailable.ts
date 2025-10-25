@@ -1,6 +1,7 @@
 import { data } from "../../src/data/apis";
 import { DocID } from "../../src/data/types";
 import { checkAlgolia } from "./checkAlgolia";
+import { checkCustom } from "./checkCustom";
 import { checkMeilisearch } from "./checkMeilisearch";
 import { checkTrieve } from "./checkTrieve";
 
@@ -18,7 +19,6 @@ function main() {
       const docsName = DocID[parseInt(id)];
       let res = false;
 
-
       switch (api.type) {
         case "algolia": {
           res = await checkAlgolia(api);
@@ -30,6 +30,10 @@ function main() {
         }
         case "trieve": {
           res = await checkTrieve(api);
+          break;
+        }
+        case "custom": {
+          res = await checkCustom(api);
           break;
         }
         default: {

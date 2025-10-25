@@ -17,7 +17,7 @@ export enum DocID {
   Sass, Deno, TypeScript, NextJS,
   MassTransit, Pinia, Yazi, Ollama,
   Homarr, Rsdoctor, Rsbuild, Rspack, Rslib,
-  Rstest
+  Rstest, Tailscale
 }
 
 type Base = {
@@ -54,12 +54,17 @@ export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
   formatter?: (searchResults: Array<NewScoreChunk>) => FormatResult;
 };
 
+export type Custom = Omit<Base, "indexName" | "searchParameters" | "apiKey"> & {
+  type: "custom";
+  request: (query: string) => Promise<FormatResult>;
+};
+
 type DocsTypes = "Manual" | "Modules" | "App" | "Pages";
 type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
 type Versions = `V${number}` | `V${number}.${number}` | `V${number}.${number}.${number}`;
 export type Tags = `${Versions} ${Languages}` | `${Languages} ${DocsTypes}` | `${Languages}`;
 
-export type API = Algolia | Meilisearch | Trieve;
+export type API = Algolia | Meilisearch | Trieve | Custom;
 export type DocItem = Partial<Record<Tags, API>>;
 export type Data = {
   [key in DocID]: DocItem;

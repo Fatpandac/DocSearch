@@ -1,5 +1,5 @@
 import { data } from "../data/apis";
-import { useAlgolia, useMeilisearch, useTrieve } from "../hooks";
+import { useAlgolia, useMeilisearch, useSearch, useTrieve } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
@@ -34,6 +34,12 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
       const res = useTrieve(searchText, currentAPI);
       isLoading = res.isLoading;
       searchResults = (currentAPI.formatter || trieveDefaultFormatter)(res.searchResults);
+      break;
+    }
+    case "custom": {
+      const res = useSearch(searchText, currentAPI);
+      isLoading = res.isLoading;
+      searchResults = res.searchResults;
       break;
     }
     default: {
