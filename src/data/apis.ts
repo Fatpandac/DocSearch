@@ -3,11 +3,11 @@ import { Data, DocID } from "./types";
 // prettier-ignore
 import {
   deno, ollama, yazi, sass, less, neovim, elementPlus, antd,
-  antdv, apollo, arthas, astro, bootstrap, bubbo, flet, gitbook,
+  antdv, apollo, arthas, astro, bootstrap, bubbo, flet,
   homebrew, ipfs, laravel, nuxt, nvchad, pnpm, clerk, echarts,
   prettier, react, reactBootstrap, reactNative, remix, slidev,
   supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
-  vue, vueUse, vuepress, typescript, nextjs, massTransit, raycast,
+  vue, vueUse, vuepress, typescript, nextjs, massTransit,
   unidata, pinia, homarr, rsdoctor, rsbuild, rspack, rslib, rstest,
   tailscale
 } from "./docs";
@@ -30,7 +30,6 @@ export const data: Data = {
   [DocID.Dubbo]: bubbo,
   [DocID.Echarts]: echarts,
   [DocID.Flet]: flet,
-  [DocID.GitBook]: gitbook,
   [DocID.Homebrew]: homebrew,
   [DocID.IPFS]: ipfs,
   [DocID.Laravel]: laravel,
@@ -38,7 +37,6 @@ export const data: Data = {
   [DocID.NvChad]: nvchad,
   [DocID.Pnpm]: pnpm,
   [DocID.Prettier]: prettier,
-  [DocID.Raycast]: raycast,
   [DocID.React]: react,
   [DocID.React_Bootstrap]: reactBootstrap,
   [DocID.React_Native]: reactNative,

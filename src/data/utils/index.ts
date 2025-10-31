@@ -10,7 +10,6 @@ export type GitBookAiSearchItem = {
   body?: string;
 };
 
-
 export function parseNextFlightText(text: string) {
   const result: Array<GitBookAiSearchItem> = [];
 
@@ -24,4 +23,3 @@ export function parseNextFlightText(text: string) {
 
   return result;
 }
-

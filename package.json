@@ -169,21 +169,6 @@
       "mode": "view"
     },
     {
-      "name": "gitbook",
-      "icon": "/logo/gitbook.png",
-      "title": "GitBook",
-      "subtitle": "DocSearch",
-      "description": "Search GitBook documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
       "name": "homebrew",
       "icon": "/logo/homebrew.png",
       "title": "Homebrew",
@@ -279,21 +264,6 @@
       "title": "Prettier",
       "subtitle": "DocSearch",
       "description": "Search Prettier documentation",
-      "arguments": [
-        {
-          "name": "search",
-          "placeholder": "Search...",
-          "type": "text"
-        }
-      ],
-      "mode": "view"
-    },
-    {
-      "name": "raycast",
-      "icon": "/logo/raycast.png",
-      "title": "Raycast",
-      "subtitle": "DocSearch",
-      "description": "Search Raycast documentation",
       "arguments": [
         {
           "name": "search",
