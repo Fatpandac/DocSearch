@@ -49,6 +49,8 @@ import rslib from "./rslib";
 import rstest from "./rstest";
 import rsbuild from "./rsbuild";
 import tailscale from "./tailscale";
+import RSSHub from "./rsshub";
+import Rspress from "./rspress";
 
 // prettier-ignore
 export {
@@ -57,5 +59,5 @@ export {
   nuxt, nvchad, pnpm, clerk, prettier, react, reactBootstrap, reactNative,
   remix, slidev, supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
   vue, vueUse, vuepress, typescript, nextjs, massTransit, pinia, unidata,
-  homarr, rsdoctor, rspack, rslib, rstest, rsbuild, tailscale
+  homarr, rsdoctor, rspack, rslib, rstest, rsbuild, tailscale, RSSHub, Rspress
 };

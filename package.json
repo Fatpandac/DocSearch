@@ -782,12 +782,43 @@
         }
       ],
       "mode": "view"
+    },
+    {
+      "name": "rsshub",
+      "icon": "/logo/rsshub.png",
+      "title": "RSSHub",
+      "subtitle": "DocSearch",
+      "description": "Search RSSHub documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
+    },
+    {
+      "name": "rspress",
+      "icon": "/logo/rspress.png",
+      "title": "Rspress",
+      "subtitle": "DocSearch",
+      "description": "Search Rspress documentation",
+      "arguments": [
+        {
+          "name": "search",
+          "placeholder": "Search...",
+          "type": "text"
+        }
+      ],
+      "mode": "view"
     }
   ],
   "dependencies": {
     "@raycast/api": "^1.100.3",
     "algoliasearch": "^4.14.1",
     "meilisearch": "^0.32.4",
+    "minisearch": "^7.2.0",
     "trieve-ts-sdk": "^0.0.124"
   },
   "devDependencies": {

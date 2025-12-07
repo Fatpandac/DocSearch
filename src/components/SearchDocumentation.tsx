@@ -1,5 +1,5 @@
 import { data } from "../data/apis";
-import { useAlgolia, useMeilisearch, useSearch, useTrieve } from "../hooks";
+import { useAlgolia, useMeilisearch, useSearch, useTrieve, useMinisearch } from "../hooks";
 
 import { ActionPanel, List, Action, Icon } from "@raycast/api";
 import { useState, useMemo } from "react";
@@ -42,6 +42,12 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
       searchResults = res.searchResults;
       break;
     }
+    case "minisearch": {
+      const res = useMinisearch(searchText, currentAPI);
+      isLoading = res.isLoading;
+      searchResults = res.searchResults;
+      break;
+    }
     default: {
       const { type } = currentAPI;
       return type satisfies never;
@@ -61,7 +67,7 @@ export function SearchDocumentation(props: { id: DocID; quickSearch?: string }) 
       }}
       searchBarAccessory={
         <List.Dropdown
-          tooltip="Select Tag"
+          tooltip="Select Language/Version/Type"
           storeValue
           onChange={(tag) => {
             setSearchTag(tag as Tags);

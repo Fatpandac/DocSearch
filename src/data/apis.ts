@@ -9,10 +9,12 @@ import {
   supabase, tailwindcss, taro, tauri, vite, vitest, vueRouter,
   vue, vueUse, vuepress, typescript, nextjs, massTransit,
   unidata, pinia, homarr, rsdoctor, rsbuild, rspack, rslib, rstest,
-  tailscale
+  tailscale, RSSHub, Rspress
 } from "./docs";
 
 export const data: Data = {
+  [DocID.Rspress]: Rspress,
+  [DocID.RSSHub]: RSSHub,
   [DocID.Ollama]: ollama,
   [DocID.Yazi]: yazi,
   [DocID.Deno]: deno,

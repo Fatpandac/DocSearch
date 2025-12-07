@@ -1,6 +1,7 @@
-import { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "trieve-ts-sdk";
-import { FormatResult } from "../utils";
-import { NewScoreChunk } from "../hooks";
+import type { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "trieve-ts-sdk";
+import type { NewScoreChunk } from "../hooks";
+import type { FormatResult } from "../utils";
+import { SearchResult } from "minisearch";
 
 // prettier-ignore
 export enum DocID {
@@ -15,7 +16,7 @@ export enum DocID {
   Neovim, Less, Sass, Deno, TypeScript,
   NextJS, MassTransit, Pinia, Yazi, Ollama,
   Homarr, Rsdoctor, Rsbuild, Rspack, Rslib,
-  Rstest, Tailscale
+  Rstest, Tailscale, RSSHub, Rspress
 }
 
 type Base = {
@@ -57,12 +58,24 @@ export type Custom = Omit<Base, "indexName" | "searchParameters" | "apiKey"> & {
   request: (query: string) => Promise<FormatResult>;
 };
 
+export type MiniSearchResult = {
+  title: string;
+  url: string;
+  titles: string[];
+} & SearchResult;
+
+export type MiniSearch = Omit<Base, "indexName" | "apiKey"> & {
+  type: "minisearch";
+  dataUrl: string;
+  formatter?: (searchResults: Array<MiniSearchResult>) => FormatResult;
+};
+
 type DocsTypes = "Manual" | "Modules" | "App" | "Pages";
 type Languages = "en-US" | "zh-CN" | "fr-FR" | "ko-KR" | "it-IT";
 type Versions = `V${number}` | `V${number}.${number}` | `V${number}.${number}.${number}`;
 export type Tags = `${Versions} ${Languages}` | `${Languages} ${DocsTypes}` | `${Languages}`;
 
-export type API = Algolia | Meilisearch | Trieve | Custom;
+export type API = Algolia | Meilisearch | Trieve | Custom | MiniSearch;
 export type DocItem = Partial<Record<Tags, API>>;
 export type Data = {
   [key in DocID]: DocItem;

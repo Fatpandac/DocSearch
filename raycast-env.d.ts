@@ -33,8 +33,6 @@ declare namespace Preferences {
   export type Echarts = ExtensionPreferences & {}
   /** Preferences accessible in the `flet` command */
   export type Flet = ExtensionPreferences & {}
-  /** Preferences accessible in the `gitbook` command */
-  export type Gitbook = ExtensionPreferences & {}
   /** Preferences accessible in the `homebrew` command */
   export type Homebrew = ExtensionPreferences & {}
   /** Preferences accessible in the `ipfs` command */
@@ -49,8 +47,6 @@ declare namespace Preferences {
   export type Pnpm = ExtensionPreferences & {}
   /** Preferences accessible in the `prettier` command */
   export type Prettier = ExtensionPreferences & {}
-  /** Preferences accessible in the `raycast` command */
-  export type Raycast = ExtensionPreferences & {}
   /** Preferences accessible in the `react` command */
   export type React = ExtensionPreferences & {}
   /** Preferences accessible in the `react_bootstrap` command */
@@ -119,6 +115,10 @@ declare namespace Preferences {
   export type Rstest = ExtensionPreferences & {}
   /** Preferences accessible in the `tailscale` command */
   export type Tailscale = ExtensionPreferences & {}
+  /** Preferences accessible in the `rsshub` command */
+  export type Rsshub = ExtensionPreferences & {}
+  /** Preferences accessible in the `rspress` command */
+  export type Rspress = ExtensionPreferences & {}
 }
 
 declare namespace Arguments {
@@ -172,11 +172,6 @@ declare namespace Arguments {
   /** Search... */
   "search": string
 }
-  /** Arguments passed to the `gitbook` command */
-  export type Gitbook = {
-  /** Search... */
-  "search": string
-}
   /** Arguments passed to the `homebrew` command */
   export type Homebrew = {
   /** Search... */
@@ -209,11 +204,6 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `prettier` command */
   export type Prettier = {
-  /** Search... */
-  "search": string
-}
-  /** Arguments passed to the `raycast` command */
-  export type Raycast = {
   /** Search... */
   "search": string
 }
@@ -384,6 +374,16 @@ declare namespace Arguments {
 }
   /** Arguments passed to the `tailscale` command */
   export type Tailscale = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rsshub` command */
+  export type Rsshub = {
+  /** Search... */
+  "search": string
+}
+  /** Arguments passed to the `rspress` command */
+  export type Rspress = {
   /** Search... */
   "search": string
 }
