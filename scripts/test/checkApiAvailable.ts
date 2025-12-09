@@ -36,6 +36,11 @@ function main() {
           res = await checkCustom(api);
           break;
         }
+        case "minisearch": {
+          // Minisearch is always available as it's client-side
+          res = true;
+          break;
+        }
         default: {
           const { type } = api;
           return type satisfies never;
