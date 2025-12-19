@@ -2,6 +2,8 @@ import type { AutocompleteSearchOverGroupsReqPayload, SearchMethod } from "triev
 import type { NewScoreChunk } from "../hooks";
 import type { FormatResult } from "../utils";
 import { SearchResult } from "minisearch";
+import { SearchResponse } from "@algolia/client-search";
+import { Hits as MeilisearchHits } from "meilisearch";
 
 // prettier-ignore
 export enum DocID {
@@ -27,20 +29,17 @@ type Base = {
   searchParameters?: object;
 };
 
+type AlgoliaHits<T> = SearchResponse<T>['hits']
 export type Algolia = Base & {
   appId: string;
   type: "algolia";
-  // TODO: fix any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  formatter?: (searchResults: Array<any>) => FormatResult;
+  formatter?: <T>(searchResults: AlgoliaHits<T>) => FormatResult;
 };
 
 export type Meilisearch = Base & {
   apiHost: string;
   type: "meilisearch";
-  // TODO: fix any
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  formatter?: (searchResults: Array<any>) => FormatResult;
+  formatter?: <T>(searchResults: MeilisearchHits<T>) => FormatResult;
 };
 
 export type Trieve = Omit<Base, "indexName" | "searchParameters"> & {
