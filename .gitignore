@@ -2,8 +2,12 @@
 
 # dependencies
 /node_modules
+node_modules
 
 # misc
 .DS_Store
 
 .vscode
+
+# build output
+dist
