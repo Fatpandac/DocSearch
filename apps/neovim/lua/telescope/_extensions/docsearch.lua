@@ -308,6 +308,10 @@ end
 return telescope.register_extension({
   setup = function(ext_config)
     config.language = ext_config.language or "en-US"
+    -- Start the search server eagerly so it's warm before the first query.
+    if check_script() then
+      vim.schedule(srv_ensure)
+    end
   end,
   exports = {
     docsearch = docsearch,
