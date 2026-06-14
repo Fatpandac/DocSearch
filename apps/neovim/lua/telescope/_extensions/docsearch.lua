@@ -193,7 +193,7 @@ local function search_picker(doc_id, tag, all_tags, opts)
     prompt_title = title,
     default_text = opts.default_text,
     finder  = ServerFinder:new(doc_id, tag),
-    sorter  = conf.generic_sorter(opts),
+    sorter  = require("telescope.sorters").empty(),
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
