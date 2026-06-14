@@ -3,6 +3,8 @@ if not has_telescope then
   error("docsearch: telescope.nvim is required")
 end
 
+local config = { language = "en-US" }
+
 local pickers       = require("telescope.pickers")
 local finders       = require("telescope.finders")
 local conf          = require("telescope.config").values
@@ -13,8 +15,6 @@ local Job           = require("plenary.job")
 
 -- ── paths ─────────────────────────────────────────────────────────────────────
 
--- This file lives at: <plugin_root>/lua/telescope/_extensions/docsearch.lua
--- The bundled script is at: <plugin_root>/scripts/search.js
 local plugin_root = vim.fn.fnamemodify(
   debug.getinfo(1, "S").source:sub(2), ":p:h:h:h:h"
 )
@@ -45,6 +45,65 @@ local function check_script()
     return false
   end
   return true
+end
+
+-- ── persistent search server ──────────────────────────────────────────────────
+-- One Node.js process stays alive for the session.  All search requests are
+-- sent to it over stdin; results come back on stdout.
+--
+-- Wire protocol
+--   request:  "<reqId>\t<docId>\t<tag>\t<query>\n"
+--   result:   "<reqId>\t<json>\n"   (one line per result)
+--   eof:      "<reqId>\t\n"         (empty second field signals end-of-results)
+
+local _srv            = nil   -- plenary Job (or nil)
+local _srv_callbacks  = {}    -- [reqId] -> fn(line, is_eof)
+local _srv_req_seq    = 0
+
+local function srv_ensure()
+  if _srv then return _srv end
+
+  _srv = Job:new({
+    command = "node",
+    args    = { SCRIPT, "serve" },
+    on_stdout = vim.schedule_wrap(function(_, line)
+      if not line or line == "" then return end
+      local tab = line:find("\t", 1, true)
+      if not tab then return end
+      local req_id = line:sub(1, tab - 1)
+      local payload = line:sub(tab + 1)
+      local cb = _srv_callbacks[req_id]
+      if not cb then return end
+      if payload == "" then
+        _srv_callbacks[req_id] = nil
+        cb(nil, true)
+      else
+        cb(payload, false)
+      end
+    end),
+    on_exit = function()
+      _srv = nil  -- allow restart on next search
+    end,
+  })
+  _srv:start()
+  return _srv
+end
+
+local function srv_search(doc_id, tag, query, on_result, on_done)
+  _srv_req_seq = _srv_req_seq + 1
+  local req_id = tostring(_srv_req_seq)
+
+  _srv_callbacks[req_id] = function(line, is_eof)
+    if is_eof then
+      on_done()
+    else
+      on_result(line)
+    end
+  end
+
+  local server = srv_ensure()
+  server:send(req_id .. "\t" .. doc_id .. "\t" .. tag .. "\t" .. query .. "\n")
+  return req_id
 end
 
 -- ── entry makers ─────────────────────────────────────────────────────────────
@@ -94,75 +153,100 @@ local function make_doc_entry(doc)
   }
 end
 
+-- ── custom async finder using the persistent server ───────────────────────────
+
+local function new_server_finder(doc_id, tag)
+  local current_req = nil
+
+  return setmetatable({
+    entry_maker = make_result_entry,
+    close = function() end,
+  }, {
+    __call = function(self, prompt, process_result, process_complete)
+      -- Cancel stale request
+      if current_req then
+        _srv_callbacks[current_req] = nil
+        current_req = nil
+      end
+
+      if not prompt or #prompt < 1 then
+        process_complete()
+        return
+      end
+
+      local req_id = srv_search(
+        doc_id, tag, prompt,
+        function(line)
+          if current_req ~= req_id then return end
+          local entry = self.entry_maker(line)
+          if entry then process_result(entry) end
+        end,
+        function()
+          if current_req ~= req_id then return end
+          current_req = nil
+          process_complete()
+        end
+      )
+      current_req = req_id
+    end,
+  })
+end
+
 -- ── pickers ───────────────────────────────────────────────────────────────────
 
-local function search_picker(doc_id, tag, opts)
+local function search_picker(doc_id, tag, all_tags, opts)
   opts = opts or {}
-  local title = "DocSearch: " .. doc_id
-  if tag and tag ~= "" then title = title .. "  [" .. tag .. "]" end
+  local multi = #all_tags > 1
+  local hint  = multi and "  ^P switch" or ""
+  local title = "DocSearch: " .. doc_id .. "  [" .. tag .. "]" .. hint
 
   pickers.new(opts, {
     prompt_title = title,
-    finder = finders.new_job(
-      function(prompt)
-        if not prompt or #prompt < 1 then return nil end
-        return { "node", SCRIPT, "search", doc_id, tag or "", prompt }
-      end,
-      make_result_entry,
-      50
-    ),
-    sorter = conf.generic_sorter(opts),
-    attach_mappings = function(prompt_bufnr)
+    default_text = opts.default_text,
+    finder  = new_server_finder(doc_id, tag),
+    sorter  = conf.generic_sorter(opts),
+    attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local sel = action_state.get_selected_entry()
         if sel then open_url(sel.value.url) end
       end)
+
+      if multi then
+        map("i", "<C-p>", function()
+          local query = action_state.get_current_picker(prompt_bufnr):_get_prompt()
+          actions.close(prompt_bufnr)
+          vim.ui.select(all_tags, { prompt = "DocSearch: " .. doc_id .. " — switch version" },
+            function(choice)
+              if not choice then return end
+              vim.schedule(function()
+                search_picker(doc_id, choice, all_tags,
+                  vim.tbl_extend("force", opts, { default_text = query }))
+              end)
+            end)
+        end)
+      end
+
       return true
     end,
   }):find()
 end
 
-local function tag_picker(doc_id, tags, opts)
-  if #tags == 1 then
-    search_picker(doc_id, tags[1], opts)
-    return
-  end
-
-  pickers.new(opts or {}, {
-    prompt_title = "DocSearch: " .. doc_id .. "  — select version / language",
-    finder = finders.new_table({ results = tags }),
-    sorter = conf.generic_sorter(opts or {}),
-    attach_mappings = function(prompt_bufnr)
-      actions.select_default:replace(function()
-        actions.close(prompt_bufnr)
-        local sel = action_state.get_selected_entry()
-        if sel then
-          vim.schedule(function()
-            search_picker(doc_id, sel[1], opts)
-          end)
-        end
-      end)
-      return true
-    end,
-  }):find()
+local function resolve_tag(tags)
+  local lang = config.language
+  local matches = vim.tbl_filter(function(t)
+    return t:find(lang, 1, true) ~= nil
+  end, tags)
+  local candidates = #matches > 0 and matches or tags
+  return candidates[1]
 end
 
 -- ── main entry ────────────────────────────────────────────────────────────────
-
--- opts.doc  (string) – jump straight to a doc, e.g. "react"
--- opts.tag  (string) – also skip tag picker, e.g. "en-US"
---
--- Usage from Lua:
---   require("telescope").extensions.docsearch.docsearch()
---   require("telescope").extensions.docsearch.docsearch({ doc = "react" })
---   require("telescope").extensions.docsearch.docsearch({ doc = "react", tag = "zh-CN" })
 
 local function docsearch(opts)
   opts = opts or {}
   if not check_script() then return end
 
-  -- Fetch doc list, then open the appropriate picker
   local output_lines = {}
   Job:new({
     command = "node",
@@ -181,15 +265,11 @@ local function docsearch(opts)
           return
         end
 
-        -- Direct doc specified
         if opts.doc and opts.doc ~= "" then
           for _, doc in ipairs(docs) do
             if doc.id == opts.doc then
-              if opts.tag and opts.tag ~= "" then
-                search_picker(doc.id, opts.tag, opts)
-              else
-                tag_picker(doc.id, doc.tags, opts)
-              end
+              local tag = (opts.tag and opts.tag ~= "") and opts.tag or resolve_tag(doc.tags)
+              search_picker(doc.id, tag, doc.tags, opts)
               return
             end
           end
@@ -197,12 +277,11 @@ local function docsearch(opts)
           return
         end
 
-        -- Show all-docs picker
         pickers.new(opts, {
           prompt_title = "DocSearch",
           finder = finders.new_table({
-            results      = docs,
-            entry_maker  = make_doc_entry,
+            results     = docs,
+            entry_maker = make_doc_entry,
           }),
           sorter = conf.generic_sorter(opts),
           attach_mappings = function(prompt_bufnr)
@@ -211,7 +290,8 @@ local function docsearch(opts)
               local sel = action_state.get_selected_entry()
               if sel then
                 vim.schedule(function()
-                  tag_picker(sel.value.id, sel.value.tags, opts)
+                  local tag = resolve_tag(sel.value.tags)
+                  search_picker(sel.value.id, tag, sel.value.tags, opts)
                 end)
               end
             end)
@@ -226,6 +306,9 @@ end
 -- ── register ──────────────────────────────────────────────────────────────────
 
 return telescope.register_extension({
+  setup = function(ext_config)
+    config.language = ext_config.language or "en-US"
+  end,
   exports = {
     docsearch = docsearch,
   },

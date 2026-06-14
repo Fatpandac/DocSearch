@@ -13221,6 +13221,9 @@ async function searchTrieve(query, currentAPI) {
 var fs = __toESM(require("fs"));
 var path = __toESM(require("path"));
 var os = __toESM(require("os"));
+function clean(s) {
+  return (s ?? "").replace(/[​‌‍﻿­]/g, "").replace(/\*\*(.*?)\*\*/g, "$1").trim();
+}
 var CACHE_DIR = path.join(os.homedir(), ".cache", "docsearch");
 function cacheKey(dataUrl) {
   return Buffer.from(dataUrl).toString("base64").replace(/[/+=]/g, "_");
@@ -13272,6 +13275,13 @@ async function performSearch(query, api) {
     }
   }
 }
+function findApi(docId, tag) {
+  const docEntry = Object.keys(data).find(
+    (idStr) => DocID[parseInt(idStr)].toLowerCase() === docId
+  );
+  if (!docEntry) return void 0;
+  return data[parseInt(docEntry)][tag];
+}
 async function main() {
   const [command, ...rest] = process.argv.slice(2);
   if (command === "list") {
@@ -13290,27 +13300,53 @@ async function main() {
     const [docId, tag, ...queryParts] = rest;
     const query = queryParts.join(" ").trim();
     if (!query) return;
-    const docEntry = Object.keys(data).find(
-      (idStr) => DocID[parseInt(idStr)].toLowerCase() === docId
-    );
-    if (!docEntry) {
-      process.stderr.write(`unknown doc: ${docId}
-`);
-      return;
-    }
-    const id = parseInt(docEntry);
-    const api = data[id][tag];
+    const api = findApi(docId, tag);
     if (!api) {
-      process.stderr.write(`unknown tag: ${tag}
+      process.stderr.write(`unknown doc/tag: ${docId}/${tag}
 `);
       return;
     }
     const results = await performSearch(query, api);
     for (const r of results) {
       process.stdout.write(
-        JSON.stringify({ title: r.title, url: r.url, subtitle: r.subtitle ?? "" }) + "\n"
+        JSON.stringify({ title: clean(r.title), url: r.url, subtitle: clean(r.subtitle) }) + "\n"
       );
     }
+    return;
+  }
+  if (command === "serve") {
+    const { createInterface } = await import("readline");
+    const rl = createInterface({ input: process.stdin, terminal: false });
+    rl.on("line", async (line) => {
+      const tab = line.indexOf("	");
+      if (tab === -1) return;
+      const reqId = line.slice(0, tab);
+      const rest2 = line.slice(tab + 1);
+      const parts = rest2.split("	");
+      const [docId, tag, ...queryParts] = parts;
+      const query = queryParts.join(" ").trim();
+      const send = (payload) => process.stdout.write(reqId + "	" + payload + "\n");
+      const eof = () => process.stdout.write(reqId + "	\n");
+      if (!query) {
+        eof();
+        return;
+      }
+      const api = findApi(docId, tag);
+      if (!api) {
+        eof();
+        return;
+      }
+      try {
+        const results = await performSearch(query, api);
+        for (const r of results) {
+          send(JSON.stringify({ title: clean(r.title), url: r.url, subtitle: clean(r.subtitle) }));
+        }
+      } catch {
+      }
+      eof();
+    });
+    rl.on("close", () => process.exit(0));
+    return;
   }
 }
 main().catch((err) => {
