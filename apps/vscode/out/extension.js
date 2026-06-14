@@ -13295,15 +13295,20 @@ var SearchPanel = class _SearchPanel {
     const docs = data[id];
     const tags = Object.keys(docs);
     const docName = DocID[id].replace(/_/g, " ");
-    const preferred = vscode.workspace.getConfiguration("docsearch").get("language", "en-US");
-    this.currentTag = tags.find((t) => t.includes(preferred)) ?? tags[0];
+    const saved = context.globalState.get(_SearchPanel.tagPrefKey(id));
+    if (saved && tags.includes(saved)) {
+      this.currentTag = saved;
+    } else {
+      const preferred = vscode.workspace.getConfiguration("docsearch").get("language", "en-US");
+      this.currentTag = tags.find((t) => t.includes(preferred)) ?? tags[0];
+    }
+    const isMac = process.platform === "darwin";
     this.panel = vscode.window.createWebviewPanel(
       "docsearch",
-      `DocSearch: ${docName}`,
+      this.panelTitle(docName),
       vscode.ViewColumn.Active,
       { enableScripts: true, retainContextWhenHidden: true, enableFindWidget: false }
     );
-    const isMac = process.platform === "darwin";
     this.panel.webview.html = getHtml(tags, this.currentTag, docName, isMac);
     this.panel.webview.onDidReceiveMessage((msg) => {
       switch (msg.type) {
@@ -13312,6 +13317,7 @@ var SearchPanel = class _SearchPanel {
           break;
         case "switchTag":
           this.currentTag = msg.tag;
+          context.globalState.update(_SearchPanel.tagPrefKey(id), this.currentTag);
           this.search(msg.query);
           break;
         case "open":
@@ -13341,6 +13347,12 @@ var SearchPanel = class _SearchPanel {
       return;
     }
     new _SearchPanel(id, context);
+  }
+  static tagPrefKey(id) {
+    return `docsearch.tagPref.${DocID[id].toLowerCase()}`;
+  }
+  panelTitle(docName) {
+    return `DocSearch: ${docName} [${this.currentTag}]`;
   }
   search(query) {
     clearTimeout(this.debounce);
@@ -13474,6 +13486,22 @@ if (tagsEl) {
 }
 
 // \u2500\u2500 keyboard \u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500
+// Capture-phase handler for Ctrl+J/K: runs before VS Code's chord-prefix
+// interception (Ctrl+K is a VS Code chord start and gets swallowed in the
+// bubble phase before our document listener sees it).
+// Uses e.code (physical key) instead of e.key because Ctrl+J can report
+// e.key='Enter' on macOS/Electron (ASCII LF), making e.key unreliable.
+document.addEventListener('keydown', e => {
+  if (!e.ctrlKey || e.metaKey || e.altKey || e.shiftKey) return;
+  if (tagMode) {
+    if      (e.code === 'KeyK') { e.preventDefault(); e.stopImmediatePropagation(); tagFocusIdx = Math.max(0, tagFocusIdx - 1); refreshTagFocus(); }
+    else if (e.code === 'KeyJ') { e.preventDefault(); e.stopImmediatePropagation(); tagFocusIdx = Math.min(tagBtns().length - 1, tagFocusIdx + 1); refreshTagFocus(); }
+  } else {
+    if      (e.code === 'KeyJ') { e.preventDefault(); e.stopImmediatePropagation(); moveFocus(1); }
+    else if (e.code === 'KeyK') { e.preventDefault(); e.stopImmediatePropagation(); moveFocus(-1); }
+  }
+}, true);
+
 document.addEventListener('keydown', e => {
   const mod = isMac ? e.metaKey : e.ctrlKey;
 
@@ -13484,15 +13512,15 @@ document.addEventListener('keydown', e => {
   if (mod && e.key === 'f') { e.preventDefault(); exitTagMode(); inputEl.focus(); inputEl.select(); return; }
 
   if (tagMode) {
-    if      (e.key === 'ArrowLeft'  || (e.ctrlKey && e.key === 'k')) { e.preventDefault(); tagFocusIdx = Math.max(0, tagFocusIdx - 1); refreshTagFocus(); }
-    else if (e.key === 'ArrowRight' || (e.ctrlKey && e.key === 'j')) { e.preventDefault(); tagFocusIdx = Math.min(tagBtns().length - 1, tagFocusIdx + 1); refreshTagFocus(); }
+    if      (e.key === 'ArrowLeft')  { e.preventDefault(); tagFocusIdx = Math.max(0, tagFocusIdx - 1); refreshTagFocus(); }
+    else if (e.key === 'ArrowRight') { e.preventDefault(); tagFocusIdx = Math.min(tagBtns().length - 1, tagFocusIdx + 1); refreshTagFocus(); }
     else if (e.key === 'Enter')  { e.preventDefault(); commitTag(); }
     else if (e.key === 'Escape') { e.preventDefault(); exitTagMode(); }
     return;
   }
 
-  if      (e.key === 'ArrowDown' || (e.ctrlKey && e.key === 'j')) { e.preventDefault(); moveFocus(1); }
-  else if (e.key === 'ArrowUp'   || (e.ctrlKey && e.key === 'k')) { e.preventDefault(); moveFocus(-1); }
+  if      (e.key === 'ArrowDown') { e.preventDefault(); moveFocus(1); }
+  else if (e.key === 'ArrowUp')   { e.preventDefault(); moveFocus(-1); }
   else if (e.key === 'Enter')  { if (!isComposing) { e.preventDefault(); openItem(activeIdx); } }
   else if (e.key === 'Escape') { e.preventDefault(); inputEl.value = ''; render([]); setHint('Type to search\u2026'); inputEl.focus(); }
 });
