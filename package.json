@@ -4,13 +4,16 @@
   "workspaces": [
     "apps/raycast",
     "apps/vscode",
+    "apps/neovim",
     "packages/core"
   ],
   "scripts": {
     "build": "npm run build -w apps/raycast",
     "build:vscode": "npm run build -w apps/vscode",
+    "build:neovim": "npm run build -w apps/neovim",
     "dev": "npm run dev -w apps/raycast",
     "dev:vscode": "npm run dev -w apps/vscode",
+    "dev:neovim": "npm run dev -w apps/neovim",
     "generate": "npm run generate -w apps/raycast",
     "lint": "npm run lint -w apps/raycast",
     "test": "npm run test -w packages/core && npm run test -w apps/raycast",

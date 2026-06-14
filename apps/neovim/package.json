@@ -1,0 +1,17 @@
+{
+  "name": "docsearch-neovim",
+  "private": true,
+  "scripts": {
+    "build": "esbuild scripts/search.ts --bundle --outfile=scripts/search.js --platform=node --target=node18",
+    "dev": "esbuild scripts/search.ts --bundle --outfile=scripts/search.js --platform=node --target=node18 --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@docsearch/core": "file:../../packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.8.2"
+  }
+}
