@@ -1,0 +1,318 @@
+{
+  "name": "docsearch-vscode",
+  "displayName": "DocSearch",
+  "description": "Search documentation for popular libraries directly in VS Code",
+  "version": "0.0.1",
+  "publisher": "Fatpandac",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "algolia",
+    "docsearch",
+    "documentation",
+    "search"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "DocSearch",
+      "properties": {
+        "docsearch.language": {
+          "type": "string",
+          "default": "en-US",
+          "enum": ["en-US", "zh-CN", "fr-FR", "ko-KR", "it-IT"],
+          "description": "Preferred language for documentation. Falls back to the first available tag if the doc doesn't support your choice."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "docsearch.antd",
+        "title": "Antd",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.antdv",
+        "title": "Antdv",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.apollo",
+        "title": "Apollo",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.arthas",
+        "title": "Arthas",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.astro",
+        "title": "Astro",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.bootstrap",
+        "title": "Bootstrap",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.clerk",
+        "title": "Clerk",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.dubbo",
+        "title": "Dubbo",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.echarts",
+        "title": "Echarts",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.flet",
+        "title": "Flet",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.homebrew",
+        "title": "Homebrew",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.ipfs",
+        "title": "IPFS",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.laravel",
+        "title": "Laravel",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.nuxt",
+        "title": "Nuxt",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.nvchad",
+        "title": "NvChad",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.pnpm",
+        "title": "Pnpm",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.prettier",
+        "title": "Prettier",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.react",
+        "title": "React",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.react_bootstrap",
+        "title": "React Bootstrap",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.react_native",
+        "title": "React Native",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.remix",
+        "title": "Remix",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.slidev",
+        "title": "Slidev",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.taro",
+        "title": "Taro",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.supabase",
+        "title": "Supabase",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.tailwindcss",
+        "title": "TailwindCSS",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.tauri",
+        "title": "Tauri",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.unidata",
+        "title": "Unidata",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vite",
+        "title": "Vite",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vitest",
+        "title": "Vitest",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vue_router",
+        "title": "Vue Router",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vue",
+        "title": "Vue",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vueuse",
+        "title": "VueUse",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.vuepress",
+        "title": "Vuepress",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.elementplus",
+        "title": "ElementPlus",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.neovim",
+        "title": "Neovim",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.less",
+        "title": "Less",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.sass",
+        "title": "Sass",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.deno",
+        "title": "Deno",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.typescript",
+        "title": "TypeScript",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.nextjs",
+        "title": "NextJS",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.masstransit",
+        "title": "MassTransit",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.pinia",
+        "title": "Pinia",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.yazi",
+        "title": "Yazi",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.ollama",
+        "title": "Ollama",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.homarr",
+        "title": "Homarr",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rsdoctor",
+        "title": "Rsdoctor",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rsbuild",
+        "title": "Rsbuild",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rspack",
+        "title": "Rspack",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rslib",
+        "title": "Rslib",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rstest",
+        "title": "Rstest",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.tailscale",
+        "title": "Tailscale",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rsshub",
+        "title": "RSSHub",
+        "category": "DocSearch"
+      },
+      {
+        "command": "docsearch.rspress",
+        "title": "Rspress",
+        "category": "DocSearch"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --platform=node --target=node18",
+    "dev": "esbuild src/extension.ts --bundle --outfile=out/extension.js --external:vscode --platform=node --target=node18 --watch",
+    "generate": "ts-node scripts/generate.ts",
+    "package": "npm run build && vsce package",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@docsearch/core": "file:../../packages/core"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.25.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
