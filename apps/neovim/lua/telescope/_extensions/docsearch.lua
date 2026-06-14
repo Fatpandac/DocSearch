@@ -35,6 +35,24 @@ local function open_url(url)
   vim.fn.jobstart(args, { detach = true })
 end
 
+-- ── tag preferences ──────────────────────────────────────────────────────────
+
+local _pref_file = vim.fn.stdpath("data") .. "/docsearch/tag_prefs.json"
+local _tag_prefs = {}   -- [doc_id] -> last-used tag (persisted across sessions)
+
+local function load_tag_prefs()
+  if vim.fn.filereadable(_pref_file) == 0 then return end
+  local lines = vim.fn.readfile(_pref_file)
+  local ok, data = pcall(vim.json.decode, table.concat(lines, ""))
+  if ok and type(data) == "table" then _tag_prefs = data end
+end
+
+local function save_tag_pref(doc_id, tag)
+  _tag_prefs[doc_id] = tag
+  vim.fn.mkdir(vim.fn.fnamemodify(_pref_file, ":h"), "p")
+  pcall(vim.fn.writefile, { vim.json.encode(_tag_prefs) }, _pref_file)
+end
+
 local function check_script()
   if vim.fn.filereadable(SCRIPT) == 0 then
     vim.notify(
@@ -185,6 +203,7 @@ end
 
 local function search_picker(doc_id, tag, all_tags, opts)
   opts = opts or {}
+  save_tag_pref(doc_id, tag)
   local multi = #all_tags > 1
   local hint  = multi and "  ^P switch" or ""
   local title = "DocSearch: " .. doc_id .. "  [" .. tag .. "]" .. hint
@@ -221,7 +240,11 @@ local function search_picker(doc_id, tag, all_tags, opts)
   }):find()
 end
 
-local function resolve_tag(tags)
+local function resolve_tag(doc_id, tags)
+  -- Prefer the last tag the user picked for this doc.
+  local saved = _tag_prefs[doc_id]
+  if saved and vim.tbl_contains(tags, saved) then return saved end
+  -- Fall back to language preference.
   local lang = config.language
   local matches = vim.tbl_filter(function(t)
     return t:find(lang, 1, true) ~= nil
@@ -257,7 +280,7 @@ local function docsearch(opts)
         if opts.doc and opts.doc ~= "" then
           for _, doc in ipairs(docs) do
             if doc.id == opts.doc then
-              local tag = (opts.tag and opts.tag ~= "") and opts.tag or resolve_tag(doc.tags)
+              local tag = (opts.tag and opts.tag ~= "") and opts.tag or resolve_tag(doc.id, doc.tags)
               search_picker(doc.id, tag, doc.tags, opts)
               return
             end
@@ -279,7 +302,7 @@ local function docsearch(opts)
               local sel = action_state.get_selected_entry()
               if sel then
                 vim.schedule(function()
-                  local tag = resolve_tag(sel.value.tags)
+                  local tag = resolve_tag(sel.value.id, sel.value.tags)
                   search_picker(sel.value.id, tag, sel.value.tags, opts)
                 end)
               end
@@ -297,7 +320,7 @@ end
 return telescope.register_extension({
   setup = function(ext_config)
     config.language = ext_config.language or "en-US"
-    -- Warm up the server process so the first search has no startup overhead.
+    load_tag_prefs()
     if check_script() then
       vim.schedule(srv_ensure)
     end
