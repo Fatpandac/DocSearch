@@ -48,62 +48,46 @@ local function check_script()
 end
 
 -- ── persistent search server ──────────────────────────────────────────────────
--- One Node.js process stays alive for the session.  All search requests are
--- sent to it over stdin; results come back on stdout.
---
--- Wire protocol
+-- One Node.js process (node search.js serve) stays alive for the session.
+-- Protocol:
 --   request:  "<reqId>\t<docId>\t<tag>\t<query>\n"
---   result:   "<reqId>\t<json>\n"   (one line per result)
---   eof:      "<reqId>\t\n"         (empty second field signals end-of-results)
+--   result:   "<reqId>\t<json>\n"
+--   eof:      "<reqId>\t\n"   (empty payload = end of results)
 
-local _srv            = nil   -- plenary Job (or nil)
-local _srv_callbacks  = {}    -- [reqId] -> fn(line, is_eof)
+local _srv_chan       = nil   -- vim.fn.jobstart channel ID
+local _srv_callbacks  = {}   -- [reqId] -> fn(payload_or_nil, is_eof)
 local _srv_req_seq    = 0
 
 local function srv_ensure()
-  if _srv then return _srv end
+  if _srv_chan and _srv_chan > 0 then return _srv_chan end
 
-  _srv = Job:new({
-    command = "node",
-    args    = { SCRIPT, "serve" },
-    on_stdout = function(_, line)
-      if not line or line == "" then return end
-      local tab = line:find("\t", 1, true)
-      if not tab then return end
-      local req_id = line:sub(1, tab - 1)
-      local payload = line:sub(tab + 1)
-      local cb = _srv_callbacks[req_id]
-      if not cb then return end
-      if payload == "" then
-        _srv_callbacks[req_id] = nil
-        cb(nil, true)
-      else
-        cb(payload, false)
+  _srv_chan = vim.fn.jobstart({ "node", SCRIPT, "serve" }, {
+    stdout_buffered = false,
+    on_stdout = function(_, lines)
+      for _, line in ipairs(lines) do
+        if line == "" then goto continue end
+        local tab = line:find("\t", 1, true)
+        if not tab then goto continue end
+        local req_id  = line:sub(1, tab - 1)
+        local payload = line:sub(tab + 1)
+        local cb = _srv_callbacks[req_id]
+        if cb then
+          if payload == "" then
+            _srv_callbacks[req_id] = nil
+            cb(nil, true)
+          else
+            cb(payload, false)
+          end
+        end
+        ::continue::
       end
     end,
     on_exit = function()
-      _srv = nil  -- allow restart on next search
+      _srv_chan = nil
     end,
   })
-  _srv:start()
-  return _srv
-end
 
-local function srv_search(doc_id, tag, query, on_result, on_done)
-  _srv_req_seq = _srv_req_seq + 1
-  local req_id = tostring(_srv_req_seq)
-
-  _srv_callbacks[req_id] = function(line, is_eof)
-    if is_eof then
-      on_done()
-    else
-      on_result(line)
-    end
-  end
-
-  local server = srv_ensure()
-  server:send(req_id .. "\t" .. doc_id .. "\t" .. tag .. "\t" .. query .. "\n")
-  return req_id
+  return _srv_chan
 end
 
 -- ── entry makers ─────────────────────────────────────────────────────────────
@@ -153,43 +137,48 @@ local function make_doc_entry(doc)
   }
 end
 
--- ── custom async finder using the persistent server ───────────────────────────
+-- ── server-backed async finder ────────────────────────────────────────────────
+-- Mirrors Telescope's _callable_obj pattern: __call -> _find().
 
-local function new_server_finder(doc_id, tag)
-  local current_req = nil
+local ServerFinder = {}
+ServerFinder.__index = ServerFinder
+ServerFinder.__call  = function(t, ...) return t:_find(...) end
+ServerFinder.close   = function() end
 
-  return setmetatable({
-    entry_maker = make_result_entry,
-    close = function() end,
-  }, {
-    __call = function(self, prompt, process_result, process_complete)
-      -- Cancel stale request
-      if current_req then
-        _srv_callbacks[current_req] = nil
-        current_req = nil
-      end
+function ServerFinder:new(doc_id, tag)
+  return setmetatable({ _doc_id = doc_id, _tag = tag, _req = nil }, self)
+end
 
-      if not prompt or #prompt < 1 then
-        process_complete()
-        return
-      end
+function ServerFinder:_find(prompt, process_result, process_complete)
+  -- Cancel previous in-flight request.
+  if self._req then
+    _srv_callbacks[self._req] = nil
+    self._req = nil
+  end
 
-      local req_id = srv_search(
-        doc_id, tag, prompt,
-        function(line)
-          if current_req ~= req_id then return end
-          local entry = self.entry_maker(line)
-          if entry then process_result(entry) end
-        end,
-        function()
-          if current_req ~= req_id then return end
-          current_req = nil
-          process_complete()
-        end
-      )
-      current_req = req_id
-    end,
-  })
+  if not prompt or #prompt < 1 then
+    process_complete()
+    return
+  end
+
+  _srv_req_seq = _srv_req_seq + 1
+  local req_id = tostring(_srv_req_seq)
+  self._req = req_id
+
+  _srv_callbacks[req_id] = function(payload, is_eof)
+    if self._req ~= req_id then return end   -- stale
+    if is_eof then
+      self._req = nil
+      process_complete()
+    else
+      local entry = make_result_entry(payload)
+      if entry then process_result(entry) end
+    end
+  end
+
+  local chan = srv_ensure()
+  vim.fn.chansend(chan,
+    req_id .. "\t" .. self._doc_id .. "\t" .. self._tag .. "\t" .. prompt .. "\n")
 end
 
 -- ── pickers ───────────────────────────────────────────────────────────────────
@@ -203,7 +192,7 @@ local function search_picker(doc_id, tag, all_tags, opts)
   pickers.new(opts, {
     prompt_title = title,
     default_text = opts.default_text,
-    finder  = new_server_finder(doc_id, tag),
+    finder  = ServerFinder:new(doc_id, tag),
     sorter  = conf.generic_sorter(opts),
     attach_mappings = function(prompt_bufnr, map)
       actions.select_default:replace(function()
@@ -308,7 +297,7 @@ end
 return telescope.register_extension({
   setup = function(ext_config)
     config.language = ext_config.language or "en-US"
-    -- Start the search server eagerly so it's warm before the first query.
+    -- Warm up the server process so the first search has no startup overhead.
     if check_script() then
       vim.schedule(srv_ensure)
     end
