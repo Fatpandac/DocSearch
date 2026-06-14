@@ -5,21 +5,24 @@
     "apps/raycast",
     "apps/vscode",
     "apps/neovim",
+    "apps/mcp",
     "packages/core"
   ],
   "scripts": {
     "build": "npm run build -w apps/raycast",
     "build:vscode": "npm run build -w apps/vscode",
     "build:neovim": "npm run build -w apps/neovim",
+    "build:mcp": "npm run build -w apps/mcp",
     "dev": "npm run dev -w apps/raycast",
     "dev:vscode": "npm run dev -w apps/vscode",
     "dev:neovim": "npm run dev -w apps/neovim",
     "generate": "npm run generate -w apps/raycast",
     "lint": "npm run lint -w apps/raycast",
-    "test": "npm run test -w packages/core && npm run test -w apps/raycast",
+    "test:mcp": "npm run test -w apps/mcp",
+    "test": "npm run test -w packages/core && npm run test -w apps/mcp && npm run test -w apps/raycast",
     "test:core": "npm run test -w packages/core",
     "test:raycast": "npm run test -w apps/raycast",
-    "typecheck": "npm run typecheck -w packages/core && npm run typecheck -w apps/raycast && npm run typecheck -w apps/vscode"
+    "typecheck": "npm run typecheck -w packages/core && npm run typecheck -w apps/mcp && npm run typecheck -w apps/raycast && npm run typecheck -w apps/vscode"
   },
   "devDependencies": {
     "@types/node": "22.13.10",

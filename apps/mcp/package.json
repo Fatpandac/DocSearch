@@ -1,0 +1,25 @@
+{
+  "name": "@docsearch/mcp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "bin": {
+    "docsearch-mcp": "dist/server.js"
+  },
+  "scripts": {
+    "build": "esbuild src/server.ts --bundle --outfile=dist/server.js --platform=node --target=node18",
+    "test": "ts-node test/tools.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@docsearch/core": "file:../../packages/core",
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.10",
+    "esbuild": "^0.25.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2"
+  }
+}
