@@ -66,7 +66,7 @@ local function srv_ensure()
   _srv = Job:new({
     command = "node",
     args    = { SCRIPT, "serve" },
-    on_stdout = vim.schedule_wrap(function(_, line)
+    on_stdout = function(_, line)
       if not line or line == "" then return end
       local tab = line:find("\t", 1, true)
       if not tab then return end
@@ -80,7 +80,7 @@ local function srv_ensure()
       else
         cb(payload, false)
       end
-    end),
+    end,
     on_exit = function()
       _srv = nil  -- allow restart on next search
     end,
