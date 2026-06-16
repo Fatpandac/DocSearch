@@ -35,23 +35,31 @@ Watch during development:
 npm run dev:neovim
 ```
 
-## Setup
+## Installation
 
-Add this directory as a Neovim plugin, then configure Telescope:
+### lazy.nvim
 
 ```lua
-require("telescope").setup({
-  extensions = {
-    docsearch = {
-      language = "en-US",
-    },
+{
+  "Fatpandac/DocSearch",
+  dependencies = {
+    "nvim-telescope/telescope.nvim",
+    "nvim-lua/plenary.nvim",
   },
-})
-
-require("telescope").load_extension("docsearch")
+  config = function(plugin)
+    vim.opt.rtp:append(plugin.dir .. "/apps/neovim")
+    require("lazy.core.loader").packadd(plugin.dir .. "/apps/neovim")
+    require("telescope").setup({
+      extensions = {
+        docsearch = {
+          language = "en-US",
+        },
+      },
+    })
+    require("telescope").load_extension("docsearch")
+  end,
+}
 ```
-
-The extension expects `apps/neovim/scripts/search.js` to exist. Run `npm run build:neovim` after changing `scripts/search.ts`.
 
 ## Usage
 
