@@ -4,21 +4,23 @@ Stdio MCP server for searching the official documentation indexes configured in 
 
 This server reuses `@docsearch/core`, so it supports the same Algolia, Meilisearch, Trieve, Custom, and MiniSearch-backed docs as the Raycast, VS Code, and Neovim integrations.
 
-## Usage
+## Installation
 
-Build the server:
+Before configuring an MCP client, ensure the server is built:
 
 ```sh
 npm run build:mcp
 ```
 
-Configure an MCP client to run:
+## Configuration
+
+Configure your MCP client to run:
 
 ```sh
 node <repo>/apps/mcp/dist/server.js
 ```
 
-Example MCP client config:
+Example MCP client configuration:
 
 ```json
 {

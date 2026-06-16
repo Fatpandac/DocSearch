@@ -9,32 +9,6 @@ Telescope extension for searching the official documentation indexes configured 
 - `nvim-telescope/telescope.nvim`
 - `nvim-lua/plenary.nvim`
 
-## Development
-
-Install dependencies from the repository root:
-
-```sh
-npm install
-```
-
-Build the bundled search script:
-
-```sh
-npm run build:neovim
-```
-
-Typecheck:
-
-```sh
-npm run typecheck -w apps/neovim
-```
-
-Watch during development:
-
-```sh
-npm run dev:neovim
-```
-
 ## Installation
 
 ### lazy.nvim

@@ -4,37 +4,15 @@ VS Code extension for searching the official documentation indexes configured in
 
 ## Features
 
-- Adds one `DocSearch` command per supported documentation source.
-- Opens an in-editor search panel with live results.
-- Supports language/version tag switching for docs that expose multiple tags.
-- Stores the last selected tag per doc.
-- Uses the `docsearch.language` setting as the preferred fallback language.
+- Adds one `DocSearch` command per supported documentation source
+- Opens an in-editor search panel with live results
+- Supports language/version tag switching for docs that expose multiple tags
+- Stores the last selected tag per doc
+- Uses the `docsearch.language` setting as the preferred fallback language
 
-## Development
+## Installation
 
-Install dependencies from the repository root:
-
-```sh
-npm install
-```
-
-Build the extension:
-
-```sh
-npm run build:vscode
-```
-
-Typecheck:
-
-```sh
-npm run typecheck -w apps/vscode
-```
-
-Watch during development:
-
-```sh
-npm run dev:vscode
-```
+Install from the VS Code Extension Marketplace or download the `.vsix` file from releases.
 
 ## Usage
 
