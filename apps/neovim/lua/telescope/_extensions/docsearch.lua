@@ -155,16 +155,53 @@ local function make_doc_entry(doc)
   }
 end
 
+local SPINNER = { "⠋", "⠙", "⠹", "⠸", "⠼", "⠴", "⠦", "⠧", "⠇", "⠏" }
+
 -- ── server-backed async finder ────────────────────────────────────────────────
 -- Mirrors Telescope's _callable_obj pattern: __call -> _find().
 
 local ServerFinder = {}
 ServerFinder.__index = ServerFinder
 ServerFinder.__call  = function(t, ...) return t:_find(...) end
-ServerFinder.close   = function() end
 
-function ServerFinder:new(doc_id, tag)
-  return setmetatable({ _doc_id = doc_id, _tag = tag, _req = nil }, self)
+function ServerFinder:new(doc_id, tag, title)
+  return setmetatable({ _doc_id = doc_id, _tag = tag, _title = title, _req = nil }, self)
+end
+
+function ServerFinder:_set_title(suffix)
+  if not self._prompt_bufnr then return end
+  local ok, picker = pcall(action_state.get_current_picker, self._prompt_bufnr)
+  if ok and picker and picker.prompt_border then
+    pcall(picker.prompt_border.change_title, picker.prompt_border, self._title .. suffix)
+  end
+end
+
+function ServerFinder:start_spinner()
+  if self._timer then return end
+  local uv = vim.uv or vim.loop
+  self._spin = 0
+  self._timer = uv.new_timer()
+  self._timer:start(0, 120, function()
+    vim.schedule(function()
+      if not self._timer then return end
+      self._spin = (self._spin % #SPINNER) + 1
+      self:_set_title(" " .. SPINNER[self._spin])
+    end)
+  end)
+end
+
+function ServerFinder:stop_spinner()
+  local timer = self._timer
+  self._timer = nil
+  if timer then
+    timer:stop()
+    timer:close()
+  end
+  self:_set_title("")
+end
+
+function ServerFinder:close()
+  self:stop_spinner()
 end
 
 function ServerFinder:_find(prompt, process_result, process_complete)
@@ -175,9 +212,12 @@ function ServerFinder:_find(prompt, process_result, process_complete)
   end
 
   if not prompt or #prompt < 1 then
+    self:stop_spinner()
     process_complete()
     return
   end
+
+  self:start_spinner()
 
   _srv_req_seq = _srv_req_seq + 1
   local req_id = tostring(_srv_req_seq)
@@ -187,6 +227,7 @@ function ServerFinder:_find(prompt, process_result, process_complete)
     if self._req ~= req_id then return end   -- stale
     if is_eof then
       self._req = nil
+      self:stop_spinner()
       process_complete()
     else
       local entry = make_result_entry(payload)
@@ -208,12 +249,15 @@ local function search_picker(doc_id, tag, all_tags, opts)
   local hint  = multi and "  ^P switch" or ""
   local title = "DocSearch: " .. doc_id .. "  [" .. tag .. "]" .. hint
 
+  local finder = ServerFinder:new(doc_id, tag, title)
+
   pickers.new(opts, {
     prompt_title = title,
     default_text = opts.default_text,
-    finder  = ServerFinder:new(doc_id, tag),
+    finder  = finder,
     sorter  = require("telescope.sorters").empty(),
     attach_mappings = function(prompt_bufnr, map)
+      finder._prompt_bufnr = prompt_bufnr
       actions.select_default:replace(function()
         actions.close(prompt_bufnr)
         local sel = action_state.get_selected_entry()

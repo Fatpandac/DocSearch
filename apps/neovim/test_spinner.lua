@@ -1,0 +1,10 @@
+local root = (arg[0]:match("^(.*[/\\])") or "")
+local file = assert(io.open(root .. "lua/telescope/_extensions/docsearch.lua"))
+local lua = file:read("*a")
+file:close()
+
+assert(lua:find("local SPINNER = {", 1, true), "spinner frames are missing")
+assert(lua:find("function ServerFinder:start_spinner()", 1, true), "spinner start is missing")
+assert(lua:find("function ServerFinder:stop_spinner()", 1, true), "spinner stop is missing")
+assert(lua:find("self:start_spinner()", 1, true), "search does not start spinner")
+assert(lua:find("self:stop_spinner()", 1, true), "search does not stop spinner")

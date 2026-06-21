@@ -4,6 +4,7 @@
   "scripts": {
     "build": "esbuild scripts/search.ts --bundle --outfile=scripts/search.js --platform=node --target=node18",
     "dev": "esbuild scripts/search.ts --bundle --outfile=scripts/search.js --platform=node --target=node18 --watch",
+    "test": "luac -p lua/telescope/_extensions/docsearch.lua && lua test_spinner.lua",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
