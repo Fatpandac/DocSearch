@@ -200,6 +200,24 @@ function ServerFinder:stop_spinner()
   self:_set_title("")
 end
 
+function ServerFinder:show_empty_message(prompt)
+  if not self._prompt_bufnr then return end
+  local ok, picker = pcall(action_state.get_current_picker, self._prompt_bufnr)
+  if not ok or not picker or not vim.api.nvim_buf_is_valid(picker.results_bufnr) then return end
+
+  local width = vim.api.nvim_win_get_width(picker.results_win)
+  local height = vim.api.nvim_win_get_height(picker.results_win)
+  local msg = "No results for: " .. prompt
+  local pad = math.max(0, math.floor((width - vim.fn.strdisplaywidth(msg)) / 2))
+  local row = math.max(0, math.floor((height - 1) / 2))
+  local lines = {}
+
+  for i = 1, height do lines[i] = "" end
+  lines[row + 1] = string.rep(" ", pad) .. msg
+  vim.api.nvim_buf_set_lines(picker.results_bufnr, 0, -1, false, lines)
+  pcall(vim.api.nvim_buf_add_highlight, picker.results_bufnr, -1, "TelescopeResultsComment", row, pad, -1)
+end
+
 function ServerFinder:close()
   self:stop_spinner()
 end
@@ -222,6 +240,7 @@ function ServerFinder:_find(prompt, process_result, process_complete)
   _srv_req_seq = _srv_req_seq + 1
   local req_id = tostring(_srv_req_seq)
   self._req = req_id
+  self._seen_results = 0
 
   _srv_callbacks[req_id] = function(payload, is_eof)
     if self._req ~= req_id then return end   -- stale
@@ -229,9 +248,15 @@ function ServerFinder:_find(prompt, process_result, process_complete)
       self._req = nil
       self:stop_spinner()
       process_complete()
+      if self._seen_results == 0 then
+        vim.schedule(function() self:show_empty_message(prompt) end)
+      end
     else
       local entry = make_result_entry(payload)
-      if entry then process_result(entry) end
+      if entry then
+        self._seen_results = self._seen_results + 1
+        process_result(entry)
+      end
     end
   end
 
